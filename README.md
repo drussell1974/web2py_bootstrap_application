@@ -1,0 +1,2 @@
+# web2py_bootstrap_application
+bootstrap_template scaffold application for web2py
