@@ -18,8 +18,6 @@ For development create two folders: The repository and the web2py framework
 
 4. Extract zip
 
-
-
 ROOT
 - dev
     |- web2py_bootstrap_application <repository>
