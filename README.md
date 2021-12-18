@@ -18,6 +18,18 @@ For development create two folders: The repository and the web2py framework
 
 4. Extract zip
 
+
+
+ROOT
+- dev
+    |- web2py_bootstrap_application <repository>
+        |- src
+            |- _bootstrap_template_
+    |- web2py_src <extracted>
+        |- web2py
+            |- applications
+                |- _bootstrap_template_
+        
 # yarn 
 
 Use yarn to create packages e.g. unit test and deploy application to web2py/applications
