@@ -1,0 +1,14 @@
+{
+  "name": "web2py_bootstrap_application",
+  "version": "1.0.0",
+  "description": "bootstrap application for web2py",
+  "main": "index.js",
+  "repository": "https://github.com/drussell1974/web2py_bootstrap_application.git",
+  "author": "drussell1974 <dave@jazzthecat.co.uk>",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {},
+  "scripts": {
+    "test": "echo 'hello, world!'"
+  }
+}
