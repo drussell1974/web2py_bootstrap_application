@@ -1,6 +1,22 @@
 # web2py_bootstrap_application
 bootstrap_template scaffold application for web2py
 
+# setup for development
+
+For development create two folders: The repository and the web2py framework
+
+1. Create dev folder
+
+```mkdir dev```
+```cd dev```
+
+2. Clone the web2py_bootstrap_template source code to your local machine
+
+```git clone https://github.com/drussell1974/web2py_bootstrap_application.git```
+
+3. Download to dev folder https://mdipierro.pythonanywhere.com/examples/static/web2py_src.zip
+
+4. Extract zip
 
 # yarn 
 
@@ -22,7 +38,8 @@ TODO: Test application
 
 *Deploy*
 
-TODO: Test application and copy to <ROOT>/web2py/applications
+1. TODO: Test application
+2. Copy to ../web2py_src/web2py/applications
 
 ``` yarn run deploy ```
 

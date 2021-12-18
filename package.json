@@ -9,6 +9,7 @@
   "devDependencies": {},
   "dependencies": {},
   "scripts": {
-    "test": "echo 'hello, world!'"
+    "test": "echo 'hello, world!'",
+    "deploy": "cp src/bootstrap_template -R ../web2py_src/web2py/applications"
   }
 }
