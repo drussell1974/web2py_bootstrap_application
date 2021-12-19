@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Generate Text</h2>
+      <form id="loremipsum_text" method="post" class="jumbotron">
+        <p class="lead">Enter number, select type, then click Create.</p>
+        <div class="row">
+          <div class="col">
+            <input type="number" min="1" max="999" name="txt_c" class="form-control" required placeholder="enter number" value="{{=request.post_vars.txt_c}}">
+          </div>
+          <div class="col">
+            <select name="txt_t" class="form-control" required placeholder="select type" value="{{=request.post_vars.txt_t}}">
+              <option value="p">Paragraphs</option>
+              <option value="s">Sentences</option>
+              <option value="w">Words</option>
+            </select>
+          </div>
+          <div class="col">
+            <input type="submit" class="btn btn-secondary" value="Create" >
+          </div>
+        </div>
+      </form>
+      <p class="small">Generated from https://github.com/f/loremjs</p>
+      {{ if request.post_vars.txt_c and request.post_vars.txt_t: }}
+      <p>
+        <script>
+          function copyDivToClipboard() {
+              var range = document.createRange();
+              range.selectNode(document.getElementById("loremipsum"));
+              window.getSelection().removeAllRanges(); // clear current selection
+              window.getSelection().addRange(range); // to select text
+              document.execCommand("copy");
+              window.getSelection().removeAllRanges();// to deselect
+          }
+      </script>
+        <button class="btn btn-primary" onClick="copyDivToClipboard();">Copy text to clipboard</button>
+        <div id="loremipsum" class="jumbotron" data-lorem="{{=request.post_vars.txt_c}}{{=request.post_vars.txt_t}}"></div>
+        <script src="{{=URL('static', 'js/lorem.js')}}"></script>  
+      </p>
+      {{ pass }}
+    </div>
+    <img class="card-img-bottom" src="{{=URL('static', '/images/loremipsum_io.png')}}" alt="Lorem ipsum text generator">
+</div>
