@@ -6,8 +6,14 @@
 
 # ---- example index page ----
 def index():
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+
+    location = "https://via.placeholder.com/"
+    
+    if request.vars.img_w and request.vars.img_h:
+        location = location + request.vars.img_w + "x" + request.vars.img_h
+        
+    return dict(image_placeholder_url=location)
+
 
 # ---- API (example) -----
 @auth.requires_login()
