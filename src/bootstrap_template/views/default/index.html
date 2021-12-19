@@ -7,43 +7,51 @@
   </div>
 </div>
 {{end}}
-
 <div class="row">
   <div class="col-md-12">
-    {{if 'message' in globals():}}
-    <h2>{{=message}}</h2>
-    <p class="lead">{{=T('How did you get here?')}}</p>
-    <ol style="word-wrap:break-word;">
-      <li>{{=T('You are successfully running web2py')}}</li>
-      <li>{{=XML(T('You visited the url %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
-      <li>{{=XML(T('Which called the function %s located in the file %s',
-        (A(request.function+'()',_href='#'),
-        A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
-        _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
-      <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
-        A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
-        _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
-      <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
-    </ol>
-    <div class="jumbotron jumbotron-fluid" style="padding:30px;word-wrap:break-word;">
-      <div class="container center">
-        <a class="btn btn-primary" href="{{=URL('admin','default','index')}}">
-          <i class="fa fa-cog"></i>
-          {{=T("admin")}}
-        </a>
-        <a class="btn btn-secondary" href="{{=URL('examples','default','index')}}">{{=T("Online examples")}}</a>
-        <a class="btn btn-secondary" href="http://web2py.com">web2py.com</a>
-        <a class="btn btn-secondary" href="http://web2py.com/book">{{=T('Documentation')}}</a>
-        <a class="btn btn-secondary" href="{{=URL('default','api_get_user_email')}}">{{=T('API Example')}}</a>
-        <a class="btn btn-secondary" href="{{=URL('default','grid/auth_user')}}">{{=T('Grid Example')}}</a>
-        <a class="btn btn-secondary" href="{{=URL('default','wiki')}}">{{=T('Wiki Example')}}</a>
+    <h1>Placeholder content</h1>
+    <p>Generate text and image content below.</p>
+  </div>
+</div>  
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <img class="card-img-top" src="{{=URL('static', '/images/loremipsum_io.png')}}" alt="Lorem ipsum text generator">
+      <div class="card-body">
+        <h2 class="card-title">Text</h2>
+        <p class="card-text">Generate placeholder text at https://loremipsum.io/.<br><br>Select from Paragraph, words or characters, then enter the number</p>
+        <p>Go to <a href="https://loremipsum.io/" target="_blank"/>https://loremipsum.io/</a></p>
       </div>
     </div>
-    {{elif 'content' in globals():}}
-    {{=content}}
-    {{else:}}
-    {{=BEAUTIFY(response._vars)}}
-    {{pass}}
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <img class="card-img-top" src="{{=URL('static', '/images/placeholder_com.png')}}" alt="Placeholder image generator">
+      <div class="card-body">
+        <h2 class="card-title">Images</h2>
+        <p class="card-text">Generate placeholder images at https://via.placeholder.com. </p>
+        {{ if request.vars.img_w and request.vars.img_h: }}
+          <p>Right click and save image</p>
+          <img src="{{=image_placeholder_url}}">
+          <p>... or go to <a href="{{=image_placeholder_url}}" target="_blank"/>{{ =image_placeholder_url }}</a></p>
+        {{ pass }}
+        <hr>
+        <p class="lead">Enter image width and height, then click Create</p>
+        <form id="placeholder_com_image" method="post">
+          <div class="row">
+            <div class="col">
+              <input type="number" name="img_w" class="form-control" required placeholder="enter width e.g. 400" value="{{request.post_vars.img_w}}">
+            </div>
+            <div class="col">
+              <input type="number" name="img_h" class="form-control" required placeholder="enter height e.g 300" value="{{request.post_vars.img_h}}">
+            </div>
+            <div class="col">
+              <input type="submit" class="btn btn-secondary" value="Create" >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
