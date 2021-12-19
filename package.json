@@ -10,6 +10,7 @@
   "dependencies": {},
   "scripts": {
     "test": "echo 'hello, world!'",
+    "start": "python3 ../web2py_src/web2py/web2py.py -a 'password' -i 127.0.0.1 -p 8001",
     "deploy": "cp src/bootstrap_template -R ../web2py_src/web2py/applications"
   }
 }
