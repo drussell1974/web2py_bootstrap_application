@@ -1,0 +1,53 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<div class="jumbotron jumbotron-fluid background bg-dark">
+  <div class="container center">
+    <h1 class="text-white">{{=main_heading}}</h1>
+  </div>
+</div>
+{{ end }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="lead">{{=strapline_text}}</p>
+            <p>{{=intro_text}}</p>
+            <ul>
+            {{ for ref in reference_urls: }}
+            <li><a href="{{=ref['url']}}" class="emphasis">{{=ref['name']}}</a></li>
+            {{ pass }}
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Example</h2>
+      </div>
+  </div>
+    <!-- content -->
+    {{include}}
+    <!-- END content -->
+    {{ if see_more_url:}}
+      <div class="col-md-12 text-center p-4">
+        <a href="{{=see_more_url}}"">See more</a>
+      </div>
+    {{ pass }}    
+</div>
+
+  <h2>HTML</h2>
+  <xmp id="the_html" class="p-10 border bg-dark text-white">
+  {{ block XMP }}
+  {{ end }}  
+  </xmp>
+  <button class="btn btn-secondary" onClick="copyDivToClipboard();">Copy HTML to clipboard</button>
+  <script>
+    function copyDivToClipboard() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("the_html"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }
+  </script>

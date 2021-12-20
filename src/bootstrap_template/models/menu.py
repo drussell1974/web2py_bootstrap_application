@@ -41,7 +41,9 @@ if not configuration.get('app.production'):
                     'admin', 'default', 'edit/%s/static/css/stylesheet.css' % _app)),
         ]),
         (T('Tutorials'), False, '#', [
-                (T('Placeholders'), False, URL('tutorial', 'index')),
+            (T('Placeholders'), False, URL('tutorial', 'index')),
+            (T('Bootstrap examples'), False, URL('tutorial', 'bootstrap_example')),
+            (T('Bootstrap - Cards'), False, URL('tutorial', 'bootstrap_card')),
         ]),
         (T('About'), False, URL(
             'admin', 'default', 'about/' + _app)),
