@@ -1,31 +1,13 @@
 <!-- main_heading, strapline and content are dictionary key/values returned by the controller -->
-{{extend 'layout.html'}}
+{{extend 'layout_tutorial.html'}}
 
-{{block header}}
-<div class="jumbotron jumbotron-fluid background bg-dark">
-  <div class="container center">
-    <h1 class="text-white">{{=main_heading}}</h1>
+<div class="row">
+  <div class="col-md-6">
+    <!-- Partial view -->
+    {{ include 'card_loremipsum_text_gen.html'}}
+  </div>
+  <div class="col-md-6">
+    <!-- Partial view -->
+    {{ include 'card_placeholder_image_gen.html'}}
   </div>
 </div>
-{{end}}
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <p class="lead">{{=strapline_text}}</p>
-      <p>{{=intro_text}}</p>
-    </div>
-  </div>  
-  <div class="row">
-    <div class="col-md-6">
-      <!-- Partial view -->
-      {{ include 'card_loremipsum_text_gen.html'}}
-    </div>
-    <div class="col-md-6">
-      <!-- Partial view -->
-      {{ include 'card_placeholder_image_gen.html'}}
-    </div>
-  </div>
-</div>
-
-
