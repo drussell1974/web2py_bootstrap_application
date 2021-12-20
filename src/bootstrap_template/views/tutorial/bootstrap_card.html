@@ -1,7 +1,6 @@
 {{extend 'layout_tutorial.html'}}
 
 <div class="row">
-{{ for x in range(6): }}
   <div class="col-md-4">
     <div class="card p-10" style="width: 18rem;">
       <img class="card-img-top" src="{{=URL('static', '/images/placeholder/286x180.png')}}" alt="Card image cap">
@@ -12,11 +11,11 @@
       </div>
     </div>
   </div>
-{{ pass }}
+</div>
 
 {{ block XMP }}
     <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="{{=URL('static', '/images/placeholder/286x180.png')}}">
+      <img class="card-img-top" src="/images/placeholder/286x180.png">
       <div class="card-body">
         <h5 class="card-title">In aliquam sem</h5>
         <p class="card-text">Cursus metus aliquam eleifend mi in nulla posuere sollicitudin</p>

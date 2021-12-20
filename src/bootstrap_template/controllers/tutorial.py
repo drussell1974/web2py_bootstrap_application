@@ -33,7 +33,7 @@ def bootstrap_example():
 
 def bootstrap_card(): 
     page_text = {   
-        'main_heading': 'Card',
+        'main_heading': 'Bootstrap - Card',
         'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
         'intro_text': 'Bootstrap is a free front-end framework constisting of a number of features for creating responsive and dynamic web sites.',
         'reference_urls': [
@@ -41,6 +41,20 @@ def bootstrap_card():
             {'name':'GetBootstrap - Components - Cards','url':'https://getbootstrap.com/docs/4.0/components/card/'}
         ],
         'see_more_url':'https://getbootstrap.com/docs/4.0/components/card/'
+    }
+
+    return page_text
+
+def bootstrap_breadcrumb(): 
+    page_text = {   
+        'main_heading': 'Bootstrap - Breadcrumb',
+        'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
+        'intro_text': 'Bootstrap is a free front-end framework constisting of a number of features for creating responsive and dynamic web sites.',
+        'reference_urls': [
+            {'name':'GetBootstrap 4','url':'https://getbootstrap.com/docs/4.6/getting-started/introduction/'}, 
+            {'name':'GetBootstrap - Components - Breadcrumb','url':'https://getbootstrap.com/docs/4.0/components/breadcrumb/'}
+        ],
+        'see_more_url':'https://getbootstrap.com/docs/4.0/components/breadcrumb/'
     }
 
     return page_text

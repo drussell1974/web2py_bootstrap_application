@@ -25,15 +25,16 @@
         <h2>Example</h2>
       </div>
   </div>
-    <!-- content -->
-    {{include}}
-    <!-- END content -->
-    {{ if see_more_url:}}
-      <div class="col-md-12 text-center p-4">
-        <a href="{{=see_more_url}}"">See more</a>
-      </div>
-    {{ pass }}    
-</div>
+  <!-- content -->
+  {{include}}
+  <!-- END content -->
+  {{ if see_more_url:}}
+  <div class="row">
+    <div class="col-md-12 text-center p-4">
+      <a href="{{=see_more_url}}"">See more</a>
+    </div>
+  </div>
+  {{ pass }}    
 
   <h2>HTML</h2>
   <xmp id="the_html" class="p-10 border bg-dark text-white">
