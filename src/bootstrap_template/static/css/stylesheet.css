@@ -1,1 +1,9 @@
 /* add custom styles below */
+
+.user-form {
+    background-color:white;
+    margin: 0 auto 5px auto;
+    box-shadow: 0 0 5px #a1a1a1;
+    border-radius:5px;
+    padding: 20px;
+}
