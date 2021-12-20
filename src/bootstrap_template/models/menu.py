@@ -39,7 +39,9 @@ if not configuration.get('app.production'):
             (T('Stylesheet'), False,
                 URL(
                     'admin', 'default', 'edit/%s/static/css/stylesheet.css' % _app)),
-            (T('Placeholders'), False, URL('placeholder', 'index')),
+        ]),
+        (T('Tutorials'), False, '#', [
+                (T('Placeholders'), False, URL('tutorial', 'index')),
         ]),
         (T('About'), False, URL(
             'admin', 'default', 'about/' + _app)),
