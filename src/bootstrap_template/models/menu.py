@@ -44,6 +44,7 @@ if not configuration.get('app.production'):
             (T('Placeholders'), False, URL('tutorial', 'index')),
             (T('Bootstrap examples'), False, URL('tutorial', 'bootstrap_example')),
             (T('Bootstrap - Cards'), False, URL('tutorial', 'bootstrap_card')),
+            (T('Bootstrap - Breadcrumb'), False, URL('tutorial', 'bootstrap_breadcrumb')),
         ]),
         (T('About'), False, URL(
             'admin', 'default', 'about/' + _app)),
