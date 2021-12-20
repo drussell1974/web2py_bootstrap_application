@@ -5,6 +5,7 @@
 
 # ---- tutorial index page ----
 def index():
+    response.title = "Placeholder content"
     page_text = {
         'main_heading':'Placeholder content',
         'strapline_text':'During design and development, dummy content can give the product a look-and-feel.',
@@ -13,12 +14,14 @@ def index():
             {'name':'Lorem ipsum','url':'https://loremipsum.io/'}, 
             {'name':'Placeholder.com','url':'https://placeholder.com/'}
         ],
+        'see_more_url':None
     }
 
     return page_text
 
 
 def bootstrap_example(): 
+    response.title = "Bootstrap 4"
     page_text = {   
         'main_heading': 'What is Bootstrap?',
         'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
@@ -26,12 +29,14 @@ def bootstrap_example():
         'reference_urls': [
             {'name':'GetBootstrap 4','url':'https://getbootstrap.com/docs/4.6/getting-started/introduction/'}, 
         ],
+        'see_more_url':None
     }
 
     return page_text
 
 
 def bootstrap_card(): 
+    response.title = "Bootstrap - Card"
     page_text = {   
         'main_heading': 'Bootstrap - Card',
         'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
@@ -47,6 +52,7 @@ def bootstrap_card():
 
 
 def bootstrap_breadcrumb(): 
+    response.title = "Bootstrap - Breadcrumb"
     page_text = {   
         'main_heading': 'Bootstrap - Breadcrumb',
         'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
@@ -62,6 +68,7 @@ def bootstrap_breadcrumb():
 
 
 def bootstrap_button(): 
+    response.title = "Bootstrap - Buttons"
     page_text = {   
         'main_heading': 'Bootstrap - Buttons',
         'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
