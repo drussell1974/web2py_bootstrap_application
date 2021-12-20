@@ -6,7 +6,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Preview'), False, URL('default', 'index'), [])
 ]
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -16,34 +16,31 @@ response.menu = [
 if not configuration.get('app.production'):
     _app = request.application
     response.menu += [
-        (T('Generate Placeholder content'), False, URL('placeholder', 'index')),
-        (T('This App'), False, '#', [
-            (T('Design'), False, URL('admin', 'default', 'design/%s' % _app)),
+        (T('Dashboard'), False, URL('admin', 'default', 'design/%s' % _app)),
+        (T('Code'), False, '#', [
             (T('Controller'), False,
              URL(
                  'admin', 'default', 'edit/%s/controllers/%s.py' % (_app, request.controller))),
-            (T('View'), False,
-             URL(
-                 'admin', 'default', 'edit/%s/views/%s' % (_app, response.view))),
             (T('DB Model'), False,
              URL(
                  'admin', 'default', 'edit/%s/models/db.py' % _app)),
-            (T('Menu Model'), False,
-             URL(
-                 'admin', 'default', 'edit/%s/models/menu.py' % _app)),
+            (T('Database'), False, URL(_app, 'appadmin', 'index')),
             (T('Config.ini'), False,
              URL(
                  'admin', 'default', 'edit/%s/private/appconfig.ini' % _app)),
-            (T('Layout'), False,
-             URL(
-                 'admin', 'default', 'edit/%s/views/layout.html' % _app)),
-            (T('Stylesheet'), False,
-             URL(
-                 'admin', 'default', 'edit/%s/static/css/stylesheet.css' % _app)),
-            (T('Database'), False, URL(_app, 'appadmin', 'index')),
-            (T('Errors'), False, URL(
-                'admin', 'default', 'errors/' + _app)),
-            (T('About'), False, URL(
-                'admin', 'default', 'about/' + _app)),
         ]),
+        (T('Presentation'), False, '#', [
+            (T('View'), False,
+             URL(
+                 'admin', 'default', 'edit/%s/views/%s' % (_app, response.view))),
+            (T('Template'), False,
+                URL(
+                    'admin', 'default', 'edit/%s/views/layout.html' % _app)),
+            (T('Stylesheet'), False,
+                URL(
+                    'admin', 'default', 'edit/%s/static/css/stylesheet.css' % _app)),
+            (T('Placeholders'), False, URL('placeholder', 'index')),
+        ]),
+        (T('About'), False, URL(
+            'admin', 'default', 'about/' + _app)),
     ]
