@@ -7,3 +7,47 @@
     border-radius:5px;
     padding: 20px;
 }
+
+/* colour scheme
+THIS EXAMPLE FROM https://colors.muz.li/palette/4d4dff/3655b3/d3deff/ffb84d/b38136 
+*/
+
+.bg-corporate_1 {
+    background-color: #4d4dff;
+}
+
+.bg-corporate_2 {
+    background-color: #3655b3;
+}
+
+.bg-corporate_3 {
+    background-color: #d3deff;
+}
+
+.bg-corporate_4 {
+    background-color: #ffb84d;
+}
+
+.bg-corporate_5 {
+    background-color: #b38136;
+}
+
+.fg-corporate_1 {
+    color: #4d4dff;
+}
+
+.fg-corporate_2 {
+    color: #3655b3;
+}
+
+.fg-corporate_3 {
+    color: #d3deff;
+}
+
+.fg-corporate_4 {
+    color: #ffb84d;
+}
+
+.fg-corporate_5 {
+    color: #b38136;
+}
