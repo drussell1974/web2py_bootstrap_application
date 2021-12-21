@@ -49,6 +49,7 @@ if not configuration.get('app.production'):
             (T('Bootstrap - Buttons'), False, URL('tutorial', 'bootstrap_button')),
             (T('Bootstrap - Form (interactive)'), False, URL('tutorial', 'bootstrap_form')),
             (T('Bootstrap - Jumbotron'), False, URL('tutorial', 'bootstrap_jumbotron')),
+            (T('Bootstrap - Media object'), False, URL('tutorial', 'bootstrap_mediaobject')),
             (T('Bootstrap - Modal (interactive)'), False, URL('tutorial', 'bootstrap_modal')),
             (T('Bootstrap - Navigation menu'), False, URL('tutorial', 'bootstrap_nav')),
             (T('Bootstrap - Pagination'), False, URL('tutorial', 'bootstrap_pagination')),
