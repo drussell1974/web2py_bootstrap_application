@@ -145,3 +145,19 @@ def bootstrap_carousel():
     }
 
     return page_text
+
+
+def bootstrap_nav(): 
+    response.title = "Bootstrap - Nav"
+    page_text = {   
+        'main_heading': 'Bootstrap - Navigation Menu',
+        'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
+        'intro_text': 'Bootstrap is a free front-end framework constisting of a number of features for creating responsive and dynamic web sites.',
+        'reference_urls': [
+            {'name':'GetBootstrap 4','url':'https://getbootstrap.com/docs/4.6/getting-started/introduction/'}, 
+            {'name':'GetBootstrap - Components - Nav','url':'https://getbootstrap.com/docs/4.6/components/navs/'}
+        ],
+        'see_more_url':'https://getbootstrap.com/docs/4.6/components/navs/'
+    }
+
+    return page_text
