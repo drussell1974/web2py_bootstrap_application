@@ -83,7 +83,6 @@ def bootstrap_button():
     return page_text
 
 
-
 def bootstrap_jumbotron(): 
     response.title = "Bootstrap - Jumbotron"
     page_text = {   
@@ -95,6 +94,22 @@ def bootstrap_jumbotron():
             {'name':'GetBootstrap - Components - Jumbotron','url':'https://getbootstrap.com/docs/4.0/components/jumbotron/'}
         ],
         'see_more_url':'https://getbootstrap.com/docs/4.0/components/jumbotron/'
+    }
+
+    return page_text
+
+
+def bootstrap_table(): 
+    response.title = "Bootstrap - Table"
+    page_text = {   
+        'main_heading': 'Bootstrap - Table',
+        'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
+        'intro_text': 'Bootstrap is a free front-end framework constisting of a number of features for creating responsive and dynamic web sites.',
+        'reference_urls': [
+            {'name':'GetBootstrap 4','url':'https://getbootstrap.com/docs/4.6/getting-started/introduction/'}, 
+            {'name':'GetBootstrap - Components - Table','url':'https://getbootstrap.com/docs/4.6/content/tables/'}
+        ],
+        'see_more_url':'https://getbootstrap.com/docs/4.6/content/tables/'
     }
 
     return page_text
