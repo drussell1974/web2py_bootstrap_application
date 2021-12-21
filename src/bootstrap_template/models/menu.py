@@ -47,6 +47,7 @@ if not configuration.get('app.production'):
             (T('Bootstrap - Carousel (interactive)'), False, URL('tutorial', 'bootstrap_carousel')),
             (T('Bootstrap - Breadcrumb'), False, URL('tutorial', 'bootstrap_breadcrumb')),
             (T('Bootstrap - Buttons'), False, URL('tutorial', 'bootstrap_button')),
+            (T('Bootstrap - Form (interactive)'), False, URL('tutorial', 'bootstrap_form')),
             (T('Bootstrap - Jumbotron'), False, URL('tutorial', 'bootstrap_jumbotron')),
             (T('Bootstrap - Modal (interactive)'), False, URL('tutorial', 'bootstrap_modal')),
             (T('Bootstrap - Navigation menu'), False, URL('tutorial', 'bootstrap_nav')),

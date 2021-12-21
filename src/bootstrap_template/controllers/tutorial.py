@@ -177,3 +177,46 @@ def bootstrap_pagination():
     }
 
     return page_text
+
+
+def bootstrap_form(): 
+    response.title = "Bootstrap - Form"
+ 
+    ''' Default Message '''
+    response.message = "Try this form"
+ 
+    # if form is posted
+    if request.post_vars:
+        # calls function validatePassword(...) 
+        # uses password1 and password2 fields from the request 
+        # set the error_message in the response to return to the page
+        response.error_message = validatePassword(request.post_vars.password1, request.post_vars.password2)
+
+
+    page_text = {
+        'main_heading': 'Bootstrap - Form (interactive)',
+        'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
+        'intro_text': 'Bootstrap is a free front-end framework constisting of a number of features for creating responsive and dynamic web sites.',
+        'reference_urls': [
+            {'name':'GetBootstrap 4','url':'https://getbootstrap.com/docs/4.6/getting-started/introduction/'}, 
+            {'name':'GetBootstrap - Components - Form','url':'https://getbootstrap.com/docs/4.6/components/forms/'}
+        ],
+        'see_more_url':'https://getbootstrap.com/docs/4.6/components/forms/',
+    }
+
+    return page_text
+
+
+def validatePassword(password1, password2):
+    ''' Validate password on the server.
+        1) checks the password is the  valid length 
+        2) checks that both password1 and password2 match '''
+        
+    message = None
+    
+    if len(password1) < 8:
+        message = "password is too weak"
+    elif password1 != password2:
+        message = "passwords do not match"
+
+    return message
