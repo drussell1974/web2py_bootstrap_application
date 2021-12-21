@@ -107,7 +107,7 @@ def bootstrap_table():
         'intro_text': 'Bootstrap is a free front-end framework constisting of a number of features for creating responsive and dynamic web sites.',
         'reference_urls': [
             {'name':'GetBootstrap 4','url':'https://getbootstrap.com/docs/4.6/getting-started/introduction/'}, 
-            {'name':'GetBootstrap - Components - Table','url':'https://getbootstrap.com/docs/4.6/content/tables/'}
+            {'name':'GetBootstrap - Content - Table','url':'https://getbootstrap.com/docs/4.6/content/tables/'}
         ],
         'see_more_url':'https://getbootstrap.com/docs/4.6/content/tables/'
     }
@@ -123,9 +123,25 @@ def bootstrap_modal():
         'intro_text': 'Bootstrap is a free front-end framework constisting of a number of features for creating responsive and dynamic web sites.',
         'reference_urls': [
             {'name':'GetBootstrap 4','url':'https://getbootstrap.com/docs/4.6/getting-started/introduction/'}, 
-            {'name':'GetBootstrap - Components - Table','url':'https://getbootstrap.com/docs/4.6/components/modal/'}
+            {'name':'GetBootstrap - Components - Modal','url':'https://getbootstrap.com/docs/4.6/components/modal/'}
         ],
         'see_more_url':'https://getbootstrap.com/docs/4.6/components/modal/'
+    }
+
+    return page_text
+
+
+def bootstrap_carousel(): 
+    response.title = "Bootstrap - Carousel"
+    page_text = {   
+        'main_heading': 'Bootstrap - Carousel (interactive)',
+        'strapline_text': 'Bootstrap is a collection of bits of code written in HTML, CSS and JavaScript to quickly build websites',
+        'intro_text': 'Bootstrap is a free front-end framework constisting of a number of features for creating responsive and dynamic web sites.',
+        'reference_urls': [
+            {'name':'GetBootstrap 4','url':'https://getbootstrap.com/docs/4.6/getting-started/introduction/'}, 
+            {'name':'GetBootstrap - Components - Carousel','url':'https://getbootstrap.com/docs/4.6/components/modal/'}
+        ],
+        'see_more_url':'https://getbootstrap.com/docs/4.6/components/carousel/'
     }
 
     return page_text
