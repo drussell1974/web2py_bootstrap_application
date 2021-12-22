@@ -6,7 +6,10 @@
 
 # ---- demo index page ----
 def index():
-    return dict()
+
+    content = { "main_heading": None }
+
+    return content
 
 
 # ---- Action for login/register/etc (required for auth) -----
