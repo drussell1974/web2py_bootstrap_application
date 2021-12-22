@@ -34,7 +34,8 @@ def employee_of_the_month():
     qualities = ""
     quote = ""
     image_path = ""
-    
+    favourite_film = ""
+      
     # get row from database
     rows = db(db.employee_of_the_month).select()
 
@@ -44,9 +45,10 @@ def employee_of_the_month():
         job_role = row.job_role
         qualities = row.qualities 
         quote = row.quote
-        image_path = row.image_path # e.g. "/images/placeholder/350x350.png"
-
-    return dict(employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote, employee_image_path=image_path)
+        # e.g. "/images/placeholder/350x350.png"
+        image_path = row.image_path
+        
+    return dict(employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote, employee_image_path=image_path, employee_favourite_film=favourite_film)
 
 
 def user():
