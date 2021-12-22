@@ -4,16 +4,25 @@
 # this file is released under public domain and you can use without limitations
 # -------------------------------------------------------------------------
 
-# ---- demo index page ----
 def index():
+    ''' the controller for the index page that shows views/demo/index.html '''
 
     content = { "main_heading": None }
 
     return content
 
 
-# ---- Action for login/register/etc (required for auth) -----
+def about_us():
+    ''' the controller for the about page that shows views/demo/about_us.html '''
+    
+    content = { "main_heading": "About us" }
+
+    return content
+
+
 def user():
+    # ---- Action for login/register/etc (required for auth) -----
+    
     """
     exposes:
     http://..../[app]/default/user/login
