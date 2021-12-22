@@ -14,11 +14,11 @@ db = DAL('sqlite://storage.sqlite')
 #
 
 db.define_table('employee_of_the_month',
+    Field('image_path', 'upload'),
     Field('name', 'string', 30),
     Field('job_role', 'string', 50),
     Field('qualities', 'text', 300),
     Field('quote', 'text', 1000),
-    Field('image_path', 'string', 1000),
     # TODO: Add field for favourite film
 )
 
