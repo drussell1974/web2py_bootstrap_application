@@ -12,42 +12,42 @@
 THIS EXAMPLE FROM https://colors.muz.li/palette/4d4dff/3655b3/d3deff/ffb84d/b38136 
 */
 
-.bg-corporate_1 {
+.bg-color_1 {
     background-color: #4d4dff;
 }
 
-.bg-corporate_2 {
+.bg-color_2 {
     background-color: #3655b3;
 }
 
-.bg-corporate_3 {
+.bg-color_3 {
     background-color: #d3deff;
 }
 
-.bg-corporate_4 {
+.bg-color_4 {
     background-color: #ffb84d;
 }
 
-.bg-corporate_5 {
+.bg-color_5 {
     background-color: #b38136;
 }
 
-.fg-corporate_1 {
+.fg-color_1 {
     color: #4d4dff;
 }
 
-.fg-corporate_2 {
+.fg-color_2 {
     color: #3655b3;
 }
 
-.fg-corporate_3 {
+.fg-color_3 {
     color: #d3deff;
 }
 
-.fg-corporate_4 {
+.fg-color_4 {
     color: #ffb84d;
 }
 
-.fg-corporate_5 {
+.fg-color_5 {
     color: #b38136;
 }
