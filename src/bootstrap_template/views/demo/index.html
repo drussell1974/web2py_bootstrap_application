@@ -6,20 +6,30 @@
 
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
+                    <!-- TODO: Get data and use for loop to show information -->
                     <div class="carousel-item active">
-                        <a href="{{=URL('demo','info', vars={'show_id':1})}}">
-                            <img src="{{=URL('static', '/images/placeholder/1400x500.png')}}" class="d-block w-100" alt="Sagittis vitae et">
-                        </a>
+                        <img src="{{=URL('static', '/images/placeholder/1400x500.png')}}" class="d-block w-100" alt="Sagittis vitae et">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>iaculis at erat pellentesque</h5>
+                            <p>adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi.</p>
+                            <!-- TODO: Create link to info page - HINT: {{=URL('demo','info', vars={'show_id':1})}} -->
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="{{=URL('demo','info', vars={'show_id':2})}}">
-                            <img src="{{=URL('static', '/images/placeholder/1400x500.png')}}" class="d-block w-100" alt="Sagittis vitae et">
-                        </a>
+                        <img src="{{=URL('static', '/images/placeholder/1400x500.png')}}" class="d-block w-100" alt="Sagittis vitae et">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>natoque penatibus et magnis</h5>
+                            <p>dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo integer.</p>
+                            <!-- TODO: Create link to info page - HINT: {{=URL('demo','info', vars={'show_id':2})}} -->
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="{{=URL('demo','info', vars={'show_id':3})}}">
-                            <img src="{{=URL('static', '/images/placeholder/1400x500.png')}}" class="d-block w-100" alt="Sagittis vitae et">
-                        </a>
+                        <img src="{{=URL('static', '/images/placeholder/1400x500.png')}}" class="d-block w-100" alt="Sagittis vitae et">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>lorem ipsum dolor sit amet</h5>
+                            <p>consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo.</p>
+                            <!-- TODO: Create link to info page - HINT: {{=URL('demo','info', vars={'show_id':3})}} -->
+                        </div>
                     </div>
                 </div>
             <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
@@ -47,12 +57,13 @@
             <div class="media">
                 <img src="{{=URL('static', '/images/placeholder/350x350.png')}}" class="align-self-start mr-3" alt="The building foyer">
                 <div class="media-body">
-                <h5 class="mt-0">sollicitudin tempor id eu nisl</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                    incididunt ut labore et dolore magna aliqua. Ullamcorper malesuada proin libero 
-                    nunc consequat. Sit amet nulla facilisi morbi tempus iaculis urna. Vivamus at 
-                    augue eget arcu dictum varius duis at consectetur. Vestibulum sed.</p>
-                <button class="btn btn-primary pull-right">More...</button>
+                    <h5 class="mt-0">sollicitudin tempor id eu nisl</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                        incididunt ut labore et dolore magna aliqua. Ullamcorper malesuada proin libero 
+                        nunc consequat. Sit amet nulla facilisi morbi tempus iaculis urna. Vivamus at 
+                        augue eget arcu dictum varius duis at consectetur. Vestibulum sed.</p>
+                    <!-- TODO: Create link to about page when clicking on image - HINT: {{=URL('demo','about')}} -->        
+                    <button class="btn btn-primary pull-right">More...</button>
                 </div>
             </div>
         </div>

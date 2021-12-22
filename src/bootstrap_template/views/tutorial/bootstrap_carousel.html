@@ -8,6 +8,10 @@
       {{ for n in range(3):}}
         <div class="carousel-item {{if n == 0:}}active{{pass}}">
           <img src="{{=URL('static', '/images/placeholder/1400x500.png')}}" class="d-block w-100" alt="Sagittis vitae et">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Sagittis vitae et</h5>
+            <p>adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi.</p>
+          </div>
         </div>
       {{ pass }}
       </div>
