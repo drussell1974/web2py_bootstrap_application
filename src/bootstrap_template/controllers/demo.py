@@ -7,17 +7,15 @@
 def index():
     ''' the controller for the index page that shows views/demo/index.html '''
 
-    content = { "main_heading": None }
-
-    return content
+    return dict()
 
 
 def about_us():
     ''' the controller for the about page that shows views/demo/about_us.html '''
     
-    content = { "main_heading": "About us" }
-
-    return content
+    response.title = "About us"
+    
+    return dict()
 
 
 def user():
