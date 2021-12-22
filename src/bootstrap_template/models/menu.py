@@ -21,9 +21,9 @@ if not configuration.get('app.production'):
             (T('Controller'), False,
              URL(
                  'admin', 'default', 'edit/%s/controllers/%s.py' % (_app, request.controller))),
-            (T('DB Model'), False,
+            (T('DB Model'), True,
              URL(
-                 'admin', 'default', 'edit/%s/models/db.py' % _app)),
+                 'admin', 'default', 'edit/%s/models/db_custom.py' % _app)),
             (T('Database'), False, URL(_app, 'appadmin', 'index')),
             (T('Config.ini'), False,
              URL(

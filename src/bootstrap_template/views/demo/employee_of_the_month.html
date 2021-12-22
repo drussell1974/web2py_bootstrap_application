@@ -1,0 +1,20 @@
+{{extend 'demo/__layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <!-- Show employee, if available - HINT: add record to employee_of_the_month table -->
+        {{ if employee_image_path and employee_name and employee_job_role and employee_qualities and employee_quote: }}
+        <div class="media">
+            <img src="{{=URL('static', employee_image_path )}}" class="align-self-start mr-3" alt="{{=employee_name}}">
+            <div class="media-body">
+                <h3>{{=employee_name}}</h3>
+                <h4>{{=employee_job_role}}</h4>
+                <p class="lead">{{=employee_qualities}}</p>
+                <blockquote class="blockquote">
+                        <p class="m-3"><i class="fa fa-quote-right"></i> {{=employee_quote}}</p>
+                </blockquote>
+            </div>
+        </div>
+        {{ pass }}
+    </div>
+</div>
