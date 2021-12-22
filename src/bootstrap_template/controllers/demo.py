@@ -42,9 +42,9 @@ def employee_of_the_month():
         # set employee variables, if available - HINT: add record to employee_of_the_month table 
         name = row.name
         job_role = row.job_role
-        qualities = row.qualities # Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        quote = row.quote # "Lobortis feugiat vivamus at augue eget arcu dictum varius duis. Donec adipiscing tristique risus nec. Aliquet risus feugiat in ante metus dictum at tempor. Massa tincidunt nunc pulvinar sapien. Hac habitasse platea dictumst vestibulum rhoncus est. Leo a diam sollicitudin tempor. Rhoncus dolor purus non enim praesent elementum. Ut diam quam nulla porttitor. Feugiat pretium nibh ipsum consequat nisl vel pretium lectus."
-        image_path = row.image_path # "/images/placeholder/350x350.png"
+        qualities = row.qualities 
+        quote = row.quote
+        image_path = row.image_path # e.g. "/images/placeholder/350x350.png"
 
     return dict(employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote, employee_image_path=image_path)
 
