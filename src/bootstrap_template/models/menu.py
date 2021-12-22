@@ -6,7 +6,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Preview'), False, URL('default', 'index'), [])
+    (T('Home'), False, URL('default', 'index'), [])
 ]
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -39,6 +39,9 @@ if not configuration.get('app.production'):
             (T('Stylesheet'), False,
                 URL(
                     'admin', 'default', 'edit/%s/static/css/stylesheet.css' % _app)),
+        ]),
+        (T('Demo'), False, '#', [
+            (T('Home'), False, URL('demo', 'index')),
         ]),
         (T('Tutorials'), False, '#', [
             (T('Placeholders'), False, URL('tutorial', 'index')),
