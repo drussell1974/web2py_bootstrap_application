@@ -7,6 +7,11 @@
 def index():
     ''' the controller for the index page that shows views/demo/index.html '''
 
+    response.title = "Home"
+    
+    # TODO: get current shows from table and pass current_shows variable to view
+    # TODO: get future shows from table and pass coming_soon variable to view
+
     return dict()
 
 
