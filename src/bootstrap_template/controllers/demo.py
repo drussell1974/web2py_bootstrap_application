@@ -29,26 +29,25 @@ def employee_of_the_month():
     response.title = "Employee of the month"
 
     # create default employee of the month variables
+    image_path = ""
     name = ""
     job_role = ""
     qualities = ""
     quote = ""
-    image_path = ""
-    favourite_film = ""
-      
-    # get row from database
+    # TODO: show employee's favourite film - HINT: create variable
+    
+    # get row from employee_of_the_month table in database - created in db_custom.py
     rows = db(db.employee_of_the_month).select()
 
     for row in rows:
         # set employee variables, if available - HINT: add record to employee_of_the_month table 
+        image_path = row.image_path
         name = row.name
         job_role = row.job_role
         qualities = row.qualities 
         quote = row.quote
-        # e.g. "/images/placeholder/350x350.png"
-        image_path = row.image_path
         
-    return dict(employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote, employee_image_path=image_path, employee_favourite_film=favourite_film)
+    return dict(employee_image_path=image_path, employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote)
 
 
 def user():
@@ -70,3 +69,15 @@ def user():
     also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
     """
     return dict(form=auth())
+
+
+# ---- action to server uploaded static content (required) ---
+@cache.action()
+def download():
+    """
+    allows downloading of uploaded files
+    http://..../[app]/default/download/[filename]
+    """
+    print("this is the download")
+    
+    return response.download(request, db)
