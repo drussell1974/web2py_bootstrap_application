@@ -29,7 +29,18 @@
 {{end}}
 
 <div class="container">
+    <!-- Only show page heading if supplied from controller -->
+    {{ if main_heading: }}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{=main_heading}}</h1>
+        </div>
+    </div>
+    {{ pass }}
+
+    <!-- the main content -->
     {{include}}
+    
 </div>
 
 {{block footer}}
