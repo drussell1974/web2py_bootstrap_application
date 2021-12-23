@@ -23,13 +23,28 @@ def about_us():
     return dict()
 
 
+def tickets_and_prices():
+    ''' the controller for the tickets_and_prices page that shows views/demo/prices.html '''
+    
+    response.title = "Tickets and Prices"
+
+    # get tickets_and_prices from table in database
+    # TODO: Create tickets_and_prices table in db_custom.py with fields name, about, price
+    # TODO: Add rows to show prices for standard seating, VIP seating. 
+    # TODO: Get db(db.tickets_and_prices).select()
+    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=tickets_and_prices)
+    # TODO: In the tickets_and_prices.html create for loop for each row
+
+    return dict()
+
+
 def contact_us():
     ''' the controller for the contact us page that shows views/demo/contact_us.html '''
     
     response.title = "Contact us"
 
     # get management teams from table in database
-    # TODO: Create table in db_custom.py with fields name, job_role, about, image_path - For image_path use datatype upload)
+    # TODO: Create management_team table in db_custom.py with fields name, job_role, about, image_path - For image_path use datatype upload)
     # TODO: Get db(db.management_team).select()
     # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=management_team_rows)
     # TODO: In the contact_us.html view use {{=URL('download', args=image_path)}} to show the image from the table
@@ -63,6 +78,21 @@ def employee_of_the_month():
         quote = row.quote
         
     return dict(employee_image_path=image_path, employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote)
+
+
+def members_area():
+    ''' the controller for the members_area page that shows views/demo/members_area.html '''
+    
+    response.title = "Members area"
+
+    # get tickets_and_prices from table in database
+    # TODO: Create tickets_and_prices table in db_custom.py with fields name, about, price, member_price
+    # TODO: Add rows to show prices for standard seating, VIP seating. 
+    # TODO: Get db(db.tickets_and_prices).select()
+    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=tickets_and_prices)
+    # TODO: In the tickets_and_prices.html create for loop for each row
+
+    return dict()
 
 
 def user():
