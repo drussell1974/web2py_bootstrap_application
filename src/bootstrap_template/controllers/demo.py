@@ -27,7 +27,13 @@ def contact_us():
     ''' the controller for the contact us page that shows views/demo/contact_us.html '''
     
     response.title = "Contact us"
-    
+
+    # get management teams from table in database
+    # TODO: Create table in db_custom.py with fields name, job_role, about, image_path - For image_path use datatype upload)
+    # TODO: Get db(db.management_team).select()
+    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=management_team_rows)
+    # TODO: In the contact_us.html view use {{=URL('download', args=image_path)}} to show the image from the table
+
     return dict()
 
 
@@ -42,13 +48,14 @@ def employee_of_the_month():
     job_role = ""
     qualities = ""
     quote = ""
-    # TODO: show employee's favourite film - HINT: create variable
+    # TODO: show employee's favourite film - create variable
     
     # get row from employee_of_the_month table in database - created in db_custom.py
     rows = db(db.employee_of_the_month).select()
 
     for row in rows:
-        # set employee variables, if available - HINT: add record to employee_of_the_month table 
+        # set employee variables, if available - 
+        # TODO: add record to employee_of_the_month table 
         image_path = row.image_path
         name = row.name
         job_role = row.job_role
@@ -90,7 +97,7 @@ def download():
     Usage:
 
     <img src="{{=URL('download', args=image_path_variable )}}" 
-    
+
     """
 
     return response.download(request, db)
