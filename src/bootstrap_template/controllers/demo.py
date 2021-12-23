@@ -23,8 +23,16 @@ def about_us():
     return dict()
 
 
+def contact_us():
+    ''' the controller for the contact us page that shows views/demo/contact_us.html '''
+    
+    response.title = "Contact us"
+    
+    return dict()
+
+
 def employee_of_the_month():
-    ''' the controller for the about page that shows views/demo/about_us.html '''
+    ''' the controller for the about page that shows views/demo/employee_of_the_month.html '''
 
     response.title = "Employee of the month"
 
@@ -74,10 +82,15 @@ def user():
 # ---- action to server uploaded static content (required) ---
 @cache.action()
 def download():
-    """
-    allows downloading of uploaded files
+    """ 
+    Used to show uploaded images. DO NOT REMOVE!!!!
+    Allows downloading of uploaded files
     http://..../[app]/default/download/[filename]
-    """
-    print("this is the download")
     
+    Usage:
+
+    <img src="{{=URL('download', args=image_path_variable )}}" 
+    
+    """
+
     return response.download(request, db)
