@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row jumbotron">
-        <!-- Show employee, if available - HINT: add record to employee_of_the_month table -->
+        <!-- TODO: Show employee, if available - add record to employee_of_the_month table -->
         {{ if employee_image_path and employee_name and employee_job_role and employee_qualities and employee_quote: }}
         <div class="media">
             <img src="{{=URL('download', args=employee_image_path )}}" class="align-self-start mr-3" alt="{{=employee_name}}">
@@ -13,7 +13,7 @@
                 <blockquote class="blockquote">
                         <p class="m-3"><i class="fa fa-quote-right"></i> {{=employee_quote}}</p>
                 </blockquote>
-                <!-- TODO: show employee's favourite film - HINT: use variable name employee_favourite_film -->
+                <!-- TODO: show employee's favourite film - use variable name employee_favourite_film -->
             </div>
         </div>
         {{ pass }}
