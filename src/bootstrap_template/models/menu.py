@@ -40,9 +40,6 @@ if not configuration.get('app.production'):
                 URL(
                     'admin', 'default', 'edit/%s/static/css/stylesheet.css' % _app)),
         ]),
-        (T('Demo'), False, '#', [
-            (T('Home'), False, URL('demo', 'index')),
-        ]),
         (T('Tutorials'), False, '#', [
             (T('Placeholders'), False, URL('tutorial', 'index')),
             (T('Bootstrap examples'), False, URL('tutorial', 'bootstrap_example')),

@@ -1,4 +1,4 @@
-{{extend 'demo/__layout.html'}}
+{{extend 'default/__layout.html'}}
 
 <div class="container">
     <div class="jumbotron bg-color_3">
@@ -17,22 +17,15 @@
                     <!-- TODO: Loop rows from tickets_and_prices table - for row in tickets_and_prices -->              
                     <tr>
                         <td><h2>Standard ticket</h2></td>
-                        <td>₤15 per adult<br>₤10 per junior</td>
+                        <td>Offer ₤8 <br><s>₤12</s></td>
                         <td><img src="{{=URL('static', '/images/placeholder/180x180.png')}}" alt="Standard seats"/></td>
                     </tr>
                 
                     <tr>
                         <td><h2>VIP ticket</h2></td>
-                        <td>₤25 per adult<br>₤15 per junior</td>
+                        <td>Offer ₤15 <br><s>₤18</s></td>
                         <td><img src="{{=URL('static', '/images/placeholder/180x180.png')}}" alt="VIP seats"/></td>
                     </tr>
-
-                    <tr>
-                        <td><h2>Annual Membership</h2></td>
-                        <td>Adult ₤100 per year<br>Junior ₤50 per year</td>
-                        <td><img src="{{=URL('static', '/images/placeholder/180x180.png')}}" alt="VIP seats"/></td>
-                    </tr>
-
                     </tbody>
                 </table>
                 

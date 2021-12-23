@@ -1,16 +1,103 @@
 # -*- coding: utf-8 -*-
 # -------------------------------------------------------------------------
-# This is a sample controller
+# This is the default controller
 # this file is released under public domain and you can use without limitations
 # -------------------------------------------------------------------------
 
-# ---- example index page ----
 def index():
+    ''' the controller for the index page that shows views/default/index.html '''
+
+    response.title = "Home"
+
+    # TODO: get current shows from table and pass current_shows variable to view
+    # TODO: get future shows from table and pass coming_soon variable to view
+
     return dict()
 
 
-# ---- Action for login/register/etc (required for auth) -----
+def about_us():
+    ''' the controller for the about page that shows views/default/about_us.html '''
+    
+    response.title = "About us"
+    
+    return dict()
+
+
+def tickets_and_prices():
+    ''' the controller for the tickets_and_prices page that shows views/default/tickets_and_prices.html '''
+    
+    response.title = "Tickets and Prices"
+
+    # get tickets_and_prices from table in database
+    # TODO: Create tickets_and_prices table in db_custom.py with fields name, about, price
+    # TODO: Add rows to show prices for standard seating, VIP seating. 
+    # TODO: Get db(db.tickets_and_prices).select()
+    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=tickets_and_prices)
+    # TODO: In the tickets_and_prices.html create for loop for each row
+
+    return dict()
+
+
+def contact_us():
+    ''' the controller for the contact us page that shows views/default/contact_us.html '''
+    
+    response.title = "Contact us"
+
+    # get management teams from table in database
+    # TODO: Create management_team table in db_custom.py with fields name, job_role, about, image_path - For image_path use datatype upload)
+    # TODO: Get db(db.management_team).select()
+    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=management_team_rows)
+    # TODO: In the contact_us.html view use {{=URL('download', args=image_path)}} to show the image from the table
+
+    return dict()
+
+
+def employee_of_the_month():
+    ''' the controller for the about page that shows views/default/employee_of_the_month.html '''
+
+    response.title = "Employee of the month"
+
+    # create default employee of the month variables
+    image_path = ""
+    name = ""
+    job_role = ""
+    qualities = ""
+    quote = ""
+    # TODO: show employee's favourite film - create variable
+    
+    # get row from employee_of_the_month table in database - created in db_custom.py
+    rows = db(db.employee_of_the_month).select()
+
+    for row in rows:
+        # set employee variables, if available - 
+        # TODO: add record to employee_of_the_month table 
+        image_path = row.image_path
+        name = row.name
+        job_role = row.job_role
+        qualities = row.qualities 
+        quote = row.quote
+        
+    return dict(employee_image_path=image_path, employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote)
+
+
+def members_area():
+    ''' the controller for the members_area page that shows views/default/members_area.html '''
+    
+    response.title = "Members area"
+
+    # get tickets_and_prices from table in database
+    # TODO: Create tickets_and_prices table in db_custom.py with fields name, about, price, member_price
+    # TODO: Add rows to show prices for standard seating, VIP seating. 
+    # TODO: Get db(db.tickets_and_prices).select()
+    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=tickets_and_prices)
+    # TODO: In the tickets_and_prices.html create for loop for each row
+
+    return dict()
+
+
 def user():
+    # ---- Action for login/register/etc (required for auth) -----
+    
     """
     exposes:
     http://..../[app]/default/user/login
@@ -32,10 +119,15 @@ def user():
 # ---- action to server uploaded static content (required) ---
 @cache.action()
 def download():
-    """
-    allows downloading of uploaded files
+    """ 
+    Used to show uploaded images. DO NOT REMOVE!!!!
+    Allows downloading of uploaded files
     http://..../[app]/default/download/[filename]
+    
+    Usage:
+
+    <img src="{{=URL('download', args=image_path_variable )}}" 
+
     """
-    print("this is the download")
 
     return response.download(request, db)
