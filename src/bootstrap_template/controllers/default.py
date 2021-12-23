@@ -80,6 +80,7 @@ def employee_of_the_month():
     return dict(employee_image_path=image_path, employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote)
 
 
+# TODO: Visitor must login - @auth.requires_login()
 def members_area():
     ''' the controller for the members_area page that shows views/default/members_area.html '''
     
