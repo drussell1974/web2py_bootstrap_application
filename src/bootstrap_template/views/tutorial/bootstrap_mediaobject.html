@@ -15,7 +15,8 @@
   </div>
 </div>
 
-{{ block XMP }}
+<xmp id="the_html" class="p-10 border bg-dark text-white">
+
   <div class="media">
     <img src="/images/placeholder/286x180.png" class="align-self-start mr-3" alt="...">
     <div class="media-body">
@@ -26,4 +27,6 @@
         augue eget arcu dictum varius duis at consectetur. Vestibulum sed.</p>
     </div>
   </div>
-{{ end }}
+
+</xmp>
+<button class="btn btn-secondary" onClick="copyDivToClipboard('the_html');">Copy HTML to clipboard</button>

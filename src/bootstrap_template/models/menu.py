@@ -45,7 +45,6 @@ if not configuration.get('app.production'):
             (T('Bootstrap examples'), False, URL('tutorial', 'bootstrap_example')),
             (T('Bootstrap - Cards'), False, URL('tutorial', 'bootstrap_card')),
             (T('Bootstrap - Carousel (interactive)'), False, URL('tutorial', 'bootstrap_carousel')),
-            (T('Bootstrap - Breadcrumb'), False, URL('tutorial', 'bootstrap_breadcrumb')),
             (T('Bootstrap - Buttons'), False, URL('tutorial', 'bootstrap_button')),
             (T('Bootstrap - Form (interactive)'), False, URL('tutorial', 'bootstrap_form')),
             (T('Bootstrap - Jumbotron'), False, URL('tutorial', 'bootstrap_jumbotron')),

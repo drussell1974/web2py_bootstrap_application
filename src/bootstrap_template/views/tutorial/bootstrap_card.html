@@ -13,7 +13,9 @@
   </div>
 </div>
 
-{{ block XMP }}
+
+<xmp id="the_html" class="p-10 border bg-dark text-white">
+
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="/images/placeholder/286x180.png">
       <div class="card-body">
@@ -22,4 +24,6 @@
         <a href="#" class="btn btn-primary">Quisque sagittis</a>
       </div>
     </div>
-{{ end }}
+    
+</xmp>
+<button class="btn btn-secondary" onClick="copyDivToClipboard('the_html');">Copy HTML to clipboard</button>

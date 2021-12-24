@@ -18,7 +18,8 @@
   </div>
 </div>
 
-{{ block XMP }}
+<xmp id="the_html" class="p-10 border bg-dark text-white">
+
   <div class="jumbotron">
     <h1 class="display-4">Suspendisse in est ante</h1>
     <p class="lead">Molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis.</p>
@@ -30,4 +31,6 @@
       et. Ut venenatis tellus in metus vulputate eu scelerisque felis.</p>
     <a class="btn btn-primary btn-lg" href="#" role="button">Quam quisque</a>
   </div>
-{{ end }}
+
+</xmp>
+<button class="btn btn-secondary" onClick="copyDivToClipboard('the_html');">Copy HTML to clipboard</button>

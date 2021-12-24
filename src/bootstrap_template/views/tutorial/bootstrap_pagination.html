@@ -14,7 +14,8 @@
   </div>
 </div>
 
-{{ block XMP }}
+<xmp id="the_html" class="p-10 border bg-dark text-white">
+
   <nav>
     <ul class="pagination pagination-lg">
       <li class="page-item"><a class="page-link" href="films/1.html">1</a></li>
@@ -24,4 +25,6 @@
       <li class="page-item"><a class="page-link" href="films/5.html">5</a></li>
     </ul>
   </nav>
-{{ end }}
+
+</xmp>
+<button class="btn btn-secondary" onClick="copyDivToClipboard('the_html');">Copy HTML to clipboard</button>
