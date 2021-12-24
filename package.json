@@ -11,6 +11,6 @@
   "scripts": {
     "test": "echo 'hello, world!'",
     "start": "python3 ../web2py_src/web2py/web2py.py -a 'password' -i 127.0.0.1 -p 8000",
-    "deploy": "cp src/bootstrap_template -R ../web2py_src/web2py/applications"
+    "deploy": "cp src/bootstrap_template -R ../web2py_src/web2py/applications && cp src/bootstrap_tutorial -R ../web2py_src/web2py/applications"
   }
 }

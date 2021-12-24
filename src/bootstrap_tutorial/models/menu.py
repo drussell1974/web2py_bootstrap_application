@@ -6,7 +6,20 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Home'), False, URL('default', 'index'), []),
+    (T('Placeholders'), False, URL('default', 'index')),
+    (T('Examples'), False, '#', [
+        (T('Bootstrap - Cards'), False, URL('default', 'bootstrap_card')),
+        (T('Bootstrap - Carousel (interactive)'), False, URL('default', 'bootstrap_carousel')),
+        (T('Bootstrap - Buttons'), False, URL('default', 'bootstrap_button')),
+        (T('Bootstrap - Form (interactive)'), False, URL('default', 'bootstrap_form')),
+        (T('Bootstrap - Jumbotron'), False, URL('default', 'bootstrap_jumbotron')),
+        (T('Bootstrap - Media object'), False, URL('default', 'bootstrap_mediaobject')),
+        (T('Bootstrap - Modal (interactive)'), False, URL('default', 'bootstrap_modal')),
+        (T('Bootstrap - Navigation menu'), False, URL('default', 'bootstrap_nav')),
+        (T('Bootstrap - Pagination'), False, URL('default', 'bootstrap_pagination')),
+        (T('Bootstrap - Table'), False, URL('default', 'bootstrap_table')),
+    ]),
 ]
 
 # ----------------------------------------------------------------------------------------------------------------------
