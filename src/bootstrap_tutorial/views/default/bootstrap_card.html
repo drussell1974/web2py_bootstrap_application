@@ -1,0 +1,29 @@
+{{extend 'layout.html'}}
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card p-10" style="width: 18rem;">
+      <img class="card-img-top" src="{{=URL('static', '/images/placeholder/286x180.png')}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">In aliquam sem</h5>
+        <p class="card-text">Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque</p>
+        <a href="#" class="btn btn-primary">Quisque sagittis</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<xmp id="the_html" class="p-10 border bg-dark text-white">
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="/images/placeholder/286x180.png">
+      <div class="card-body">
+        <h5 class="card-title">In aliquam sem</h5>
+        <p class="card-text">Cursus metus aliquam eleifend mi in nulla posuere sollicitudin</p>
+        <a href="#" class="btn btn-primary">Quisque sagittis</a>
+      </div>
+    </div>
+    
+</xmp>
+<button class="btn btn-secondary" onClick="copyDivToClipboard('the_html');">Copy HTML to clipboard</button>
