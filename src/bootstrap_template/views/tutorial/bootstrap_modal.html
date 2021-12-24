@@ -30,8 +30,7 @@
   </div>
 </div>
 
-{{ block XMP }}
-
+<xmp id="the_html" class="p-10 border bg-dark text-white">
 
     <!-- Button to open modal -->
     <button class="btn btn-primary" onclick="$('#myInput').modal({'backdrop':false})">Show modal</button>
@@ -56,4 +55,5 @@
       </div>
     </div>
 
-{{ end }}
+  </xmp>
+  <button class="btn btn-secondary" onClick="copyDivToClipboard('the_html');">Copy HTML to clipboard</button>

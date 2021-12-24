@@ -72,23 +72,6 @@
           </div>
         </div>
         {{ pass }}    
-
-        <h2>HTML</h2>
-        <xmp id="the_html" class="p-10 border bg-dark text-white">
-        {{ block XMP }}
-        {{ end }}  
-        </xmp>
-        <button class="btn btn-secondary" onClick="copyDivToClipboard('the_html');">Copy HTML to clipboard</button>
-        <script>
-          function copyDivToClipboard(id) {
-              var range = document.createRange();
-              range.selectNode(document.getElementById(id));
-              window.getSelection().removeAllRanges(); // clear current selection
-              window.getSelection().addRange(range); // to select text
-              document.execCommand("copy");
-              window.getSelection().removeAllRanges();// to deselect
-          }
-        </script>
       </div>
 
       {{=response.toolbar() if response.show_toolbar else ''}}
@@ -108,6 +91,16 @@
     </footer>
     {{end}}
     <!-- The javascript =============================== -->
+    <script>
+      function copyDivToClipboard(id) {
+          var range = document.createRange();
+          range.selectNode(document.getElementById(id));
+          window.getSelection().removeAllRanges(); // clear current selection
+          window.getSelection().addRange(range); // to select text
+          document.execCommand("copy");
+          window.getSelection().removeAllRanges();// to deselect
+      }
+    </script>
     <script src="{{=URL('static','js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{=URL('static','js/web2py-bootstrap4.js')}}"></script>
     {{block page_js}}{{end page_js}}
