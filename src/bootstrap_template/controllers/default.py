@@ -49,6 +49,13 @@ def contact_us():
     # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=management_team_rows)
     # TODO: In the contact_us.html view use {{=URL('download', args=image_path)}} to show the image from the table
 
+    # if form is posted
+    if request.post_vars:
+        # TODO: create table customer_query with fields email_address and message in db_custom.property
+        # TODO: get request email_address and message - request.post_vars.email_address and request.post_vars.message
+        # TODO: save to customer_query table - customer_query.insert(email_address=request.post_vars.email_address, message=request.post_vars.message)
+        pass
+
     return dict()
 
 

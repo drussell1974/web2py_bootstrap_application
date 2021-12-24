@@ -42,6 +42,10 @@ https://classic.yarnpkg.com/lang/en/docs/cli/run/
 
 ## tasks
 
+*Start application*
+
+``` yarn start ```
+
 *Unit Test*
 
 TODO: Test application
