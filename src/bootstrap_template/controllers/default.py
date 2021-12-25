@@ -64,27 +64,11 @@ def employee_of_the_month():
 
     response.title = "Employee of the month"
 
-    # create default employee of the month variables
-    image_path = ""
-    name = ""
-    job_role = ""
-    qualities = ""
-    quote = ""
-    # TODO: show employee's favourite film - create variable
-    
     # get row from employee_of_the_month table in database - created in db_custom.py
     rows = db(db.employee_of_the_month).select()
-
-    for row in rows:
-        # set employee variables, if available - 
-        # TODO: add record to employee_of_the_month table 
-        image_path = row.image_path
-        name = row.name
-        job_role = row.job_role
-        qualities = row.qualities 
-        quote = row.quote
-        
-    return dict(employee_image_path=image_path, employee_name=name, employee_job_role=job_role, employee_qualities=qualities, employee_quote=quote)
+    
+    # return rows to employee_of_the_month.html view
+    return dict()
 
 
 # TODO: Visitor must login - @auth.requires_login()
