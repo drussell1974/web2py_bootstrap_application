@@ -2,20 +2,23 @@
 
 <div class="container">
     <div class="row jumbotron">
-        <!-- TODO: Show employee, if available - add record to employee_of_the_month table -->
-        {{ if employee_image_path and employee_name and employee_job_role and employee_qualities and employee_quote: }}
-        <div class="media">
-            <img src="{{=URL('download', args=employee_image_path )}}" class="align-self-start mr-3" alt="{{=employee_name}}">
-            <div class="media-body">
-                <h3>{{=employee_name}}</h3>
-                <h4>{{=employee_job_role}}</h4>
-                <p class="lead">{{=employee_qualities}}</p>
-                <blockquote class="blockquote">
-                        <p class="m-3"><i class="fa fa-quote-right"></i> {{=employee_quote}}</p>
-                </blockquote>
-                <!-- TODO: show employee's favourite film - use variable name employee_favourite_film -->
-            </div>
+        <div class="col-md-12">
+                
+            {{ for row in employee_of_the_month_rows: }}
+                <div class="media">
+                    <img src="{{=URL('download', args=row.image_path )}}" class="align-self-start mr-3" alt="{{=row.name}}">
+                    <div class="media-body">
+                        <h3>{{=row.name}}</h3>
+                        <h4>{{=row.job_role}}</h4>
+                        <p class="lead">{{=row.qualities}}</p>
+                        <blockquote class="blockquote">
+                            <p class="m-3"><i class="fa fa-quote-right"></i> {{=row.quote}}</p>
+                        </blockquote>
+                        
+                    </div>
+                </div>
+            {{ pass }}
+    
         </div>
-        {{ pass }}
     </div>
 </div>
