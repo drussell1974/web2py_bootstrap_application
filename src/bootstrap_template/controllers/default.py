@@ -43,12 +43,6 @@ def contact_us():
     
     response.title = "Contact us"
 
-    # get management teams from table in database
-    # TODO: Create management_team table in db_custom.py with fields name, job_role, about, image_path - For image_path use datatype upload)
-    # TODO: Get db(db.management_team).select()
-    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=management_team_rows)
-    # TODO: In the contact_us.html view use {{=URL('download', args=image_path)}} to show the image from the table
-
     # if form is posted
     if request.post_vars:
         # TODO: create table customer_query with fields email_address and message in db_custom.property

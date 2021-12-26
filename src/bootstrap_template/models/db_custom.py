@@ -20,4 +20,3 @@ db.define_table('employee_of_the_month',
     Field('qualities', 'text', 300),
     Field('quote', 'text', 1000)
 )
-
