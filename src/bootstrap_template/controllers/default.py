@@ -9,9 +9,6 @@ def index():
 
     response.title = "Home"
 
-    # TODO: get current shows from table and pass current_shows variable to view
-    # TODO: get future shows from table and pass coming_soon variable to view
-
     return dict()
 
 
@@ -28,13 +25,6 @@ def tickets_and_prices():
     
     response.title = "Tickets and Prices"
 
-    # get tickets_and_prices from table in database
-    # TODO: Create tickets_and_prices table in db_custom.py with fields name, about, price
-    # TODO: Add rows to show prices for standard seating, VIP seating. 
-    # TODO: Get db(db.tickets_and_prices).select()
-    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=tickets_and_prices)
-    # TODO: In the tickets_and_prices.html create for loop for each row
-
     return dict()
 
 
@@ -42,13 +32,6 @@ def contact_us():
     ''' the controller for the contact us page that shows views/default/contact_us.html '''
     
     response.title = "Contact us"
-
-    # if form is posted
-    if request.post_vars:
-        # TODO: create table customer_query with fields email_address and message in db_custom.property
-        # TODO: get request email_address and message - request.post_vars.email_address and request.post_vars.message
-        # TODO: save to customer_query table - customer_query.insert(email_address=request.post_vars.email_address, message=request.post_vars.message)
-        pass
 
     return dict()
 
@@ -65,18 +48,10 @@ def employee_of_the_month():
     return dict()
 
 
-# TODO: Visitor must login - @auth.requires_login()
 def members_area():
     ''' the controller for the members_area page that shows views/default/members_area.html '''
     
     response.title = "Members area"
-
-    # get tickets_and_prices from table in database
-    # TODO: Create tickets_and_prices table in db_custom.py with fields name, about, price, member_price
-    # TODO: Add rows to show prices for standard seating, VIP seating. 
-    # TODO: Get db(db.tickets_and_prices).select()
-    # TODO: In the controller set variables and pass to view: return dict(a="xyz", b="abc", c=tickets_and_prices)
-    # TODO: In the tickets_and_prices.html create for loop for each row
 
     return dict()
 
