@@ -45,7 +45,7 @@ def employee_of_the_month():
     rows = db(db.employee_of_the_month).select()
     
     # return rows to employee_of_the_month.html view
-    return dict()
+    return dict(employee_of_the_month_rows=rows)
 
 
 def members_area():
