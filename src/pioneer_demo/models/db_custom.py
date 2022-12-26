@@ -2,7 +2,6 @@
 # NOTE: the student will need permissions
 db = DAL('sqlite://storage.sqlite')
 
-#URI = 'mysql://drussellkc:PTYporko@drussellkc.mysql.eu.pythonanywhere-services.com/drussellkc$pioneer_ltd'
 URI = 'mysql://drussellkc:PTYporko@127.0.0.1:3306/pioneer_ltd'
 production = True
 if production:

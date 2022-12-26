@@ -4,6 +4,7 @@
     <div class="row jumbotron">
         <div class="col-md-12">
             <!-- Content Full Width -->
+            <a href="{{=URL('booking', 'view', args=[booking.id])}}" class="btn btn-secondary">View booking</a>
             <p>Description: {{=booking.description}}</p>
             <table class="table">
                 <thead>

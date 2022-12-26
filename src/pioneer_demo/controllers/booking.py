@@ -4,7 +4,7 @@
 # this file is released under public domain and you can use without limitations
 # -------------------------------------------------------------------------
 
-from booking import Booking, BookingDAL
+from booking import Booking, BookingDAL, BookingNote, BookingNoteDAL
 from vehicle import Vehicle, VehicleDAL
 from staff import Staff, StaffDAL
 from customer import Customer, CustomerDAL
@@ -27,16 +27,17 @@ def view():
     # set page (browser tab) title
     response.title = "Booking - View"
 
+    booking_id = request.args[0]
+
     booking = Booking.NEW()
 
     if len(request.args) > 0:
         # fetch customer from database
+        booking = BookingDAL.get_by_id(db, booking_id)
 
-        booking = BookingDAL.get_by_id(db, request.args[0])
-        # TODO: Get One-to-Many
-
-    #memberships = MembershipDAL.get_all(db)
-
+    booking_note_list = BookingNoteDAL.get_all(db, booking)
+    booking.booking_notes = booking_note_list
+    
     return dict(item=booking)
 
 
@@ -51,13 +52,17 @@ def edit():
     if len(request.vars) > 0:
 
         booking = Booking(id=request.vars.id, description=request.vars.description, registration_no=request.vars.registration_no)
-        #customer.membership = Membership(request.vars.membership_id)
+        booking.staff = Staff(id=request.vars.staff_id)
+        booking.customer = Customer(id=request.vars.customer_id)
+        booking.urgency = Urgency(id=request.vars.urgency_id)
+        booking.booking_type = BookingType(id=request.vars.booking_type_id)
+        booking.assigned_driver = Staff(id=request.vars.assigned_driver_id)
 
         # save
         BookingDAL.upsert(db, booking)
 
-        # goto index page
-        redirect(URL('index'))
+        # goto booking_note/index/{booking_id} page
+        redirect(URL('booking_note', 'index', args=[request.vars.id]))
 
     # set page (browser tab) title
     response.title = "Booking - Edit"

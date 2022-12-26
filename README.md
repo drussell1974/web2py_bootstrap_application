@@ -44,6 +44,8 @@ https://classic.yarnpkg.com/lang/en/docs/cli/run/
 
 *Start application*
 
+Runs the web2py application
+
 ``` yarn start ```
 
 *Unit Test*

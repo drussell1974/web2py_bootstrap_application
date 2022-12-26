@@ -16,7 +16,7 @@
 
                 <div class="input-group">
                     <label for="description" class="col-md-2">Note</label>
-                    <textarea name="description" readonly rows="4" style="width:100%" placeholder="Enter note" aria-describedby="description">{{=item.description}}</textarea>
+                    <textarea name="description" readonly rows="4" class="col-md-10 form-control" placeholder="Enter note" aria-describedby="description">{{=item.description}}</textarea>
                     <hr/>
                 </div>
 
@@ -24,23 +24,62 @@
 
                 <div class="input-group">
                     <label for="registration_no" class="col-md-2">Vehicle</label>
-                    <input type="text" name="registration_no" readonly value="{{=item.registration_no}}" class="col-md-10 form-control" placeholder="Enter registration no" aria-describedby="vehicle registration no">
+                    <input type="text" name="registration_no" readonly value="{{=item.registration_no}}" class="col-md-10 form-control" aria-describedby="registration no">
                 </div>
 
-                <!-- select control for **staff name** -->
+                <!-- select control for **staff_id** -->
 
                 <div class="input-group">
-                    <label for="staff_id" class="col-md-2">Vehicle</label>
-                    <input type="text" name="staff" readonly value="{{=item.first_name}} {{=item.surname}}" class="col-md-10 form-control" placeholder="Enter staff name" aria-describedby="staff name">
+                    <label for="staff_id" class="col-md-2">Staff</label>
+                    <input type="text" name="staff_name" readonly value="{{=item.staff.surname}}, {{=item.staff.first_name}}" class="col-md-10 form-control" aria-describedby="staff name">
+                </div>
+
+
+                <!-- select control for **customer_id** -->
+
+                <div class="input-group">
+                    <label for="customer_id" class="col-md-2">Customer</label>
+                    <input type="text" name="customer_name" readonly value="{{=item.customer.surname}}, {{=item.customer.first_name}}" class="col-md-10 form-control" aria-describedby="customer name">
+                </div>
+
+                <!-- select control for **urgency_id** -->
+
+                <div class="input-group">
+                    <label for="urgency_id" class="col-md-2">Urgency</label>
+                    <input type="text" name="urgency" readonly value="{{=item.urgency.name}}" class="col-md-10 form-control" aria-describedby="urgency name">
+                </div>
+
+                <!-- select control for **booking_type_id** -->
+
+                <div class="input-group">
+                    <label for="booking_type_id" class="col-md-2">Booking Type</label>
+                    <input type="text" name="booking_type" readonly value="{{=item.booking_type.name}}" class="col-md-10 form-control" aria-describedby="booking type name">
+                </div>
+
+                <!-- select control for **staff_id** -->
+
+                <div class="input-group">
+                    <label for="assigned_driver_id" class="col-md-2">Assign Driver</label>
+                    <input type="text" name="assigned_driver_name" readonly value="{{=item.assigned_driver.surname}}, {{=item.assigned_driver.first_name}}" class="col-md-10 form-control" aria-describedby="assigned driver name">
                 </div>
 
                 <!-- edit and delete controls for form fields -->
 
                 <div class="input-group col-md-12">
-                    <a href="{{=URL('delete', args=[item.id])}}" class="btn btn-danger">Delete</a>
+                    <a href="{{=URL('delete', args=[item.id])}}" class="btn btn-danger pull-right">Delete</a>
                     <a href="{{=URL('edit', args=[item.id])}}" class="btn btn-primary">Edit</a>
                 </div>
 
+                <!-- show booking notes -->
+
+                <h1>Notes</h1>
+                {{for booking_note in item.booking_notes:}}
+                <div class="input-group">            
+                    <label class="col-md-2">{{=booking_note.date}}</label>
+                    <textarea readonly rows="4" class="col-md-10 form-control" placeholder="Enter booking note" aria-describedby="booking note">{{=booking_note.note}}</textarea>
+                </div>
+                {{pass}}
+                
             </form>
         </div>
     </div>
