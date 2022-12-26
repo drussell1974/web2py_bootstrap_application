@@ -8,7 +8,10 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Time of call</th>
+                    <th scope="col">Urgency</th>
                     <th scope="col">Registration No</th>
+                    <th scope="col">Notes</th>
                     <th scope="col">
                         <a href="{{=URL('edit')}}" class="btn btn-sm btn-secondary">New</a>
                     </th>
@@ -18,7 +21,12 @@
                 {{for item in rows:}}
                   <tr>
                     <th scope="row"><a href="{{=URL('view', args=[str(item.id)])}}">{{=item.id}}</a></th>
+                    <td>{{=item.time_of_call}}</td>
+                    <td>{{=item.urgency.name}}</td>
                     <td>{{=item.registration_no}}</td>
+                    <td>    
+                      <a href="{{=URL('booking_note', 'index', args=[item.id])}}"  class="btn btn-sm btn-secondary">Show Notes</a>
+                    </td>
                     <td>
                         <a href="{{=URL('delete', args=[item.id])}}" class="btn btn-sm btn-danger">Delete</a>
                         <a href="{{=URL('edit', args=[item.id])}}"  class="btn btn-sm btn-primary">Edit</a>

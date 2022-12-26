@@ -62,7 +62,7 @@ def edit():
         BookingDAL.upsert(db, booking)
 
         # goto booking_note/index/{booking_id} page
-        redirect(URL('booking_note', 'index', args=[request.vars.id]))
+        redirect(URL('index'))
 
     # set page (browser tab) title
     response.title = "Booking - Edit"

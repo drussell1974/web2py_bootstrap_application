@@ -4,33 +4,27 @@
     <div class="row jumbotron">
         <div class="col-md-12">
             <!-- Content Full Width -->
-            <form action="" enctype="multipart/form-data" method="post" class="horizontal">
-
-                <!-- hidden control for **id** -->
-
-                <div class="input-group">
-                    <input type="hidden" name="id" value="{{=item.id}}"/>
-                </div>
+            <div class="horizontal">
 
                 <!-- input control for **first_name** -->
 
                 <div class="input-group">
                     <label for="first_name" class="col-md-2">First name</label>
-                    <input type="text" name="first_name" value="{{=item.first_name}}" readonly class="col-md-10 form-control" placeholder="Enter first name" aria-describedby="customer first name">
+                    <input type="text" value="{{=item.first_name}}" readonly class="col-md-10 form-control" placeholder="Enter first name" aria-describedby="customer first name">
                 </div>
 
                 <!-- input control for **surname** -->
 
                 <div class="input-group">
                     <label for="surname" class="col-md-2">Surname</label>
-                    <input type="text" name="surname" value="{{=item.surname}}" readonly class="col-md-10 form-control" placeholder="Enter surname" aria-describedby="customer surname">
+                    <input type="text" value="{{=item.surname}}" readonly class="col-md-10 form-control" placeholder="Enter surname" aria-describedby="customer surname">
                 </div>
 
                 <!-- select control for **membership** -->
 
                 <div class="input-group">
                     <label for="membership_id" class="col-md-2">Membership</label>
-                    <input type="text" name="membership_id" value="{{=item.membership.name}}" readonly class="col-md-10 form-control" placeholder="Enter surname" aria-describedby="customer membership">
+                    <input type="text" value="{{=item.membership.name}}" readonly class="col-md-10 form-control" placeholder="Enter surname" aria-describedby="customer membership">
                 </div>
 
                 <!-- edit and delete controls for form fields -->
@@ -40,7 +34,7 @@
                     <a href="{{=URL('edit', args=[item.id])}}" class="btn btn-primary">Edit</a>
                 </div>
 
-            </form>
+            </div>
         </div>
     </div>
 </div>
