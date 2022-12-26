@@ -16,7 +16,7 @@
 
                 <div class="input-group">
                     <label for="description" class="col-md-2">Note</label>
-                    <textarea name="description" rows="4" style="width:100%" placeholder="Enter note" aria-describedby="description">{{=item.description}}</textarea>
+                    <textarea name="description" rows="4" class="col-md-10 form-control" placeholder="Enter note" aria-describedby="description">{{=item.description}}</textarea>
                     <hr/>
                 </div>
 
@@ -52,7 +52,7 @@
                     <select name="customer_id" class="col-md-10 form-control" aria-describedby="select customer">
                         <option value="0">- Select Customer -</option>
                     {{ for customer_item in customer_list: }}
-                        <option value="{{=customer_item.id}}" {{if customer_item.id == item.customer.id:}}selected{{pass}} >{{=customer_item.surname}}, {{=staff_item.first_name}}</option>
+                        <option value="{{=customer_item.id}}" {{if customer_item.id == item.customer.id:}}selected{{pass}} >{{=customer_item.surname}}, {{=customer_item.first_name}}</option>
                     {{ pass }}
                     </select>
                 </div>
@@ -64,7 +64,7 @@
                     <select name="urgency_id" class="col-md-10 form-control" aria-describedby="select urgency">
                         <option value="0">- Select Urgency -</option>
                     {{ for urgency_item in urgency_list: }}
-                        <option value="{{=urgency_item.name}}" {{if urgency_item.id == item.urgency.id:}}selected{{pass}} >{{=urgency_item.name}}</option>
+                        <option value="{{=urgency_item.id}}" {{if urgency_item.id == item.urgency.id:}}selected{{pass}} >{{=urgency_item.name}}</option>
                     {{ pass }}
                     </select>
                 </div>
@@ -76,7 +76,7 @@
                     <select name="booking_type_id" class="col-md-10 form-control" aria-describedby="select booking type">
                         <option value="0">- Select Booking Type -</option>
                     {{ for booking_type_item in booking_type_list: }}
-                        <option value="{{=booking_type_item.name}}" {{if booking_type_item.id == item.booking_type.id:}}selected{{pass}} >{{=booking_type_item.name}}</option>
+                        <option value="{{=booking_type_item.id}}" {{if booking_type_item.id == item.booking_type.id:}}selected{{pass}} >{{=booking_type_item.name}}</option>
                     {{ pass }}
                     </select>
                 </div>
@@ -97,7 +97,6 @@
                 <div class="input-group col-md-12">
                     <button type="submit" value="Submit" class="btn btn-primary pull-right">Submit</button>
                     <button type="cancel" value="Cancel" class="btn btn-secondary pull-right">Cancel</button>
-                    <button type="reset" value="Reset" class="btn btn-default pull-right">Reset</button>
                 </div>
 
             </form>

@@ -94,7 +94,7 @@ class BookingDAL:
         # execute statement
 
         qry = 'CALL booking_upsert({}, "{}", "{}", {}, {}, {}, {}, {})'.format(booking.id, booking.description, booking.registration_no, booking.staff.id, booking.customer.id, booking.urgency.id, booking.booking_type.id, booking.assigned_driver.id)
-        raise Exception(qry)
+        
         db.executesql(qry)
 
         # do nothing
@@ -155,7 +155,6 @@ class BookingNoteDAL:
             # create object
 
             obj = BookingNote(rows[0][0], rows[0][1], rows[0][2])
-            #obj.booking = Booking(rows[0][3], rows[0][4], rows[0][5], rows[0][6])
             obj.booking = booking
 
         return obj
@@ -168,7 +167,6 @@ class BookingNoteDAL:
         list_of_obj = []
         rows = []
 
-
         # execute statement
 
         qry = "CALL booking_note_get_all({});".format(booking.id)
@@ -180,7 +178,6 @@ class BookingNoteDAL:
             # create and add object to list
             for row in rows:
                 obj = BookingNote(row[0], row[1], row[2])
-                #obj.booking = Booking(rows[0][3], rows[0][4], rows[0][5], rows[0][6])
                 obj.booking = booking
 
                 list_of_obj.append(obj)

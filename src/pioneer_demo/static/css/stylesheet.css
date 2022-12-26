@@ -8,6 +8,14 @@
     padding: 20px;
 }
 
+.input-group {
+    margin-bottom: 5px;
+}
+
+textarea {
+    padding: 5px;
+}
+
 /* colour scheme
 THIS EXAMPLE FROM https://colors.muz.li/palette/4d4dff/3655b3/d3deff/ffb84d/b38136 
 */
