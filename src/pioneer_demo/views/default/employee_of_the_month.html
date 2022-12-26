@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+                
+            {{ for row in employee_of_the_month_rows: }}
+                <div class="media">
+                    <img src="{{=URL('download', args=row.image_path )}}" class="align-self-start mr-3" alt="{{=row.name}}">
+                    <div class="media-body">
+                        <h3>{{=row.name}}</h3>
+                        <h4>{{=row.job_role}}</h4>
+                        <p class="lead">{{=row.qualities}}</p>
+                        <blockquote class="blockquote">
+                            <p class="m-3"><i class="fa fa-quote-right"></i> {{=row.quote}}</p>
+                        </blockquote>
+                        
+                    </div>
+                </div>
+            {{ pass }}
+    
+        </div>
+    </div>
+</div>
