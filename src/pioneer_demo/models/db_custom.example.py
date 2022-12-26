@@ -2,7 +2,7 @@
 # NOTE: the student will need permissions
 db = DAL('sqlite://storage.sqlite')
 
-URI = 'mysql://username:password@127.0.0.1:3306/pioneer_ltd'
+URI = 'mysql://<username>:<password>@<db_host>/<db_name>'
 production = True
 if production:
     db = DAL(URI, pool_size=20, fake_migrate_all=True)
