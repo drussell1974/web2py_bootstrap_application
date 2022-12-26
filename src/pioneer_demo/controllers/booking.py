@@ -37,7 +37,7 @@ def view():
 
     booking_note_list = BookingNoteDAL.get_all(db, booking)
     booking.booking_notes = booking_note_list
-    
+
     return dict(item=booking)
 
 
