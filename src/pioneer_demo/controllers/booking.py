@@ -86,13 +86,13 @@ def delete():
     ''' the controller for the delete page that redirects views/customer/index.html '''
 
     # new object
-    customer = Customer.NEW()
+    booking = Booking.NEW()
 
     # check for post request
     if len(request.args) > 0:
 
-        customer = Customer(request.args[0], "", "")
+        booking = Booking(request.args[0], "", "")
 
-        CustomerDAL.delete(db, customer)
+        BookingDAL.delete(db, booking)
 
     redirect(URL('index'))
