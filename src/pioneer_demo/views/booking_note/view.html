@@ -4,19 +4,13 @@
     <div class="row jumbotron">
         <div class="col-md-12">
             <!-- Content Full Width -->
-            <form action="" enctype="multipart/form-data" method="post" class="horizontal">
-
-                <!-- hidden control for **id** -->
-                <div class="input-group">
-                    <input type="hidden" name="id" value="{{=item.id}}"/>
-                    <input type="hidden" name="booking_id" value="{{=item.booking.id}}"/>
-                </div>
+            <div class="horizontal">
 
                 <!-- input control for **note** -->
 
                 <div class="input-group">
                     <label for="note" class="col-md-2">Note</label>
-                    <textarea name="note" rows="4" style="width:100%" readonly placeholder="Enter note" aria-describedby="booking note">{{=item.note}}</textarea>
+                    <textarea rows="4" style="width:100%" readonly placeholder="Enter note" aria-describedby="booking note">{{=item.note}}</textarea>
                 </div>
 
                 <!-- edit and delete controls for form fields -->
@@ -26,7 +20,7 @@
                     <a href="{{=URL('edit', args=[item.booking.id, item.id])}}" class="btn btn-primary">Edit</a>
                 </div>
 
-            </form>
+            </div>
         </div>
     </div>
 </div>

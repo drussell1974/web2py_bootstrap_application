@@ -73,7 +73,7 @@ def edit():
 
     booking_note = BookingNoteDAL.get_by_id(db, booking_note_id, booking)
 
-    return dict(item=booking_note, booking=booking)
+    return dict(item=booking_note)
 
 
 def delete():
