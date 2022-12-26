@@ -1,0 +1,31 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+            <!-- Content Full Width -->
+            <form action="" enctype="multipart/form-data" method="post" class="horizontal">
+
+                <!-- hidden control for **id** (to store old registration no) -->
+
+                <div class="input-group">
+                    <input type="hidden" name="id" value="{{=item.id}}"/>
+                </div>
+
+                <!-- input control for **registration_no** -->
+
+                <div class="input-group">
+                    <label for="first_name" class="col-md-2">Registration No</label>
+                    <input type="text" name="registration_no" value="{{=item.registration_no}}" class="col-md-10 form-control" placeholder="Enter registration no" aria-describedby="vehicle registration no">
+                </div>
+                <!-- submit/cancel controls for form fields -->
+
+                <div class="input-group col-md-12">
+                    <button type="submit" value="Submit" class="btn btn-primary pull-right">Submit</button>
+                    <button type="cancel" value="Cancel" class="btn btn-secondary pull-right">Cancel</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

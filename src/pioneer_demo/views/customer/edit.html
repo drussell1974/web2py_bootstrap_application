@@ -1,0 +1,52 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+            <!-- Content Full Width -->
+            <form action="" enctype="multipart/form-data" method="post" class="horizontal">
+
+                <!-- hidden control for **id** -->
+
+                <div class="input-group">
+                    <input type="hidden" name="id" value="{{=item.id}}"/>
+                </div>
+
+                <!-- input control for **first_name** -->
+
+                <div class="input-group">
+                    <label for="first_name" class="col-md-2">First name</label>
+                    <input type="text" name="first_name" value="{{=item.first_name}}" class="col-md-10 form-control" placeholder="Enter first name" aria-describedby="customer first name">
+                </div>
+
+                <!-- input control for **surname** -->
+
+                <div class="input-group">
+                    <label for="surname" class="col-md-2">Surname</label>
+                    <input type="text" name="surname" value="{{=item.surname}}" class="col-md-10 form-control" placeholder="Enter surname" aria-describedby="customer surname">
+                </div>
+
+                <!-- select control for **customer_id** -->
+
+                <div class="input-group">
+                    <label for="membership_id" class="col-md-2">Membership</label>
+                    <select name="membership_id" class="col-md-10 form-control" aria-describedby="customer membership">
+                        <option value="0">- Select Membership -</option>
+                    {{ for membership_item in memberships: }}
+                        <option value="{{=membership_item.id}}" {{if membership_item.id == item.membership.id:}}selected{{pass}} >{{=membership_item.name}}</option>
+                    {{ pass }}
+                    </select>
+                </div>
+
+                <!-- submit/cancel controls for form fields -->
+
+                <div class="input-group col-md-12">
+                    <button type="submit" value="Submit" class="btn btn-primary pull-right">Submit</button>
+                    <button type="cancel" value="Cancel" class="btn btn-secondary pull-right">Cancel</button>
+                    <button type="reset" value="Reset" class="btn btn-default pull-right">Reset</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

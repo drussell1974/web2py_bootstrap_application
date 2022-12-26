@@ -1,0 +1,31 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+            <!-- Content Full Width -->
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Registration No</th>
+                    <th scope="col">
+                        <a href="{{=URL('edit')}}" class="btn btn-sm btn-secondary">New</a>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{for item in rows:}}
+                <tr>
+                    <th scope="row"><a href="{{=URL('view', args=[str(item.id)])}}">{{=item.registration_no}}</a></th>
+                    <td>
+                        <a href="{{=URL('delete', args=[str(item.id)])}}" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="{{=URL('edit', args=[item.id])}}" class="btn btn-sm btn-primary">Edit</a></td>
+                    </td>
+                </tr>
+
+                {{pass}}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

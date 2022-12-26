@@ -1,0 +1,37 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+            <!-- Content Full Width -->
+            <form action="" enctype="multipart/form-data" method="post" class="horizontal">
+
+                <!-- hidden control for **id** (to store old registration no) -->
+
+                <div class="input-group">
+                    <input type="hidden" name="id" value="{{=item.id}}"/>
+                </div>
+
+                <!-- input control for **registration_no** -->
+
+                <div class="input-group">
+                    <label for="first_name" class="col-md-2">Registration No</label>
+                    <input type="text" name="registration_no" value="{{=item.registration_no}}" readonly class="col-md-10 form-control" placeholder="Enter registration no" aria-describedby="customer registration no">
+                </div>
+
+                <!-- input control for **engine** -->
+
+                {{for item in feature_rows:}}
+                    <input type="checkbox" name="features" value="{{=item.id}}">Cats<br>
+                {{pass}}
+
+                <!-- edit and delete controls for form fields -->
+
+                <div class="input-group col-md-12">
+                    <a href="{{=URL('delete', args=[item.registration_no])}}" class="btn btn-danger">Delete</a> <a href="{{=URL('edit', args=[item.registration_no])}}" class="btn btn-primary">Edit</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
