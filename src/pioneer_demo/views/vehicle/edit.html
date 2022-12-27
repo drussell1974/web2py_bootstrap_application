@@ -15,14 +15,54 @@
                 <!-- input control for **registration_no** -->
 
                 <div class="input-group">
-                    <label for="first_name" class="col-md-2">Registration No</label>
-                    <input type="text" name="registration_no" value="{{=item.registration_no}}" class="col-md-10 form-control" placeholder="Enter registration no" aria-describedby="vehicle registration no">
+                    <label for="first_name" class="col-md-4">Registration No</label>
+                    <input type="text" name="registration_no" value="{{=item.registration_no}}" class="col-md-8 form-control" placeholder="Enter registration no" aria-describedby="vehicle registration no">
                 </div>
+
+                <!-- input control for **engine** -->
+                
+                <div class="col-md-12">
+                    <h2>Engine</h2>
+                </div>
+
+                {{for engine_item in engine_list:}}                
+                <div class="input-group">
+                    <input type="checkbox" name="engine_id" value="{{=engine_item.id}}" {{if any(eng.id == engine_item.id for eng in item.engine):}}checked{{pass}} class="col-md-1 form-control" placeholder="Select engine" aria-describedby="vehicle engines" id="engine_checkbox--{{=engine_item.id}}">
+                    <label for="engine_id" class="col-md-11 text-nowrap">{{=engine_item.name}}</label>
+                </div>
+                {{pass}}
+                
+                <!-- input control for **body** -->
+
+                <div class="col-md-12">
+                    <h2>Body</h2>
+                </div>
+
+                {{for body_item in body_list:}}
+                <div class="input-group">
+                    <input type="checkbox" name="body_id" value="{{=body_item.id}}" {{if any(bod.id == body_item.id for bod in item.body):}}checked{{pass}} class="col-md-1 form-control" placeholder="Select body" aria-describedby="vehicle body" id="body_checkbox--{{=body_item.id}}">
+                    <label for="body_id" class="col-md-11 text-nowrap">{{=body_item.name}}</label>
+                </div>
+                {{pass}}
+                
+                <!-- input control for **furnishing** -->
+
+                <div class="col-md-12">
+                    <h2>Furnishing</h2>
+                </div>
+
+                {{for furnishing_item in furnishing_list:}}
+                <div class="input-group">
+                    <input type="checkbox" name="furnishing_id" value="{{=furnishing_item.id}}" {{if any(fur.id == furnishing_item.id for fur in item.furnishing):}}checked{{pass}} class="col-md-1 form-control" placeholder="Select furnishing" aria-describedby="vehicle furnishing" id="furnishing_checkbox--{{=furnishing_item.id}}">
+                    <label for="furnishing_id" class="col-md-11 text-nowrap">{{=furnishing_item.name}}</label>
+                </div>
+                {{pass}}
+
                 <!-- submit/cancel controls for form fields -->
 
                 <div class="input-group col-md-12">
-                    <button type="submit" value="Submit" class="btn btn-primary pull-right">Submit</button>
-                    <button type="cancel" value="Cancel" class="btn btn-secondary pull-right">Cancel</button>
+                    <button type="submit" value="Submit" class="btn btn-primary pull-right" id="submit_button">Submit</button>
+                    <button type="cancel" value="Cancel" class="btn btn-secondary pull-right" id="cancel_button">Cancel</button>
                 </div>
 
             </form>

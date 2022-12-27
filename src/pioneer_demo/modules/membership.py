@@ -5,7 +5,7 @@ class Membership:
     def __init__(self, id = 0, name = ""):
         self.id = id
         self.name = str(name)
-        self.membership_level = None
+        self.level = None
 
 
     @staticmethod
@@ -13,7 +13,7 @@ class Membership:
         ''' Create a new instance of *Membership* '''
 
         obj = Membership()
-        obj.membership_level = MembershipLevel.NEW()
+        obj.level = MembershipLevel.NEW()
 
         return obj
 
@@ -38,6 +38,7 @@ class MembershipDAL:
                 # create and add object to list
 
                 obj = Membership(row[0], row[1])
+                obj.level = MembershipLevel(row[2], row[3])
 
                 list_of_obj.append(obj)
 

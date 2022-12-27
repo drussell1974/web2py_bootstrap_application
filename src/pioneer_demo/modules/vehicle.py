@@ -1,9 +1,15 @@
+from engine import Engine, EngineDAL
+from body import Body, BodyDAL
+from furnishing import Furnishing, FurnishingDAL
 
 class Vehicle:
 
     def __init__(self, id = "", registration_no = ""):
         self.id = str(id) # for storing the old registration no if changed
         self.registration_no = str(registration_no)
+        self.engine = []
+        self.body = []
+        self.furnishing = []
 
 
     @staticmethod
@@ -35,7 +41,7 @@ class VehicleDAL:
             # create object
 
             obj = Vehicle(rows[0][0], rows[0][0])
-
+            
         return obj
 
 
@@ -67,11 +73,9 @@ class VehicleDAL:
     def upsert(db, vehicle):
         ''' Update or Insert *vehicle* '''
 
-        # execute statement
-
-        qry = 'CALL vehicle_upsert("{}", "{}")'.format(vehicle.id, vehicle.registration_no)
+        qry = 'CALL vehicle_upsert("{}", "{}");'.format(vehicle.id, vehicle.registration_no)
         db.executesql(qry)
-
+            
         # do nothing
         pass
 
@@ -82,7 +86,7 @@ class VehicleDAL:
 
         # execute statement
 
-        qry = 'CALL vehicle_delete("{}")'.format(vehicle.registration_no)
+        qry = 'CALL vehicle_delete("{}");'.format(vehicle.registration_no)
         db.executesql(qry)
 
         # do nothing

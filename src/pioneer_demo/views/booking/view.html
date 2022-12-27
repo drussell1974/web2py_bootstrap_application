@@ -60,8 +60,8 @@
                 <!-- edit and delete controls for form fields -->
 
                 <div class="input-group col-md-12">
-                    <a href="{{=URL('delete', args=[item.id])}}" class="btn btn-danger pull-right">Delete</a>
-                    <a href="{{=URL('edit', args=[item.id])}}" class="btn btn-primary">Edit</a>
+                    <a href="{{=URL('delete', args=[item.id])}}" class="btn btn-danger" id="delete_button">Delete</a>
+                    <a href="{{=URL('edit', args=[item.id])}}" class="btn btn-primary" id="edit_button">Edit</a>
                 </div>
 
                 <!-- show booking notes -->

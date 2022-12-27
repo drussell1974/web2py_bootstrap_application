@@ -16,9 +16,9 @@ def index():
 
     response.title = "Bookings - List"
 
-    booking_rows = BookingDAL.get_all(db)
+    bookings_all = BookingDAL.get_all(db)
 
-    return dict(rows=booking_rows)
+    return dict(rows=bookings_all)
 
 
 def view():
@@ -27,16 +27,20 @@ def view():
     # set page (browser tab) title
     response.title = "Booking - View"
 
-    booking_id = request.args[0]
-
+    # initiate object
     booking = Booking.NEW()
 
-    if len(request.args) > 0:
-        # fetch customer from database
+    # check for arguments in the url request and redirect if empty
+    if len(request.args) == 0:
+        redirect(URL('index'))
+    else:
+        booking_id = request.args[0] # get lookup id
+
+        # fetch booking from database
         booking = BookingDAL.get_by_id(db, booking_id)
 
-    booking_note_list = BookingNoteDAL.get_all(db, booking)
-    booking.booking_notes = booking_note_list
+        booking_note_list = BookingNoteDAL.get_all(db, booking)
+        booking.booking_notes = booking_note_list
 
     return dict(item=booking)
 
@@ -44,11 +48,13 @@ def view():
 def edit():
     ''' the controller for the edit page that shows views/customer/edit.html '''
 
-    # new object
+    # set page (browser tab) title
+    response.title = "Booking - Edit"
+
+    # initiate object
     booking = Booking.NEW()
 
     # check for post request
-
     if len(request.vars) > 0:
 
         booking = Booking(id=request.vars.id, description=request.vars.description, registration_no=request.vars.registration_no)
@@ -64,33 +70,31 @@ def edit():
         # goto booking_note/index/{booking_id} page
         redirect(URL('index'))
 
-    # set page (browser tab) title
-    response.title = "Booking - Edit"
-
-    booking = Booking.NEW()
-
+    # check for arguments in the url request
     if len(request.args) > 0:
         # fetch customer from database
         booking = BookingDAL.get_by_id(db, request.args[0])
 
-    vehicles = VehicleDAL.get_all(db)
-    staff = StaffDAL.get_all(db)
-    customers = CustomerDAL.get_all(db)
-    urgencies = UrgencyDAL.get_all(db)
-    booking_types = BookingTypeDAL.get_all(db)
+    vehicle_all = VehicleDAL.get_all(db)
+    staff_all = StaffDAL.get_all(db)
+    customer_all = CustomerDAL.get_all(db)
+    urgency_all = UrgencyDAL.get_all(db)
+    booking_type_all = BookingTypeDAL.get_all(db)
 
-    return dict(item=booking, vehicle_list=vehicles, staff_list=staff, customer_list=customers, urgency_list=urgencies, booking_type_list=booking_types)
+    return dict(item=booking, vehicle_list=vehicle_all, staff_list=staff_all, customer_list=customer_all, urgency_list=urgency_all, booking_type_list=booking_type_all)
 
 
 def delete():
     ''' the controller for the delete page that redirects views/customer/index.html '''
 
-    # new object
+    # initiate object
     booking = Booking.NEW()
 
-    # check for post request
-    if len(request.args) > 0:
-
+    # check for arguments in the url request and redirect if empty
+    if len(request.args) == 0:
+        redirect(URL('index'))
+    else:
+        # delete from database
         booking = Booking(request.args[0], "", "")
 
         BookingDAL.delete(db, booking)

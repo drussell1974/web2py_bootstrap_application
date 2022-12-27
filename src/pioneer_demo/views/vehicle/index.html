@@ -9,17 +9,17 @@
                   <tr>
                     <th scope="col">Registration No</th>
                     <th scope="col">
-                        <a href="{{=URL('edit')}}" class="btn btn-sm btn-secondary">New</a>
+                        <a href="{{=URL('edit')}}" class="btn btn-sm btn-secondary" id="new_button">New</a>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                 {{for item in rows:}}
                 <tr>
-                    <th scope="row"><a href="{{=URL('view', args=[str(item.id)])}}">{{=item.registration_no}}</a></th>
+                    <th scope="row"><a href="{{=URL('view', args=[str(item.id)])}}" id="view_button--{{=item.id}}">{{=item.registration_no}}</a></th>
                     <td>
-                        <a href="{{=URL('delete', args=[str(item.id)])}}" class="btn btn-sm btn-danger">Delete</a>
-                        <a href="{{=URL('edit', args=[item.id])}}" class="btn btn-sm btn-primary">Edit</a></td>
+                        <a href="{{=URL('delete', args=[str(item.id)])}}" class="btn btn-sm btn-danger" id="delete_button--{{=item.id}}">Delete</a>
+                        <a href="{{=URL('edit', args=[item.id])}}" class="btn btn-sm btn-primary" id="edit_button--{{=item.id}}">Edit</a></td>
                     </td>
                 </tr>
 
