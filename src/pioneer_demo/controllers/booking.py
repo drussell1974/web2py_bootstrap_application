@@ -16,9 +16,9 @@ def index():
 
     response.title = "Bookings - List"
 
-    booking_rows = BookingDAL.get_all(db)
+    bookings_all = BookingDAL.get_all(db)
 
-    return dict(rows=booking_rows)
+    return dict(rows=bookings_all)
 
 
 def view():
@@ -73,13 +73,13 @@ def edit():
         # fetch customer from database
         booking = BookingDAL.get_by_id(db, request.args[0])
 
-    vehicles = VehicleDAL.get_all(db)
-    staff = StaffDAL.get_all(db)
-    customers = CustomerDAL.get_all(db)
-    urgencies = UrgencyDAL.get_all(db)
-    booking_types = BookingTypeDAL.get_all(db)
+    vehicle_all = VehicleDAL.get_all(db)
+    staff_all = StaffDAL.get_all(db)
+    customer_all = CustomerDAL.get_all(db)
+    urgency_all = UrgencyDAL.get_all(db)
+    booking_type_all = BookingTypeDAL.get_all(db)
 
-    return dict(item=booking, vehicle_list=vehicles, staff_list=staff, customer_list=customers, urgency_list=urgencies, booking_type_list=booking_types)
+    return dict(item=booking, vehicle_list=vehicle_all, staff_list=staff_all, customer_list=customer_all, urgency_list=urgency_all, booking_type_list=booking_type_all)
 
 
 def delete():

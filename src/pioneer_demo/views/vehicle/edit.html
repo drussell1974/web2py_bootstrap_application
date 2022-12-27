@@ -18,6 +18,37 @@
                     <label for="first_name" class="col-md-2">Registration No</label>
                     <input type="text" name="registration_no" value="{{=item.registration_no}}" class="col-md-10 form-control" placeholder="Enter registration no" aria-describedby="vehicle registration no">
                 </div>
+
+                <!-- input control for **engine** -->
+                
+                <h2>Engine</h2>
+
+                {{for engine_item in engine_list:}}                
+                <div class="input-group">
+                    <label for="engine_id" class="col-md-2">{{=engine_item.name}}</label>
+                    <input type="checkbox" name="engine_id" value="{{=engine_item.id}}" {{if any(eng.id == engine_item.id for eng in item.engine):}}checked{{pass}} class="col-md-10 form-control" placeholder="Select engine" aria-describedby="vehicle engines">
+                </div>
+                {{pass}}
+                <!-- input control for **body** -->
+
+                <h2>Body</h2>
+                {{for body_item in body_list:}}
+                <div class="input-group">
+                    <label for="body_id" class="col-md-2">{{=body_item.name}}</label>
+                    <input type="checkbox" name="body_id" value="{{=body_item.id}}" {{if any(bod.id == body_item.id for bod in item.body):}}checked{{pass}} class="col-md-10 form-control" placeholder="Select body" aria-describedby="vehicle body">
+                </div>
+                {{pass}}
+                <!-- input control for **furnishing** -->
+
+                <h2>Furnishing</h2>
+
+                {{for furnishing_item in furnishing_list:}}
+                <div class="input-group">
+                    <label for="furnishing_id" class="col-md-2">{{=furnishing_item.name}}</label>
+                    <input type="checkbox" name="furnishing_id" value="{{=furnishing_item.id}}" {{if any(fur.id == furnishing_item.id for fur in item.furnishing):}}checked{{pass}} class="col-md-10 form-control" placeholder="Select furnishing" aria-describedby="vehicle furnishing">
+                </div>
+                {{pass}}
+
                 <!-- submit/cancel controls for form fields -->
 
                 <div class="input-group col-md-12">

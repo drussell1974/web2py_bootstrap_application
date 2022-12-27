@@ -63,9 +63,9 @@ def edit():
 
         customer = CustomerDAL.get_by_id(db, request.args[0])
 
-    memberships = MembershipDAL.get_all(db)
+    membership_all = MembershipDAL.get_all(db)
 
-    return dict(item=customer, memberships=memberships)
+    return dict(item=customer, memberships=membership_all)
 
 
 def delete():
