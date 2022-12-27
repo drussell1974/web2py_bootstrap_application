@@ -22,27 +22,44 @@ def index():
 def view():
     ''' the controller for the view page that shows views/vehicle/view.html '''
 
-    arg_registration_no = request.args[0].replace('_', ' ')
-
     # set page (browser tab) title
     response.title = "Vehicle - View"
+ 
+    # initiate object
+    vehicle = Vehicle.NEW()
 
-    if len(request.args) > 0:
+    # check for arguments in the url request and redirect if empty
+    if len(request.args) == 0:
+        redirect(URL('index'))
+    else:
         # fetch vehicle from database
+
+        arg_registration_no = request.args[0].replace('_', ' ')
 
         vehicle = VehicleDAL.get_by_id(db, arg_registration_no)
 
+        engine = EngineDAL.get_for_vehicle(db, vehicle)
+        vehicle.engine = engine
+
+        body = BodyDAL.get_for_vehicle(db, vehicle)        
+        vehicle.body = body
+
+        furnishing = FurnishingDAL.get_for_vehicle(db, vehicle)
+        vehicle.furnishing = furnishing
+    
     return dict(item=vehicle)
 
 
 def edit():
     ''' the controller for the edit page that shows views/vehicle/edit.html '''
     
-    # new object
+    # set page (browser tab) title
+    response.title = "Vehicle - Edit"
+
+    # initiate object
     vehicle = Vehicle.NEW()
     
-    # check for post request
-
+    # check for vars from post request
     if len(request.vars) > 0:
 
         vehicle = Vehicle(request.vars.id, request.vars.registration_no)
@@ -65,14 +82,11 @@ def edit():
         # goto index page
         redirect(URL('index'))
 
-
-    # set page (browser tab) title
-    response.title = "Vehicle - Edit"
-
-    arg_registration_no = request.args[0].replace('_', ' ')
-
+    # check for arguments in the url request
     if len(request.args) > 0:
-        # fetch customer from database
+        # fetch vehicle from database
+    
+        arg_registration_no = request.args[0].replace('_', ' ')
 
         vehicle = VehicleDAL.get_by_id(db, arg_registration_no)
         
@@ -95,16 +109,17 @@ def edit():
 def delete():
     ''' the controller for the delete page redirects views/vehicle/index.html '''
 
-    arg_registration_no = request.args[0].replace('_', ' ')
+    # initiate object
+    vehicle = Vehicle.NEW()
 
-    # new object
-    obj = Vehicle.NEW()
+    # check for arguments in the url request and redirect if empty
+    if len(request.args) == 0:
+        redirect(URL('index'))
+    else:
+        arg_registration_no = request.args[0].replace('_', ' ')
 
-    # check for post request
-    if len(request.args) > 0:
+        vehicle = Vehicle(arg_registration_no, arg_registration_no)
 
-        obj = Vehicle(request.args[0], arg_registration_no)
-
-        VehicleDAL.delete(db, obj)
+        VehicleDAL.delete(db, vehicle)
 
     redirect(URL('index'))

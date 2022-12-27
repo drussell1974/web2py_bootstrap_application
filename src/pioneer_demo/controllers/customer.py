@@ -25,24 +25,30 @@ def view():
     # set page (browser tab) title
     response.title = "Customer - View"
 
-    if len(request.args) > 0:
-        # fetch customer from database
+    # initiate object
+    customer = Customer.NEW()
 
+    # check for arguments in the url request and redirect if empty
+    if len(request.args) == 0:
+        redirect(URL('index'))
+    else:
         customer = CustomerDAL.get_by_id(db, request.args[0])
 
-    memberships = MembershipDAL.get_all(db)
+        memberships = MembershipDAL.get_all(db)
 
-    return dict(item=customer, memberships=memberships)
+    return dict(item=customer)
 
 
 def edit():
     ''' the controller for the edit page that shows views/customer/edit.html '''
 
-    # new object
+    # set page (browser tab) title
+    response.title = "Customer - Edit"
+
+    # initiate object
     customer = Customer.NEW()
 
     # check for post request
-
     if len(request.vars) > 0:
 
         customer = Customer(request.vars.id, request.vars.first_name, request.vars.surname)
@@ -54,10 +60,7 @@ def edit():
         # goto index page
         redirect(URL('index'))
 
-
-    # set page (browser tab) title
-    response.title = "Customer - Edit"
-
+    # check for arguments in the url request
     if len(request.args) > 0:
         # fetch customer from database
 
@@ -71,12 +74,13 @@ def edit():
 def delete():
     ''' the controller for the delete page that redirects views/customer/index.html '''
 
-    # new object
+    # initiate object
     customer = Customer.NEW()
 
-    # check for post request
-    if len(request.args) > 0:
-
+    # check for arguments in the url request and redirect if empty
+    if len(request.args) == 0:
+        redirect(URL('index'))
+    else:
         customer = Customer(request.args[0], "", "")
 
         CustomerDAL.delete(db, customer)

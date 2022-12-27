@@ -13,6 +13,36 @@
                     <input type="text" value="{{=item.registration_no}}" readonly class="col-md-10 form-control" placeholder="Enter registration no" aria-describedby="customer registration no">
                 </div>
 
+                <!-- input control for **engine** -->
+                
+                <h2>Engine</h2>
+
+                <ul class="list-group">
+                {{for x in item.engine:}}                
+                    <li class="list-group-item">{{=x.name}}</li>
+                {{pass}}
+                </ul>
+
+                <!-- input control for **body** -->
+
+                <h2>Body</h2>
+                
+                <ul class="list-group">
+                {{for x in item.body:}}                
+                    <li class="list-group-item">{{=x.name}}</li>
+                {{pass}}
+                </ul>
+                    
+                <!-- input control for **furnishing** -->
+
+                <h2>Furnishing</h2>
+
+                <ul class="list-group">
+                {{for x in item.furnishing:}}                
+                    <li class="list-group-item">{{=x.name}}</li>
+                {{pass}}
+                </ul>
+
                 <!-- edit and delete controls for form fields -->
 
                 <div class="input-group col-md-12">
