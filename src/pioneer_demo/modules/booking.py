@@ -94,7 +94,6 @@ class BookingDAL:
         # execute statement
 
         qry = 'CALL booking_upsert({}, "{}", "{}", {}, {}, {}, {}, {})'.format(booking.id, booking.description, booking.registration_no, booking.staff.id, booking.customer.id, booking.urgency.id, booking.booking_type.id, booking.assigned_driver.id)
-        print(qry)
         db.executesql(qry)
 
         # do nothing
