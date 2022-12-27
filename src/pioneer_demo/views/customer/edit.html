@@ -33,7 +33,7 @@
                     <select name="membership_id" class="col-md-10 form-control" aria-describedby="customer membership">
                         <option value="0">- Select Membership -</option>
                     {{ for membership_item in memberships: }}
-                        <option value="{{=membership_item.id}}" {{if membership_item.id == item.membership.id:}}selected{{pass}} >{{=membership_item.name}}</option>
+                        <option value="{{=membership_item.id}}" {{if membership_item.id == item.membership.id:}}selected{{pass}} ><b>{{=membership_item.name}}</b> ({{=membership_item.level.name}})</option>
                     {{ pass }}
                     </select>
                 </div>

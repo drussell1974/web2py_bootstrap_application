@@ -73,8 +73,8 @@ class VehicleDAL:
     def upsert(db, vehicle):
         ''' Update or Insert *vehicle* '''
 
-        qry1 = 'CALL vehicle_upsert("{}", "{}");'.format(vehicle.id, vehicle.registration_no)
-        db.executesql(qry1)
+        qry = 'CALL vehicle_upsert("{}", "{}");'.format(vehicle.id, vehicle.registration_no)
+        db.executesql(qry)
             
         # do nothing
         pass

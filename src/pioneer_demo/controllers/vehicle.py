@@ -63,15 +63,18 @@ def edit():
     if len(request.vars) > 0:
 
         vehicle = Vehicle(request.vars.id, request.vars.registration_no)
-        
-        engine = map(Engine.NEW, request.vars.engine_id) # pass checked values to Engine.NEW()
-        vehicle.engine = engine
 
-        body = map(Engine.NEW, request.vars.body_id) # pass checked values to Body.NEW()
-        vehicle.body = body
+        if request.vars.engine_id:
+            engine = map(Engine.NEW, request.vars.engine_id) # pass checked values to Engine.NEW()
+            vehicle.engine = engine
+
+        if request.vars.body_id:
+            body = map(Engine.NEW, request.vars.body_id) # pass checked values to Body.NEW()
+            vehicle.body = body
         
-        furnishing = map(Engine.NEW, request.vars.furnishing_id) # pass checked values to Furnishing.NEW()
-        vehicle.furnishing = furnishing
+        if request.vars.furnishing_id:
+            furnishing = map(Engine.NEW, request.vars.furnishing_id) # pass checked values to Furnishing.NEW()
+            vehicle.furnishing = furnishing
 
         # save
         VehicleDAL.upsert(db, vehicle)

@@ -68,7 +68,6 @@ def edit():
     booking_note = BookingNote.NEW()
 
     if len(request.vars) > 0:
-        print("booking_id:", request.vars.booking_id)
         booking_note = BookingNote(request.vars.id, note=request.vars.note)
         booking_note.booking = Booking(request.vars.booking_id, request.vars.registration_no)
 

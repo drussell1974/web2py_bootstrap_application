@@ -6,8 +6,6 @@
 
 from customer import Customer, CustomerDAL
 from membership import Membership, MembershipDAL
-from membership_level import MembershipLevel, MembershipLevelDAL
-
 
 def index():
     ''' the controller for the index page that shows views/customer/index.html '''

@@ -15,9 +15,11 @@
 
                 <!-- input control for **engine** -->
                 
-                <h2>Engine</h2>
+                <div class="col-md-12">
+                    <h2>Engine</h2>
+                </div>
 
-                <ul class="list-group">
+                <ul class="list-group list-group--engine">
                 {{for x in item.engine:}}                
                     <li class="list-group-item">{{=x.name}}</li>
                 {{pass}}
@@ -25,19 +27,22 @@
 
                 <!-- input control for **body** -->
 
-                <h2>Body</h2>
-                
-                <ul class="list-group">
+                <div class="col-md-12">
+                    <h2>Body</h2>
+                </div>
+                <ul class="list-group list-group--body">
                 {{for x in item.body:}}                
                     <li class="list-group-item">{{=x.name}}</li>
                 {{pass}}
                 </ul>
                     
                 <!-- input control for **furnishing** -->
+                
+                <div class="col-md-12">
+                    <h2>Furnishing</h2>
+                </div>
 
-                <h2>Furnishing</h2>
-
-                <ul class="list-group">
+                <ul class="list-group list-group--furnishing">
                 {{for x in item.furnishing:}}                
                     <li class="list-group-item">{{=x.name}}</li>
                 {{pass}}
