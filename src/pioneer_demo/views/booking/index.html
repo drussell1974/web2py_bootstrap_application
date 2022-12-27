@@ -28,8 +28,8 @@
                       <a href="{{=URL('booking_note', 'index', args=[item.id])}}"  class="btn btn-sm btn-secondary">Show Notes</a>
                     </td>
                     <td>
-                        <a href="{{=URL('delete', args=[item.id])}}" class="btn btn-sm btn-danger">Delete</a>
-                        <a href="{{=URL('edit', args=[item.id])}}"  class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{=URL('delete', args=[item.id])}}" class="btn btn-sm btn-danger" id="delete_button-{{item.id}}">Delete</a>
+                        <a href="{{=URL('edit', args=[item.id])}}"  class="btn btn-sm btn-primary" id="edit_button-{{item.id}}">Edit</a>
                     </td>
                   </tr>
                 {{pass}}
