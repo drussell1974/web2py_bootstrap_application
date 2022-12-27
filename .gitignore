@@ -7,3 +7,5 @@ package-lock.json
 # files
 **/db_custom.py
 **/__pycache__/*
+**/errors/*
+**/sessions/*

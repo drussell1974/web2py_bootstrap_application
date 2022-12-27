@@ -11,6 +11,7 @@
   "scripts": {
     "test": "echo 'hello, world!'",
     "start": "python3 ../web2py/web2py.py -a '1234' -i 127.0.0.1 -p 8000",
-    "deploy": "cp src/pioneer_demo -R ../web2py/applications && cp src/bootstrap_template -R ../web2py/applications && cp src/bootstrap_tutorial -R ../web2py/applications"
+    "deploy": "cp src/pioneer_demo -R ../web2py/applications && cp src/bootstrap_template -R ../web2py/applications && cp src/bootstrap_tutorial -R ../web2py/applications",
+    "release": "cd src && tar --exclude='pioneer_demo/errors/*' --exclude='pioneer_demo/session/*' -czvf web2py.app.pioneer_demo.w2p pioneer_demo && mv -f web2py.app.pioneer_demo.w2p releases"
   }
 }
