@@ -1,68 +1,101 @@
-# web2py_bootstrap_application
-bootstrap_template scaffold application for web2py
+# phaser_lessons
+lessons from the boilerplates for teaching games programming using drussell1974/phaser_edu
 
-# setup for development
+# Creating content
 
-For development create two folders: The repository and the web2py framework
+## Structure
 
-1. Create dev folder
-
-```mkdir dev```
-```cd dev```
-
-2. Clone the web2py_bootstrap_template source code to your local machine
-
-```git clone https://github.com/drussell1974/web2py_bootstrap_application.git```
-
-3. Download to dev folder https://mdipierro.pythonanywhere.com/examples/static/web2py_src.zip
-
-4. Extract zip
+- Use feature branches to develop code
 
 ```
-ROOT
-- dev
-    |- web2py_bootstrap_application <repository>
-        |- src
-            |- _bootstrap_template_
-    |- web2py_src <extracted>
-        |- web2py
-            |- applications
-                |- _bootstrap_template_
+ - master/
+    |- dev/
+        |- feature/<name>/
 ```
 
-# yarn 
+- Use the template to create a directory in source
 
-Use yarn to create packages e.g. unit test and deploy application to web2py/applications
+```
+<name>
+    |- activity
+        | - web2py.<name>.activity.w2p
+    |- solution
+        | - web2py.<name>.solution.w2p
+```
 
-See yarn docs:
+## Creating a new feature branch
 
-https://classic.yarnpkg.com/en/docs/usage
+1. Checkout the dev branch
 
-https://classic.yarnpkg.com/lang/en/docs/cli/run/
+```
+git checkout dev
+git pull
+```
 
-## tasks
+2. Create a new feature branch from the dev branch
 
-*Start application*
+``` git branch feature/<name> ```
 
-Runs the web2py application
+## Create your directory in the src folder for your game
 
-``` yarn start ```
+3. Use the following command to create a directory
 
-*Unit Test*
+After running the command you will be prompted to enter a name (no spaces - use underscore)
 
-TODO: Test application
+``` yarn run create_activity ```
 
-``` yarn run unittest ```
+### Change the name shown in the browser tab
 
-*Deploy*
+Show the name of your activity shown in the browser tab by editing the title in the index.html
 
-1. TODO: Test application
-2. Copy to ../web2py_src/web2py/applications
+1. Open the index.html
+2. Update the e.g. <title>Use collision detection</title>
 
-``` yarn run deploy ```
+```
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <!-- feature title -->
+    <title>Create an animated sprite</title>
+    <!-- get the phaser3 framework when page is loading -->
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
 
-*Build*
+    <!-- Load the game from the javascript file game.js -->
+    <!-- This is run in the body after page has loaded -->
+    <script src="js/game.js"></script>
 
-TODO: Test application and create zip and tar files
+</body>
+</html>
+```
 
-``` yarn run build ```
+### Change the configuration for the game accordingly
+
+3. Open js/game.js 
+
+```
+var config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
+```

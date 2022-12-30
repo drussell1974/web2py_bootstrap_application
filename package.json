@@ -9,9 +9,9 @@
   "devDependencies": {},
   "dependencies": {},
   "scripts": {
-    "test": "echo 'hello, world!'",
-    "start": "python3 ../web2py/web2py.py -a '1234' -i 127.0.0.1 -p 8000",
+    "test_env": "python3 ../web2py/web2py.py -a '1234' -i 127.0.0.1 -p 8000",
+    "create_application": "read -p 'enter application name (use `_` for space): ' application_name; read -p 'enter template name (default `bootstrap_template`): ' template_name;cp -R src/${template_name:-bootstrap_template} src/$application_name",
     "deploy": "cp src/pioneer_demo -R ../web2py/applications && cp src/bootstrap_template -R ../web2py/applications && cp src/bootstrap_tutorial -R ../web2py/applications",
-    "release": "tar -C src --exclude='pioneer_demo/errors/*' --exclude='pioneer_demo/sessions/*' -czvf web2py.app.pioneer_demo.w2p pioneer_demo/ && mv -f web2py.app.pioneer_demo.w2p releases"
+    "build": "tar -C src --exclude='pioneer_demo/errors/*' --exclude='pioneer_demo/sessions/*' -czvf web2py.app.pioneer_demo.w2p pioneer_demo/ && mv -f web2py.app.pioneer_demo.w2p releases"
   }
 }
