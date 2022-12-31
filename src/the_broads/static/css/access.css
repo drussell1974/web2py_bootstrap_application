@@ -1,0 +1,26 @@
+#access {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #ffffff;
+	background-color: #3D4136;
+	font-size: 14px;
+	text-align: right;
+	padding-right: 15px;
+}
+#access ul {
+	list-style-type: none;
+}
+#access li {
+	text-align: center;
+	font-size: 16px;
+	display: inline-block;
+	padding-right: 10px;
+}
+#access a {
+	text-decoration: none;
+	color: #ffffff;
+	display: block;
+	border: 1px solid #ffffff;
+	padding: 0 10px;
+}

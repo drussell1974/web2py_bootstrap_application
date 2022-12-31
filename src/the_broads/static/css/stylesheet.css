@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* COMMENT: Used to style ALL pages */
+body {
+	/*
+	background-color: #DAD3D0 ;
+	font-family: veranda;
+	font-size: 20px;
+	color: #3D4136; 
+	*/
+}
+#header  {
+	background-color: #8E44A4;
+}
+#footer {
+	background-color: black;
+	padding: 30px;
+}
+#footer ul {
+	/* remove bullets points from list items */
+	list-style-type: none;
+}
+#footer a {
+	color: white;
+}
+#footer h3 {
+	color: white;
+}
+/* COMMENT: MAIN MENU */
+.nav {
+	padding: 10px;
+}	
+.nav a {
+	/* MAIN MENU hyperlinks default */
+	/* White text for menu item */
+	color: white;
+	padding: 10px;
+}
+.nav a:hover {
+	/* MAIN MENU hyperlinks mouse hover
+	background-color: ;
+	color: ;
+	*/
+}
+/* COMMENT: Used to style the table */
+table {
+	background: #c0c0c0;
+	border-collapse: collapse;
+}
+table th {
+	border: 1px solid #575757;
+}
+table tr, table td {
+	border: 1px solid #575757;
+}
+table img {
+
+}
+/* COMMENT: Used to style the forms */
+input[type="text"], input[type="email"], textarea {
+
+}
+input[type=submit]  {
+	
+}
+input[type=submit]:hover  {
+
+}
+/* COMMENT: Used to style the videos and map on the About page */ 
+.video {
+	
+}
+.video iframe {
+	
+}
+/* COMMENT: Used on the slideshow on the Carousel Example PAGE */
+
+/* slide show */
+.full-width-image {
+	/* responsive banner image*/
+}
+.image-caption {
+	background-color: #8E44A4;
+	color: white;
+}
+.image-caption a {
+	color: white;
+}
+#banner-advert {
+	padding: 20px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#search {
+	padding: 20px;
+}
+#carouselExampleIndicators {
+	padding: 30px 0;
+}
