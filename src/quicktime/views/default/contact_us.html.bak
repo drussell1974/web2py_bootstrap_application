@@ -1,0 +1,56 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div class="card">
+                <img src="{{=URL('static', 'images/placeholder/1400x175.png')}}" class="card-img-top" alt="Main Telephone">
+                <div class="card-body">
+                  <h5 class="card-title">Main telephone number</h5>
+                  <p class="card-text display-4">(01234) 456-7890</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row jumbotron bg-color_5">
+        <div class="col-md-12">
+
+            <form>
+                <h2>Message us your query or comments</h2>
+                <div class="form-group">
+                    <label>Email address</label>
+                    <input type="email" class="form-control" name="email_address" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" class="form-control" name="message" placeholder="Type your message here" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="card col-md-4">
+            <img src="{{=URL('static', 'images/placeholder/sil-male.png')}}" class="card-img-top" alt="Erik B. Brown">
+            <div class="card-body">
+                <h3 class="card-title">Erik B. Brown</h3>
+                <h4>Managing Director</h4>
+                <p>Erik is the managing director of QuickTime Cinema. He joined us in 1995 as a popcorn seller.</p>
+            </div>
+        </div>
+        
+        <div class="card col-md-4">
+            <img src="{{=URL('static', 'images/placeholder/sil-female.png')}}" class="card-img-top" alt="Rosa D. Perez">
+            <div class="card-body">
+                <h3 class="card-title">Rosa D. Perez</h3>
+                <h4>Manager</h4>
+                <p>Rosa is the manager of QuickTime Cinema. She joined us in 2015.</p>
+            </div>
+        </div>
+        
+    </div>
+</div>
