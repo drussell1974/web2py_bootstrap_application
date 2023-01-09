@@ -1,0 +1,36 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+            <!-- Content Full Width -->
+            <a href="{{=URL('booking', 'view', args=[booking.id])}}" class="btn btn-secondary">View booking</a>
+            <p>Description: {{=booking.description}}</p>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date/Time</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">
+                        <a href="{{=URL('edit', args=[booking.id])}}" class="btn btn-sm btn-secondary" id="new_button">New</a>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{for item in rows:}}
+                  <tr>
+                    <th scope="row"><a href="{{=URL('view', args=[booking.id, item.id])}}" id="view_button--{{=item.id}}">{{=item.id}}</a></th>
+                    <td>{{=item.date}}</td>
+                    <td width="50%">{{=item.note}}</td>
+                    <td>
+                        <a href="{{=URL('delete', args=[booking.id, item.id])}}" class="btn btn-sm btn-danger" id="delete_button--{{=item.id}}">Delete</a>
+                        <a href="{{=URL('edit', args=[booking.id, item.id])}}" class="btn btn-sm btn-primary" id="edit_button--{{=item.id}}">Edit</a>
+                    </td>
+                  </tr>
+                {{pass}}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

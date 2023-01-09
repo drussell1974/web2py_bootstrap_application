@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 The web2py welcome app is licensed under public domain 
 (except for the css and js files that it includes, which have their own third party licenses).
 
 You can modify this license when you add your own code.
+=======
+The web2py welcome app is licensed under public domain 
+(except for the css and js files that it includes, which have their own third party licenses).
+
+You can modify this license when you add your own code.
+>>>>>>> b6cfd75fb0108bc951d3af8d26556cc54b8e1568

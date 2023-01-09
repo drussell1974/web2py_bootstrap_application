@@ -1,0 +1,61 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+            <!-- Content Full Width -->
+            <div class="horizontal">
+
+                <!-- input control for **registration_no** -->
+
+                <div class="input-group">
+                    <label for="first_name" class="col-md-2">Registration No</label>
+                    <input type="text" value="{{=item.registration_no}}" readonly class="col-md-10 form-control" placeholder="Enter registration no" aria-describedby="customer registration no">
+                </div>
+
+                <!-- input control for **engine** -->
+                
+                <div class="col-md-12">
+                    <h2>Engine</h2>
+                </div>
+
+                <ul class="list-group list-group--engine">
+                {{for x in item.engine:}}                
+                    <li class="list-group-item">{{=x.name}}</li>
+                {{pass}}
+                </ul>
+
+                <!-- input control for **body** -->
+
+                <div class="col-md-12">
+                    <h2>Body</h2>
+                </div>
+                <ul class="list-group list-group--body">
+                {{for x in item.body:}}                
+                    <li class="list-group-item">{{=x.name}}</li>
+                {{pass}}
+                </ul>
+                    
+                <!-- input control for **furnishing** -->
+                
+                <div class="col-md-12">
+                    <h2>Furnishing</h2>
+                </div>
+
+                <ul class="list-group list-group--furnishing">
+                {{for x in item.furnishing:}}                
+                    <li class="list-group-item">{{=x.name}}</li>
+                {{pass}}
+                </ul>
+
+                <!-- edit and delete controls for form fields -->
+
+                <div class="input-group col-md-12">
+                    <a href="{{=URL('delete', args=[item.registration_no])}}" class="btn btn-danger" id="delete_button">Delete</a> 
+                    <a href="{{=URL('edit', args=[item.registration_no])}}" class="btn btn-primary" id="edit_button">Edit</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

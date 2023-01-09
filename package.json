@@ -10,7 +10,8 @@
   "dependencies": {},
   "scripts": {
     "test": "echo 'hello, world!'",
-    "start": "python3 ../web2py_src/web2py/web2py.py -a 'password' -i 127.0.0.1 -p 8000",
-    "deploy": "cp src/bootstrap_template -R ../web2py_src/web2py/applications && cp src/bootstrap_tutorial -R ../web2py_src/web2py/applications"
+    "start": "python3 ../web2py/web2py.py -a '1234' -i 127.0.0.1 -p 8000",
+    "deploy": "cp src/pioneer_demo -R ../web2py/applications && cp src/bootstrap_template -R ../web2py/applications && cp src/bootstrap_tutorial -R ../web2py/applications",
+    "release": "tar -C src --exclude='pioneer_demo/errors/*' --exclude='pioneer_demo/sessions/*' -czvf web2py.app.pioneer_demo.w2p pioneer_demo/ && mv -f web2py.app.pioneer_demo.w2p releases"
   }
 }

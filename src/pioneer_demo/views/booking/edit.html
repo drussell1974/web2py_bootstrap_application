@@ -1,0 +1,105 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+            <!-- Content Full Width -->
+            <form action="" enctype="multipart/form-data" method="post" class="horizontal">
+
+                <!-- hidden control for **id** -->
+
+                <div class="input-group">
+                    <input type="hidden" name="id" value="{{=item.id}}"/>
+                </div>
+
+                <!-- input control for **description** -->
+
+                <div class="input-group">
+                    <label for="description" class="col-md-2">Note</label>
+                    <textarea name="description" rows="4" class="col-md-10 form-control" placeholder="Enter note" aria-describedby="description">{{=item.description}}</textarea>
+                    <hr/>
+                </div>
+
+                <!-- select control for **registration_no** -->
+
+                <div class="input-group">
+                    <label for="registration_no" class="col-md-2">Vehicle</label>
+                    <select name="registration_no" class="col-md-10 form-control" aria-describedby="select vehicle registration">
+                        <option value="0">- Select Vehicle -</option>
+                    {{ for vehicle_item in vehicle_list: }}
+                        <option value="{{=vehicle_item.registration_no}}" {{if vehicle_item.registration_no == item.registration_no:}}selected{{pass}} >{{=vehicle_item.registration_no}}</option>
+                    {{ pass }}
+                    </select>
+                </div>
+
+                <!-- select control for **staff_id** -->
+
+                <div class="input-group">
+                    <label for="staff_id" class="col-md-2">Staff</label>
+                    <select name="staff_id" class="col-md-10 form-control" aria-describedby="select staff">
+                        <option value="0">- Select Staff -</option>
+                    {{ for staff_item in staff_list: }}
+                        <option value="{{=staff_item.id}}" {{if staff_item.id == item.staff.id:}}selected{{pass}} >{{=staff_item.surname}}, {{=staff_item.first_name}}</option>
+                    {{ pass }}
+                    </select>
+                </div>
+
+
+                <!-- select control for **customer_id** -->
+
+                <div class="input-group">
+                    <label for="customer_id" class="col-md-2">Customer</label>
+                    <select name="customer_id" class="col-md-10 form-control" aria-describedby="select customer">
+                        <option value="0">- Select Customer -</option>
+                    {{ for customer_item in customer_list: }}
+                        <option value="{{=customer_item.id}}" {{if customer_item.id == item.customer.id:}}selected{{pass}} >{{=customer_item.surname}}, {{=customer_item.first_name}}</option>
+                    {{ pass }}
+                    </select>
+                </div>
+
+                <!-- select control for **urgency_id** -->
+
+                <div class="input-group">
+                    <label for="urgency_id" class="col-md-2">Urgency</label>
+                    <select name="urgency_id" class="col-md-10 form-control" aria-describedby="select urgency">
+                        <option value="0">- Select Urgency -</option>
+                    {{ for urgency_item in urgency_list: }}
+                        <option value="{{=urgency_item.id}}" {{if urgency_item.id == item.urgency.id:}}selected{{pass}} >{{=urgency_item.name}}</option>
+                    {{ pass }}
+                    </select>
+                </div>
+
+                <!-- select control for **booking_type_id** -->
+
+                <div class="input-group">
+                    <label for="booking_type_id" class="col-md-2">Booking Type</label>
+                    <select name="booking_type_id" class="col-md-10 form-control" aria-describedby="select booking type">
+                        <option value="0">- Select Booking Type -</option>
+                    {{ for booking_type_item in booking_type_list: }}
+                        <option value="{{=booking_type_item.id}}" {{if booking_type_item.id == item.booking_type.id:}}selected{{pass}} >{{=booking_type_item.name}}</option>
+                    {{ pass }}
+                    </select>
+                </div>
+
+                <!-- select control for **staff_id** -->
+
+                <div class="input-group">
+                    <label for="assigned_driver_id" class="col-md-2">Assign Driver</label>
+                    <select name="assigned_driver_id" class="col-md-10 form-control" aria-describedby="select driver">
+                        <option value="0">- Select Driver -</option>
+                    {{ for staff_item in staff_list: }}
+                        <option value="{{=staff_item.id}}" {{if staff_item.id == item.staff.id:}}selected{{pass}} >{{=staff_item.surname}}, {{=staff_item.first_name}}</option>
+                    {{ pass }}
+                    </select>
+                </div>
+                <!-- submit/cancel controls for form fields -->
+
+                <div class="input-group col-md-12">
+                    <button type="submit" value="Submit" class="btn btn-primary pull-right" id="submit_button">Submit</button>
+                    <button type="cancel" value="Cancel" class="btn btn-secondary pull-right" id="cancel_button">Cancel</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
