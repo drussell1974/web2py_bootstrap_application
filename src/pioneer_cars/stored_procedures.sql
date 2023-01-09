@@ -1,3 +1,5 @@
+USE drussellkc$pioneer_cars;
+
 DELIMITER $$
 CREATE PROCEDURE `booking_delete`(IN p_id int)
 BEGIN
@@ -406,7 +408,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE `vehicle_upsert`(IN p_old_registration_no varchar(10), IN p_registration_no varchar(10))
 BEGIN
-	if length(p_old_chassis_no) > 0 then
+	if length(p_old_registration_no) > 0 then
 		update vehicle
         set
 			registration_no = p_registration_no
@@ -421,5 +423,75 @@ BEGIN
 	end if;
 
 
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS vehicle_upsert;
+
+CREATE PROCEDURE vehicle_upsert(IN p_old_registration_no varchar(10), IN p_registration_no varchar(10))
+BEGIN
+	if length(p_old_registration_no) > 0 then
+		update vehicle
+        set
+			registration_no = p_registration_no
+        where registration_no = p_old_registration_no;
+
+    else
+		insert vehicle
+			(registration_no)
+        values
+			(p_registration_no);
+
+	end if;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS vehicle_engine_delete;
+CREATE PROCEDURE vehicle_engine_delete(IN p_old_registration_no varchar(10))
+BEGIN
+    SELECT 'TODO';
+END$$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS vehicle_engine_insert;
+CREATE PROCEDURE vehicle_engine_insert(IN id INT, IN p_old_registration_no varchar(10))
+BEGIN
+    SELECT 'TODO';
+END$$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS vehicle_body_delete;
+CREATE PROCEDURE vehicle_body_delete(IN p_old_registration_no varchar(10))
+BEGIN
+    SELECT 'TODO';
+END$$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS vehicle_body_insert;
+CREATE PROCEDURE vehicle_body_insert(IN id INT, IN p_old_registration_no varchar(10))
+BEGIN
+    SELECT 'TODO';
+END$$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS vehicle_furnishing_delete;
+CREATE PROCEDURE vehicle_furnishing_delete(IN p_old_registration_no varchar(10))
+BEGIN
+    SELECT 'TODO';
+END$$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS vehicle_furnishing_insert;
+CREATE PROCEDURE vehicle_furnishing_insert(IN id INT, IN p_old_registration_no varchar(10))
+BEGIN
+    SELECT 'TODO';
 END$$
 DELIMITER ;

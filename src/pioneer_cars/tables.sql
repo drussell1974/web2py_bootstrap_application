@@ -1,3 +1,5 @@
+USE drussellkc$pioneer_cars;
+
 SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE booking;
@@ -125,6 +127,22 @@ CREATE TABLE `urgency` (
 CREATE TABLE `vehicle` (
   `registration_no` varchar(10) NOT NULL,
   PRIMARY KEY (`registration_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+
+CREATE TABLE body (
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE engine (
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE furnishing (
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 SET FOREIGN_KEY_CHECKS=0;
