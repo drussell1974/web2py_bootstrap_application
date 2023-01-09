@@ -1,0 +1,32 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+    <div class="row jumbotron">
+        <div class="col-md-12">
+            <!-- Content Full Width -->
+            <form action="" enctype="multipart/form-data" method="post" class="horizontal">
+
+                <!-- hidden control for **id** -->
+                <div class="input-group">
+                    <input type="hidden" name="id" value="{{=item.id}}"/>
+                    <input type="hidden" name="booking_id" value="{{=item.booking.id}}"/>
+                </div>
+
+                <!-- input control for **note** -->
+
+                <div class="input-group">
+                    <label for="note" class="col-md-2">Note</label>
+                    <textarea name="note" rows="4" style="width:100%" placeholder="Enter note" aria-describedby="booking note">{{=item.note}}</textarea>
+                </div>
+
+                <!-- submit/cancel controls for form fields -->
+
+                <div class="input-group col-md-12">
+                    <button type="submit" value="Submit" class="btn btn-primary pull-right">Submit</button>
+                    <button type="cancel" value="Cancel" class="btn btn-secondary pull-right">Cancel</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
