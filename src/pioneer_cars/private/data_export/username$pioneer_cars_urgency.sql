@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
--- Host: localhost    Database: drussellkc$pioneer_ltd
+-- Host: <username>.mysql.eu.pythonanywhere-services.com    Database: <username>$pioneer_cars
 -- ------------------------------------------------------
 -- Server version	5.7.34-log
 
