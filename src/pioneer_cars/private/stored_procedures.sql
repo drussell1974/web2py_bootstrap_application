@@ -1,4 +1,4 @@
-USE drussellkc$pioneer_cars;
+USE pioneer_cars;
 
 DELIMITER $$
 CREATE PROCEDURE `booking_delete`(IN p_id int)

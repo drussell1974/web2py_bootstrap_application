@@ -14,6 +14,9 @@ DROP TABLE membership_level;
 DROP TABLE staff;
 DROP TABLE urgency;
 DROP TABLE vehicle;
+DROP TABLE body;
+DROP TABLE engine;
+DROP TABLE furnishing;
 
 CREATE TABLE `booking` (
   `id` int NOT NULL AUTO_INCREMENT,
