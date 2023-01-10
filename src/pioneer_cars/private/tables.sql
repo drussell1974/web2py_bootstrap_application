@@ -2,21 +2,24 @@ USE drussellkc$pioneer_cars;
 
 SET FOREIGN_KEY_CHECKS=0;
 
-DROP TABLE booking;
-DROP TABLE booking_note;
-DROP TABLE booking_type;
-DROP TABLE caller;
-DROP TABLE customer;
-DROP TABLE department;
-DROP TABLE job_role;
-DROP TABLE membership;
-DROP TABLE membership_level;
-DROP TABLE staff;
-DROP TABLE urgency;
-DROP TABLE vehicle;
-DROP TABLE body;
-DROP TABLE engine;
-DROP TABLE furnishing;
+DROP TABLE IF EXISTS booking;
+DROP TABLE IF EXISTS booking_note;
+DROP TABLE IF EXISTS booking_type;
+DROP TABLE IF EXISTS caller;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS department;
+DROP TABLE IF EXISTS job_role;
+DROP TABLE IF EXISTS membership;
+DROP TABLE IF EXISTS membership_level;
+DROP TABLE IF EXISTS staff;
+DROP TABLE IF EXISTS urgency;
+DROP TABLE IF EXISTS vehicle;
+DROP TABLE IF EXISTS vehicle_body;
+DROP TABLE IF EXISTS body;
+DROP TABLE IF EXISTS vehicle_engine;
+DROP TABLE IF EXISTS engine;
+DROP TABLE IF EXISTS vehicle_furnishing;
+DROP TABLE IF EXISTS furnishing;
 
 CREATE TABLE `booking` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -132,10 +135,21 @@ CREATE TABLE `vehicle` (
   PRIMARY KEY (`registration_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
-
 CREATE TABLE body (
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE vehicle_body (
+	registration_no varchar(10) NOT NULL,
+    body_id int NOT NULL,
+    primary key (registration_no, body_id),
+  CONSTRAINT `vehicle_body_has_vehicle` 
+	FOREIGN KEY (`registration_no`) REFERENCES `vehicle` (`registration_no`)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vehicle_body_has_body` 
+	FOREIGN KEY (`body_id`) REFERENCES `body` (`id`)
+        ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE engine (
@@ -143,9 +157,33 @@ CREATE TABLE engine (
     name varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
+CREATE TABLE vehicle_engine (
+	registration_no varchar(10) NOT NULL,
+    engine_id int NOT NULL,
+    primary key (registration_no, engine_id),
+  CONSTRAINT `vehicle_engine_has_vehicle` 
+	FOREIGN KEY (`registration_no`) REFERENCES `vehicle` (`registration_no`)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vehicle_engine_has_engine` 
+	FOREIGN KEY (`engine_id`) REFERENCES `engine` (`id`)
+        ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
 CREATE TABLE furnishing (
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE vehicle_furnishing (
+	registration_no varchar(10) NOT NULL,
+    furnishing_id int NOT NULL,
+    primary key (registration_no, furnishing_id),
+  CONSTRAINT `vehicle_furnishing_has_vehicle` 
+	FOREIGN KEY (`registration_no`) REFERENCES `vehicle` (`registration_no`)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vehicle_engine_has_furnishing` 
+	FOREIGN KEY (`furnishing_id`) REFERENCES `furnishing` (`id`)
+        ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 SET FOREIGN_KEY_CHECKS=0;

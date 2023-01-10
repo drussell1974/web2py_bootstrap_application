@@ -443,7 +443,6 @@ BEGIN
 			(registration_no)
         values
 			(p_registration_no);
-
 	end if;
 END$$
 DELIMITER ;
@@ -452,15 +451,17 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS vehicle_engine_delete;
 CREATE PROCEDURE vehicle_engine_delete(IN p_old_registration_no varchar(10))
 BEGIN
-    SELECT 'TODO';
+    DELETE FROM vehicle_engine 
+    WHERE registration_no = p_old_registration_no;
 END$$
 DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS vehicle_engine_insert;
-CREATE PROCEDURE vehicle_engine_insert(IN id INT, IN p_old_registration_no varchar(10))
+CREATE PROCEDURE vehicle_engine_insert(IN p_engine_id INT, IN p_registration_no varchar(10))
 BEGIN
-    SELECT 'TODO';
+    INSERT vehicle_engine (engine_id, registration_no)
+    VALUES (p_engine_id, p_registration_no);
 END$$
 DELIMITER ;
 
@@ -468,15 +469,17 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS vehicle_body_delete;
 CREATE PROCEDURE vehicle_body_delete(IN p_old_registration_no varchar(10))
 BEGIN
-    SELECT 'TODO';
+    DELETE FROM vehicle_body 
+    WHERE registration_no = p_old_registration_no;
 END$$
 DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS vehicle_body_insert;
-CREATE PROCEDURE vehicle_body_insert(IN id INT, IN p_old_registration_no varchar(10))
+CREATE PROCEDURE vehicle_body_insert(IN p_body_id INT, IN p_old_registration_no varchar(10))
 BEGIN
-    SELECT 'TODO';
+    INSERT vehicle_body (body_id, registration_no)
+    VALUES (p_body_id, p_registration_no);
 END$$
 DELIMITER ;
 
@@ -484,14 +487,16 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS vehicle_furnishing_delete;
 CREATE PROCEDURE vehicle_furnishing_delete(IN p_old_registration_no varchar(10))
 BEGIN
-    SELECT 'TODO';
+    DELETE FROM vehicle_furnishing 
+    WHERE registration_no = p_old_registration_no;
 END$$
 DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS vehicle_furnishing_insert;
-CREATE PROCEDURE vehicle_furnishing_insert(IN id INT, IN p_old_registration_no varchar(10))
+CREATE PROCEDURE vehicle_furnishing_insert(IN p_furnishing_id INT, IN p_old_registration_no varchar(10))
 BEGIN
-    SELECT 'TODO';
+    INSERT vehicle_furnishing (furnishing_id, registration_no)
+    VALUES (p_furnishing_id, p_registration_no);
 END$$
 DELIMITER ;
