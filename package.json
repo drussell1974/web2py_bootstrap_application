@@ -11,7 +11,7 @@
   "scripts": {
     "test_env": "python3 ../web2py/web2py.py -a '1234' -i 127.0.0.1 -p 8000",
     "create_application": "read -p 'enter application name (use `_` for space): ' application_name; read -p 'enter template name (default `bootstrap_template`): ' template_name;cp -R src/${template_name:-bootstrap_template} src/$application_name",
-    "deploy": "cp src/pioneer_demo -R ../web2py/applications && cp src/bootstrap_template -R ../web2py/applications && cp src/bootstrap_tutorial -R ../web2py/applications && cp src/pioneer_prototype -R ../web2py/applications",
+    "deploy": "cp src/pioneer_demo -R ../web2py/applications && cp src/bootstrap_template -R ../web2py/applications && cp src/bootstrap_tutorial -R ../web2py/applications && cp src/bootstrap_prototype -R ../web2py/applications",
     "build": "tar -C src --exclude='pioneer_demo/errors/*' --exclude='pioneer_demo/sessions/*' -czvf web2py.app.bootstrap_prototype.w2p bootstrap_prototype/ && mv -f web2py.app.bootstrap_prototype.w2p releases"
   }
 }
