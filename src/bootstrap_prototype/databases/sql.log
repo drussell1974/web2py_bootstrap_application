@@ -1,0 +1,271 @@
+timestamp: 2022-12-20T12:08:42.032168
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512)
+);
+success!
+timestamp: 2022-12-20T12:08:42.088173
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2022-12-20T12:08:42.110214
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2022-12-20T12:08:42.139213
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2022-12-20T12:08:42.167230
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2022-12-20T12:08:42.195249
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2022-12-20T12:08:42.226222
+CREATE TABLE "employee_of_the_month"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "image_path" CHAR(512),
+    "name" CHAR(30),
+    "job_role" CHAR(50),
+    "qualities" TEXT,
+    "quote" TEXT
+);
+success!
+timestamp: 2022-12-21T07:42:29.705342
+CREATE TABLE `caller`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(45),
+    `surname` VARCHAR(45),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2022-12-21T07:54:15.136091
+CREATE TABLE `caller`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(45),
+    `surname` VARCHAR(45),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2022-12-21T07:55:29.917345
+CREATE TABLE `caller`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(45),
+    `surname` VARCHAR(45),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2022-12-21T07:56:35.324851
+CREATE TABLE `caller`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(45),
+    `surname` VARCHAR(45),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2022-12-21T08:18:03.612955
+ALTER TABLE `caller` ADD `job_role_id` VARCHAR(45);
+faked!
+timestamp: 2022-12-21T08:18:03.636155
+CREATE TABLE `get_caller`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(45),
+    `surname` VARCHAR(45),
+    `job_title` VARCHAR(45),
+    `department_name` VARCHAR(45),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2022-12-21T08:20:40.980895
+CREATE TABLE `get_callers`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(45),
+    `surname` VARCHAR(45),
+    `job_title` VARCHAR(45),
+    `department_name` VARCHAR(45),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2022-12-21T08:44:54.513423
+CREATE TABLE `department`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `name` VARCHAR(45),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2022-12-21T08:44:54.529589
+CREATE TABLE `job_role`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `job_title` VARCHAR(90),
+    `department` INT  , INDEX `department__idx` (`department`), FOREIGN KEY (`department`) REFERENCES `department` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2022-12-21T08:44:54.549699
+ALTER TABLE `caller` ADD `job_role` INT  , ADD INDEX `job_role__idx` (`job_role`), ADD FOREIGN KEY (`job_role`) REFERENCES `job_role` (`id`) ON DELETE CASCADE;
+faked!
+timestamp: 2022-12-21T08:44:54.628762
+ALTER TABLE `caller` DROP COLUMN `job_role_id`;
+faked!
+timestamp: 2022-12-21T08:52:10.804389
+ALTER TABLE `job_role` ADD `department_id` INT  , ADD INDEX `department_id__idx` (`department_id`), ADD FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE CASCADE;
+faked!
+timestamp: 2022-12-21T08:52:10.827806
+ALTER TABLE `job_role` DROP COLUMN `department`;
+faked!
+timestamp: 2022-12-21T08:52:10.852490
+ALTER TABLE `caller` ADD `job_role_id` INT  , ADD INDEX `job_role_id__idx` (`job_role_id`), ADD FOREIGN KEY (`job_role_id`) REFERENCES `job_role` (`id`) ON DELETE CASCADE;
+faked!
+timestamp: 2022-12-21T08:52:10.873715
+ALTER TABLE `caller` DROP COLUMN `job_role`;
+faked!
+timestamp: 2022-12-21T12:13:10.868016
+ALTER TABLE `caller` ADD `job_title` VARCHAR(45);
+faked!
+timestamp: 2022-12-21T12:13:10.890204
+ALTER TABLE `caller` ADD `department` VARCHAR(45);
+faked!
+timestamp: 2022-12-21T12:13:36.814160
+ALTER TABLE `caller` ADD `department_name` VARCHAR(45);
+faked!
+timestamp: 2022-12-21T12:13:36.835526
+ALTER TABLE `caller` DROP COLUMN `department`;
+faked!
+timestamp: 2022-12-21T12:15:28.163941
+ALTER TABLE `caller` DROP COLUMN `job_title`;
+faked!
+timestamp: 2022-12-21T12:15:28.185370
+ALTER TABLE `caller` DROP COLUMN `department_name`;
+faked!
+timestamp: 2022-12-21T12:40:25.386667
+ALTER TABLE `caller` ADD `job_title` VARCHAR(90);
+faked!
+timestamp: 2022-12-21T12:40:25.412585
+ALTER TABLE `caller` ADD `department_name` VARCHAR(45);
+faked!
+timestamp: 2022-12-21T12:40:25.434977
+ALTER TABLE `caller` DROP COLUMN `job_role_id`;
+faked!
+timestamp: 2022-12-21T12:48:50.202755
+ALTER TABLE `caller` ADD `job_role_id` INT  , ADD INDEX `job_role_id__idx` (`job_role_id`), ADD FOREIGN KEY (`job_role_id`) REFERENCES `job_role` (`id`) ON DELETE CASCADE;
+faked!
+success!
+timestamp: 2022-12-21T12:52:50.670432
+ALTER TABLE `caller` ADD `department_id` INT  , ADD INDEX `department_id__idx` (`department_id`), ADD FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE CASCADE;
+faked!
+success!
+timestamp: 2022-12-21T17:27:53.254009
+ALTER TABLE `job_role` ADD `department` INT  , ADD INDEX `department__idx` (`department`), ADD FOREIGN KEY (`department`) REFERENCES `department` (`id`) ON DELETE CASCADE;
+faked!
+timestamp: 2022-12-21T17:27:53.280064
+ALTER TABLE `job_role` DROP COLUMN `department_id`;
+faked!
+timestamp: 2022-12-21T17:28:36.389187
+ALTER TABLE `job_role` ADD `department_id` INT  , ADD INDEX `department_id__idx` (`department_id`), ADD FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE CASCADE;
+faked!
+timestamp: 2022-12-21T17:28:36.410892
+ALTER TABLE `job_role` ADD `department_name` VARCHAR(45);
+faked!
+timestamp: 2022-12-21T17:28:36.432187
+ALTER TABLE `job_role` DROP COLUMN `department`;
+faked!
+timestamp: 2022-12-21T17:34:01.135881
+ALTER TABLE `job_role` DROP COLUMN `department_name`;
+faked!
+timestamp: 2023-03-21T12:22:14.396341
+CREATE TABLE `user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+faked!
+timestamp: 2023-03-21T12:27:16.232626
+CREATE TABLE "user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(512)
+);
+success!
+timestamp: 2023-03-21T12:29:43.984103
+ALTER TABLE "user" ADD "last_name" CHAR(512);
+timestamp: 2023-03-21T12:29:44.026279
+ALTER TABLE "user" ADD "email" CHAR(512);
+success!
+timestamp: 2023-03-21T12:35:26.979352
+CREATE TABLE "user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "email" CHAR(512)
+);
+timestamp: 2023-03-21T12:35:45.028170
+CREATE TABLE "user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "email" CHAR(512)
+);
+timestamp: 2023-03-21T12:36:44.710278
+CREATE TABLE "user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "email" CHAR(512)
+);
+timestamp: 2023-03-21T12:37:44.699780
+CREATE TABLE "user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "email" CHAR(512)
+);
+timestamp: 2023-03-21T12:38:44.709392
+CREATE TABLE "user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "email" CHAR(512)
+);
+timestamp: 2023-03-21T12:39:44.772806
+CREATE TABLE "user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "email" CHAR(512)
+);
+timestamp: 2023-03-21T12:40:29.109308
+CREATE TABLE "caller"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "email" CHAR(512)
+);
+success!
