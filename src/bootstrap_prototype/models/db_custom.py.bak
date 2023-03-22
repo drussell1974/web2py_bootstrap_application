@@ -2,9 +2,10 @@
 # NOTE: the student will need permissions
 db = DAL('sqlite://storage.sqlite')
 
-URI = 'mysql://username:password@username.mysql.eu.pythonanywhere-services.com/username$database'
 production = False
 if production:
+    # connect to mysql
+    URI = 'mysql://<username>:<password>@<username>.mysql.eu.pythonanywhere-services.com/<username>$<database>'
     db = DAL(URI, pool_size=20, fake_migrate_all=True)
 
 # -------------------------------------------------------------------------
