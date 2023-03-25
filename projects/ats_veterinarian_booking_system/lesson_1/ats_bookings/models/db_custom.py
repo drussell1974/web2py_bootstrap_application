@@ -86,3 +86,11 @@ def add_treatment(pet_id, appointment_id, treatment_code, cost):
                                  appointment_id=appointment_id, 
                                  treatment_code=treatment_code, 
                                  cost=cost) 
+
+
+# function to add a new follow-up appointment 
+def add_followup(pet_id, branch, appointment_time, vet_id): 
+    return db.appointments.insert(pet_id=pet_id, 
+                                   branch=branch, 
+                                   appointment_time=appointment_time, 
+                                   vet_id=vet_id)
