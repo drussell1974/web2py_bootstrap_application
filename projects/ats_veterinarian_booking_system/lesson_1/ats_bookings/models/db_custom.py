@@ -20,8 +20,8 @@ if production:
 #
 # for test purposes only with sqlite
 
-db.define_table('clients',
-                Field('name', requires=IS_NOT_EMPTY())
+db.define_table('client',
+                Field('client_name', requires=IS_NOT_EMPTY())
                 )
 
 db.define_table('pets', 
@@ -36,6 +36,11 @@ def add_pet(pet_name, pet_breed, pet_sex, client_id):
                           pet_sex=pet_sex, 
                           client_id=client_id) 
 
+db.define_table('vets', 
+                Field('first_name', requires=IS_NOT_EMPTY()), 
+                Field('last_name', requires=IS_NOT_EMPTY()), 
+                Field('specialty', requires=IS_NOT_EMPTY())) 
+
 
 # appointments table to record appointments 
 db.define_table('appointments', 
@@ -47,7 +52,6 @@ db.define_table('appointments',
 # function to add a new appointment 
 def add_appointment(pet_id, branch, appointment_time, vet_id): 
     return db.appointments.insert(pet_id=pet_id, branch=branch, appointment_time=appointment_time, vet_id=vet_id)
-
 
 # function to find an available veterinarian based on specialty and branch 
 def find_available_vet(specialty, branch, appointment_time): 
