@@ -5,7 +5,7 @@ package-lock.json
 /node_modules
 
 # files
-**/db_custom.py
+src/**/db_custom.py
 **/__pycache__/*
 **/errors/*
 **/sessions/*
