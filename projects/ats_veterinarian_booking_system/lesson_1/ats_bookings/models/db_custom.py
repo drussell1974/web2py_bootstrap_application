@@ -73,3 +73,16 @@ def add_appointment(pet_id, branch, appointment_time, specialty):
     else: 
         return None 
     
+# treatments.py 
+
+db.define_table('treatments', 
+                Field('treatment_code', requires=IS_NOT_EMPTY()), 
+                Field('treatment_description', requires=IS_NOT_EMPTY()), 
+                Field('cost', 'decimal(10,2)', requires=IS_NOT_EMPTY())) 
+
+# function to add a new treatment for a pet during an appointment 
+def add_treatment(pet_id, appointment_id, treatment_code, cost): 
+    return db.treatments.insert(pet_id=pet_id, 
+                                 appointment_id=appointment_id, 
+                                 treatment_code=treatment_code, 
+                                 cost=cost) 
