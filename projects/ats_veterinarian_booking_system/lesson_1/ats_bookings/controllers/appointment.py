@@ -30,3 +30,20 @@ def book():
         response.error = 'Please correct the errors.'
 
     return {'form': form, 'appointments': appointments}
+
+
+# function to confirm the appointment 
+def confirm(): 
+    
+    form = SQLFORM.factory(Field('appointment_time', requires=IS_IN_DB(db, 'appointments.id', '%(appointment_time)s')), table_name='appointments') 
+    
+    if form.process().accepted: 
+        appointment_id = form.vars.appointment_time 
+        appointment = db(db.appointments.id == appointment_id).select().first() 
+        pet = db(db.pets.id == appointment.pet_id).select().first() 
+        vet_id = appointment.vet_id 
+        vet = db(db.vets.id == vet_id).select().first() 
+        response.flash = f'Appointment confirmed for {pet.pet_name} with Dr. {vet.last_name} on {appointment.appointment_time}.' 
+        redirect(URL('default', 'dashboard')) 
+
+    return {'form': form} 
