@@ -35,3 +35,17 @@ def add_pet(pet_name, pet_breed, pet_sex, client_id):
                           pet_breed=pet_breed, 
                           pet_sex=pet_sex, 
                           client_id=client_id) 
+
+
+# appointments table to record appointments 
+
+db.define_table('appointments', 
+                Field('pet_id', 'reference pets'), 
+                Field('branch', requires=IS_NOT_EMPTY()), 
+                Field('appointment_time', 'datetime'), 
+                Field('vet_id', 'reference vets')) 
+
+# function to add a new appointment 
+
+def add_appointment(pet_id, branch, appointment_time, vet_id): 
+    return db.appointments.insert(pet_id=pet_id, branch=branch, appointment_time=appointment_time, vet_id=vet_id)
