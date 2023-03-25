@@ -1,0 +1,31 @@
+<!-- pets/register.html --> 
+
+{{extend 'layout.html'}} 
+
+<h2>Register your pet</h2> 
+<form method="post" action="{{=URL('register')}}"> 
+    <div class="form-group"> 
+        <label for="pet_name">Pet Name:</label> 
+        <input type="text" class="form-control" id="pet_name" name="pet_name" required> 
+    </div> 
+    <div class="form-group"> 
+        <label for="pet_breed">Pet Breed:</label> 
+        <input type="text" class="form-control" id="pet_breed" name="pet_breed" required> 
+    </div> 
+    <div class="form-group"> 
+        <label for="pet_sex">Pet Sex:</label> 
+        <select class="form-control" id="pet_sex" name="pet_sex"> 
+            <option value="M">Male</option> 
+            <option value="F">Female</option> 
+        </select> 
+    </div> 
+    <button type="submit" class="btn btn-primary">Register</button> 
+</form> 
+
+{{if response.flash:}} 
+    <div class="alert alert-success">{{=response.flash}}</div> 
+{{pass}} 
+
+{{if response.error:}} 
+    <div class="alert alert-danger">{{=response.error}}</div> 
+{{pass}}
