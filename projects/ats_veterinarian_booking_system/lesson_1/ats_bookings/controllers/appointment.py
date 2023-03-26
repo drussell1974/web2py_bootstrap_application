@@ -51,7 +51,8 @@ def confirm():
 
         for vet in vets: 
             if vet.id not in booked_vets: 
-                return vet.id 
+                vet_id = vet.id
+                break 
         
         if vet_id: 
             return db.appointments.insert(client_id=pet_id, 
