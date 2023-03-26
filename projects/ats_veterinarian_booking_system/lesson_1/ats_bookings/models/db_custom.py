@@ -20,21 +20,21 @@ if production:
 #
 # for test purposes only with sqlite
 
-# owner table to list owners
+# appointments table to record owners 
 db.define_table('owner',
                 Field('first_name', requires=IS_NOT_EMPTY()),
                 Field('last_name', requires=IS_NOT_EMPTY()),
                 Field('client_branch', requires=IS_NOT_EMPTY())
                ) 
 
-# client table to list pets and owner
+# appointments table to record clients (pets) 
 db.define_table('client', 
                 Field('client_name', requires=IS_NOT_EMPTY()), 
                 Field('client_breed', requires=IS_NOT_EMPTY()), 
                 Field('client_sex', requires=IS_IN_SET(['M', 'F'])), 
                 Field('owner_id', 'reference owner')) 
 
-# vets table to list vets and speciality 
+# appointments table to record vets 
 db.define_table('vets', 
                 Field('first_name', requires=IS_NOT_EMPTY()), 
                 Field('last_name', requires=IS_NOT_EMPTY()), 
@@ -47,37 +47,12 @@ db.define_table('appointments',
                 Field('appointment_time', 'datetime'), 
                 Field('vet_id', 'reference vets')) 
 
-
-# function to find an available veterinarian based on specialty and branch 
-def find_available_vet(specialty, branch, appointment_time): 
-    vet_query = (db.vets.specialty == specialty) 
-    vets = db(vet_query).select() 
-    appointments_query = (db.appointments.branch == branch) & (db.appointments.appointment_time == appointment_time) 
-    booked_vets = db(appointments_query).select(db.appointments.vet_id)
-    
-    for vet in vets: 
-        if vet.id not in booked_vets: 
-            return vet.id 
-    return None 
-
-
-# function to add a new appointment with an assigned veterinarian 
-def add_appointment(client_id, branch, appointment_time, specialty): 
-    vet_id = find_available_vet(specialty, branch, appointment_time) 
-    if vet_id: 
-        return db.appointments.insert(client_id=pet_id, 
-                                       branch=branch, 
-                                       appointment_time=appointment_time, 
-                                       vet_id=vet_id) 
-    else: 
-        return None 
-    
-# treatments.py 
-
+# appointments table to record treatments
 db.define_table('treatments', 
                 Field('treatment_code', requires=IS_NOT_EMPTY()), 
                 Field('treatment_description', requires=IS_NOT_EMPTY()), 
-                Field('cost', 'decimal(10,2)', requires=IS_NOT_EMPTY())) 
+                Field('cost', 'decimal(10,2)', requires=IS_NOT_EMPTY()))
+
 
 # function to add a new treatment for a pet during an appointment 
 def add_treatment(pet_id, appointment_id, treatment_code, cost): 
