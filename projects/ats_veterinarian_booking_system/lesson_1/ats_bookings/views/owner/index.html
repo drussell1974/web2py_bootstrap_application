@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h2>Owners</h2>
+<!-- display SQLFORM.grid -->
+{{=grid}}
+
+<!-- The edit action of the current controller --> 
+{{=A('New', _href = URL('owner','edit'), _class='btn btn-primary')}}
