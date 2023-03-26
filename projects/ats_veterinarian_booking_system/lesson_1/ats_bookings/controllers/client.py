@@ -2,7 +2,7 @@
 # try something like
 
 def index():
-    return dict(message="hello from pet.py")
+    return dict(message="hello from client.py")
 
 
 def register():
