@@ -20,8 +20,9 @@ if production:
 #
 # for test purposes only with sqlite
 
-db.define_table('client',
-                Field('client_name', requires=IS_NOT_EMPTY())
+db.define_table('clients',
+                Field('client_name', requires=IS_NOT_EMPTY()), 
+                Field('client_branch', requires=IS_NOT_EMPTY())
                 )
 
 db.define_table('pets', 
@@ -30,11 +31,20 @@ db.define_table('pets',
                 Field('pet_sex', requires=IS_IN_SET(['M', 'F'])), 
                 Field('client_id', 'reference clients')) 
 
-def add_pet(pet_name, pet_breed, pet_sex, client_id): 
+
+def add_pet(pet_name, pet_breed, pet_sex, client_name, client_branch): 
+    # get client
+    client = db(db.clients.client_name == client_name).select().first()
+    
+    # insert client if they do not exit
+    if client is None:
+        client = db.clients.insert(client_name=client_name, client_branch=client_branch)
+        
+    # insert pet
     return db.pets.insert(pet_name=pet_name, 
                           pet_breed=pet_breed, 
                           pet_sex=pet_sex, 
-                          client_id=client_id) 
+                          client_id=client.id) 
 
 db.define_table('vets', 
                 Field('first_name', requires=IS_NOT_EMPTY()), 
@@ -49,9 +59,6 @@ db.define_table('appointments',
                 Field('appointment_time', 'datetime'), 
                 Field('vet_id', 'reference vets')) 
 
-# function to add a new appointment 
-def add_appointment(pet_id, branch, appointment_time, vet_id): 
-    return db.appointments.insert(pet_id=pet_id, branch=branch, appointment_time=appointment_time, vet_id=vet_id)
 
 # function to find an available veterinarian based on specialty and branch 
 def find_available_vet(specialty, branch, appointment_time): 
