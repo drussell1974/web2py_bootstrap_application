@@ -20,41 +20,29 @@ if production:
 #
 # for test purposes only with sqlite
 
-db.define_table('clients',
-                Field('first_name', requires=IS_NOT_EMPTY()), 
-                Field('last_name', requires=IS_NOT_EMPTY()), 
+# owner table to list owners
+db.define_table('owner',
+                Field('first_name', requires=IS_NOT_EMPTY()),
+                Field('last_name', requires=IS_NOT_EMPTY()),
                 Field('client_branch', requires=IS_NOT_EMPTY())
-                )
+               ) 
 
-db.define_table('pets', 
-                Field('pet_name', requires=IS_NOT_EMPTY()), 
-                Field('pet_breed', requires=IS_NOT_EMPTY()), 
-                Field('pet_sex', requires=IS_IN_SET(['M', 'F'])), 
-                Field('client_id', 'reference clients')) 
+# client table to list pets and owner
+db.define_table('client', 
+                Field('client_name', requires=IS_NOT_EMPTY()), 
+                Field('client_breed', requires=IS_NOT_EMPTY()), 
+                Field('client_sex', requires=IS_IN_SET(['M', 'F'])), 
+                Field('owner_id', 'reference owner')) 
 
-def add_pet(pet_name, pet_breed, pet_sex, client_first_name, client_last_name, client_branch): 
-    # get client
-    client = db(db.clients.client_last_name == client_last_name & db.clients.client_first_name == client_first_name).select().first()
-    
-    # insert client if they do not exit
-    if client is None:
-        client = db.clients.insert(first_name=client_first_name, last_name=client_last_name, client_branch=client_branch)
-        
-    # insert pet
-    return db.pets.insert(pet_name=pet_name, 
-                          pet_breed=pet_breed, 
-                          pet_sex=pet_sex, 
-                          client_id=client.id) 
-
+# vets table to list vets and speciality 
 db.define_table('vets', 
                 Field('first_name', requires=IS_NOT_EMPTY()), 
                 Field('last_name', requires=IS_NOT_EMPTY()), 
                 Field('specialty', requires=IS_NOT_EMPTY())) 
 
-
 # appointments table to record appointments 
 db.define_table('appointments', 
-                Field('pet_id', 'reference pets'), 
+                Field('client_id', 'reference client'), 
                 Field('branch', requires=IS_NOT_EMPTY()), 
                 Field('appointment_time', 'datetime'), 
                 Field('vet_id', 'reference vets')) 
@@ -74,10 +62,10 @@ def find_available_vet(specialty, branch, appointment_time):
 
 
 # function to add a new appointment with an assigned veterinarian 
-def add_appointment(pet_id, branch, appointment_time, specialty): 
+def add_appointment(client_id, branch, appointment_time, specialty): 
     vet_id = find_available_vet(specialty, branch, appointment_time) 
     if vet_id: 
-        return db.appointments.insert(pet_id=pet_id, 
+        return db.appointments.insert(client_id=pet_id, 
                                        branch=branch, 
                                        appointment_time=appointment_time, 
                                        vet_id=vet_id) 

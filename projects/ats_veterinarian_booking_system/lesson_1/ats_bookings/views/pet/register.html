@@ -1,15 +1,7 @@
 <!-- pets/register.html --> 
 {{extend 'layout.html'}} 
 
-<h2>Register your pet</h2> 
+<h2>Register a client</h2>
 {{=form}}
 
-{{if response.flash:}} 
-    <div class="alert alert-success">{{=response.flash}}</div> 
-{{pass}} 
-
-{{if response.error:}} 
-    <div class="alert alert-danger">{{=response.error}}</div> 
-{{pass}}
-
-{{=registered_pets}}
+{{=registered_client}}
