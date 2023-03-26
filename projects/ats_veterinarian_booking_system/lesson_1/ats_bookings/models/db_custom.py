@@ -20,11 +20,18 @@ if production:
 #
 # for test purposes only with sqlite
 
+
+#== SET LISTS AVAILABLE GLOBALLY TO CONTROLLERS ==#
+
+db_custom_speciality_list = ['Anaeshtetics', 'Bone Fractures', 'Cardiology', 'Diabetes', 'ENT', 'Epilepsy', 'Eye Conditions', 'Gastroenteroloyg', 'Genetics', 'Onocology', 'Respiratory', 'Sterilisation']
+db_custom_branch_list = ['Lakeside', 'Riverside', 'Seaside']
+
+
 # owner table to record owners 
 db.define_table('owner',
                 Field('first_name', requires=IS_NOT_EMPTY()),
                 Field('last_name', requires=IS_NOT_EMPTY()),
-                Field('client_branch', requires=IS_NOT_EMPTY())
+                Field('client_branch', requires=IS_IN_SET(db_custom_branch_list))
                ) 
 
 # client table to record clients (pets) 
@@ -38,12 +45,14 @@ db.define_table('client',
 db.define_table('vets', 
                 Field('first_name', requires=IS_NOT_EMPTY()), 
                 Field('last_name', requires=IS_NOT_EMPTY()), 
-                Field('specialty', requires=IS_NOT_EMPTY())) 
+                Field('specialty', requires=IS_IN_SET(db_custom_speciality_list)),
+                Field('home_branch', requires=IS_IN_SET(db_custom_branch_list)),
+               ) 
 
 # appointment table to record appointments 
 db.define_table('appointment', 
                 Field('client_id', 'reference client'), 
-                Field('branch', requires=IS_NOT_EMPTY()), 
+                Field('branch', requires=IS_IN_SET(db_custom_branch_list)), 
                 Field('appointment_time', 'datetime'), 
                 Field('vet_id', 'reference vets')) 
 
@@ -51,4 +60,4 @@ db.define_table('appointment',
 db.define_table('treatment', 
                 Field('treatment_code', requires=IS_NOT_EMPTY()), 
                 Field('treatment_description', requires=IS_NOT_EMPTY()), 
-                Field('cost', 'decimal(10,2)', requires=IS_NOT_EMPTY())) 
+                Field('cost', 'decimal(10,2)', requires=IS_NOT_EMPTY()))

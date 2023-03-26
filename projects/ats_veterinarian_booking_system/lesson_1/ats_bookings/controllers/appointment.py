@@ -35,7 +35,7 @@ def confirm():
     
     form = SQLFORM.factory(
         Field('appointment_time', requires=IS_IN_DB(db, 'appointment.id', '%(appointment_time)s')),
-        Field('speciality', requires=IS_IN_SET('x','y','z')),
+        Field('speciality', requires=IS_IN_SET(db_custom_speciality_list)),
         table_name='appointment') 
     
     if form.process().accepted: 
