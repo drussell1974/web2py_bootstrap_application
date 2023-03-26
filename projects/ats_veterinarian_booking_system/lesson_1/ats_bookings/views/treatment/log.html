@@ -2,27 +2,4 @@
 {{extend 'layout.html'}} 
 
 <h2>Log a Treatment</h2> 
-
-<form method="post" action="{{=URL('log')}}"> 
-    <div class="form-group"> 
-        <label for="treatment_code">Treatment Code:</label> 
-        <input type="text" class="form-control" id="treatment_code" name="treatment_code" required> 
-    </div> 
-    <div class="form-group"> 
-        <label for="treatment_description">Treatment Description:</label> 
-        <input type="text" class="form-control" id="treatment_description" name="treatment_description" required> 
-    </div> 
-    <div class="form-group"> 
-        <label for="cost">Cost:</label> 
-        <input type="number" class="form-control" id="cost" name="cost" step="0.01" required> 
-    </div> 
-    <button type="submit" class="btn btn-primary">Log Treatment</button> 
-</form> 
-
-{{if response.flash:}} 
-    <div class="alert alert-success">{{=response.flash}}</div> 
-{{pass}} 
-
-{{if response.error:}} 
-    <div class="alert alert-danger">{{=response.error}}</div> 
-{{pass}}
+{{=form}}

@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 # try something like
-def index(): return dict(message="hello from treatment.py")
+def index(): 
+    client_id = request.vars.client_id 
+    
+    grid = SQLFORM.grid(db.treatment) 
+
+    return dict(grid=grid) 
 
 
 # function to log a treatment for a pet during an appointment 
 def log(): 
-    pet_id = request.vars.pet_id 
+    # TODO: create treatment and treatment cost table
+    client_id = request.vars.client_id 
     appointment_id = request.vars.appointment_id 
     form = SQLFORM.factory( 
         Field('treatment_code', requires=IS_NOT_EMPTY()), 
@@ -14,9 +20,14 @@ def log():
     ) 
 
     if form.process().accepted: 
-        treatment_id = add_treatment(pet_id, appointment_id, form.vars.treatment_code, form.vars.cost) 
+        db.treatment.insert(appointment_id=appointment_id,
+                            treatment_code=form.vars.treatment_code,
+                            cost=form.vars.cost) 
+        # TODO: insert into create treatment and treatment cost table
+
         response.flash = f'Treatment {form.vars.treatment_code} has been logged.' 
-        redirect(URL('default', 'dashboard')) 
+        redirect(URL('index', vars=dict(client_id=client_id)))
+        
     elif form.errors: 
         response.error = 'Please correct the errors.' 
 
