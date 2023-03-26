@@ -21,7 +21,8 @@ if production:
 # for test purposes only with sqlite
 
 db.define_table('clients',
-                Field('client_name', requires=IS_NOT_EMPTY()), 
+                Field('first_name', requires=IS_NOT_EMPTY()), 
+                Field('last_name', requires=IS_NOT_EMPTY()), 
                 Field('client_branch', requires=IS_NOT_EMPTY())
                 )
 
@@ -31,14 +32,13 @@ db.define_table('pets',
                 Field('pet_sex', requires=IS_IN_SET(['M', 'F'])), 
                 Field('client_id', 'reference clients')) 
 
-
-def add_pet(pet_name, pet_breed, pet_sex, client_name, client_branch): 
+def add_pet(pet_name, pet_breed, pet_sex, client_first_name, client_last_name, client_branch): 
     # get client
-    client = db(db.clients.client_name == client_name).select().first()
+    client = db(db.clients.client_last_name == client_last_name & db.clients.client_first_name == client_first_name).select().first()
     
     # insert client if they do not exit
     if client is None:
-        client = db.clients.insert(client_name=client_name, client_branch=client_branch)
+        client = db.clients.insert(first_name=client_first_name, last_name=client_last_name, client_branch=client_branch)
         
     # insert pet
     return db.pets.insert(pet_name=pet_name, 
