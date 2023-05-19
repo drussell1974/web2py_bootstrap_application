@@ -4,7 +4,7 @@ Give the following tables and data ask AI to create a base Web2py application.
 
 ![ATS Booking 3NF ERD](./img/ats_booking__erd.png)
 
-## Lesson 1. Define the base Web2py application
+## Define the base Web2py application
 
 You: Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
 
@@ -118,77 +118,7 @@ This basic structure should give you a starting point for your ATS Veterinary Bo
 
 Please note that this is just a basic outline, and you may need to further customize and refine the code based on your application's needs.
 
-### a. modify table definitions
-
-Reference the ERD attributes and datatypes to modify the table definitions in db_custom.py you will need to reorder the creation of the table so that any table that references another is defined first. For example, the 'pet' table references 'owner', so the owner table is defined first.
-
-NOTE: Include fake_migrate_all=True. Remove this once you start to populate the tables with data.
-
-![ATS Booking 3NF ERD](./img/ats_booking__erd_attributes_and_datatypes.png)
-
-```python
-db = DAL('sqlite://storage.sqlite', fake_migrate_all=True)
-...
-# Owner: This table represents the owners of the pets. It will have a one-to-many relationship with the Pet table.
-
-db.define_table('owner',
-    Field('init', 'string'),
-    Field('last_name', 'string'),
-    Field('branch', 'string')
-)
-
-# Pet: This table represents the pets (clients) in the system. It will have a foreign key to the Owner table.
-
-db.define_table('pet',
-    Field('name', 'string'),
-    Field('breed', 'string'),
-    Field('sex', 'string'),
-    Field('owner', 'reference owner')
-)
-
-# Vet: This table represents the veterinarians. It will have a one-to-many relationship with the Treatment table and a many-to-many relationship with the Skill table.
-
-db.define_table('vet',
-    Field('first_name', 'string'),
-    Field('last_name', 'string'),
-    Field('grade', 'string'),
-    Field('branch', 'string'),
-    Field('extension', 'integer')
-)
-
-#Skill: This table represents the skills of veterinarians. It will have a many-to-many relationship with the Vet table.
-
-db.define_table('skill',
-    Field('name', 'string'),
-    Field('skill', 'reference vet')
-)
-
-# Appointment: This table represents the appointments for pets. It will have a foreign key to the Pet table and a many-to-many relationship with the Treatment table.
-
-db.define_table('appointment',
-    Field('pet', 'reference pet'),
-    Field('appointment_date', 'date'),
-    Field('branch', 'string')
-)
-
-# Treatment: This table represents the treatments available. It will have a many-to-many relationship with the Appointment table and a foreign key to the Vet table.
-
-db.define_table('treatment_cost',
-    Field('description', 'string'),
-    Field('cost', 'float')
-)
-
-
-db.define_table('treatment',
-    Field('appointment', 'reference appointment'),
-    Field('vet', 'reference vet'),
-    Field('cost', 'reference treatment_cost')
-)
-```
-
-### b. create views
-
-Create views extending layout.html
+NOTE: Create views extending layout.html
 
 
 views/default/pets.html
@@ -220,36 +150,4 @@ views/default/skills.html
 {{extend 'layout.html'}}
 <h1>Vet Skills</h1>
 ```
-### c. add menu items to layout.html
 
-Add nav-items to include the links to the html pages via the controller action 
-(e.g. the appointment action in the default controller will open default/appointment.html).
-
-views/layout.html
-```html
-...
-                </li>
-                <!-- Add menu items nav-item -->
-                <li class="nav-item">
-                    <a class="nav-link text-white lead" href="{{=URL('default', 'appointments')}}">Appointments</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white lead" href="{{=URL('default', 'owners')}}">Owners</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white lead" href="{{=URL('default', 'pets')}}">Pets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white lead" href="{{=URL('default', 'vets')}}">Vets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white lead" href="{{=URL('default', 'skills')}}">Home</a>
-                </li>
-                <!-- END Add menu items nav-item -->
-                </ul>
-            <!-- END Main Menu -->
-        </div>
-    </div>
-</div>
-...
-```
