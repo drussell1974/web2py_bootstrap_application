@@ -196,16 +196,16 @@ db.define_table('treatment',
 
 Create views extending *layout.html*
 
-
-|-/controllers
-|+/views
-|++/default
-|---appointments.html
-|---owners.html
-|---pets.html
-|---skills.html
-|---vets.html
-
+```
+| - /controllers
+| - /views
+| - | - /default
+| - | - | - appointments.html
+| - | - | - owners.html
+| - | - | - pets.html
+| - | - | - skills.html
+| - | - | - vets.html
+```
 
 views/default/pets.html
 ```html
@@ -241,9 +241,11 @@ views/default/skills.html
 Add nav-items to include the links to the html pages via the controller action 
 (e.g. the appointment action in the default controller will open *default/appointment.html*).
 
-|-/controllers
-|+/views
-|--layout.html
+```
+| - /controllers
+| - /views
+| - | - layout.html
+```
 
 views/layout.html
 ```html
@@ -352,9 +354,12 @@ Please note that this is a simplified implementation to demonstrate the use case
 
 Add the register_pet action to the *controllers/default.py* below the pets action.
 
-|-/controllers
-|--default.py
+```
+| - /controllers
+| - | - default.py
+```
 
+controllers/defalt.py
 ```python
 Copy code
 def index():
@@ -374,26 +379,14 @@ def register_pet():
 
 Create *default/register_pet.html*
 
-|-/controllers
-|+/views
-|++/default
-|---register_pet.html
-
-```html
-Copy code
-{{extend 'layout.html'}}
-
-<h1>Pets</h1>
-
-{{=form}}
-
-<hr>
-
-<a href="{{=URL('default', 'index')}}">Back to Home</a>
+```
+| - /controllers
+| - /views
+| - | - /default
+| - | - | - register_pet.html
 ```
 
-To access the new register_let
-
+default/register_pet.html
 ```html
 Copy code
 {{extend 'layout.html'}}
@@ -456,15 +449,15 @@ Please note that you may need to customize the code further based on your specif
 
 </details>
 
-Update *default/index.html*
+
+Update *controllers/default.py* to show registered pets for given owner.
 
 ```
 | - /controllers
-| - /views
-| - | - /default
-| - | - index.html
+| - | - default.py
 ```
 
+controllers/default.py
 ```python
 Copy code
 def index():
@@ -473,14 +466,16 @@ def index():
     return dict(owner_id=owner_id, pets=pets)
 ```
 
-
 Update *default/index.html* to show registered pets for given owner.
 
-|-/controllers
-|+/views
-|++/default
-|---index.html
+```
+| - /controllers
+| - /views
+| - | - /default
+| - | - | - index.html
+```
 
+default/index.html
 ```html
 Copy code 
 {{extend 'layout.html'}}
