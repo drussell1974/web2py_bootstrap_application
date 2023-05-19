@@ -253,3 +253,98 @@ views/layout.html
 </div>
 ...
 ```
+
+
+## Lesson 2. Define the base Web2py application
+
+You: "Create Web2py Code for the follow BDD Use Case
+
+Feature: Pet registration 
+Scenario: Owner registers a new pet 
+Given the owner is at an ATS branch 
+When the owner registers their pet with the operator 
+Then the pet's name, breed, and sex should be recorded in the system 
+And the pet should be associated with the owner's account"
+
+AI: "Sure! Here's an example implementation of the given BDD use case in web2py:
+
+Create a new controller called default.py:
+```python
+Copy code
+def register_pet():
+    form = SQLFORM(db.pet)
+    if form.process().accepted:
+        pet_id = form.vars.id
+        owner_id = request.vars.owner_id
+        db.pet_owner.insert(pet=pet_id, owner=owner_id)
+        response.flash = "Pet registered successfully!"
+    return dict(form=form)
+    ```
+Create a corresponding view called register_pet.html:
+```html
+Copy code
+{{extend 'layout.html'}}
+
+<h1>Register Pet</h1>
+
+{{=form}}
+
+<hr>
+
+<a href="{{=URL('default', 'index')}}">Back to Home</a>
+```
+
+Modify the index() function in the default.py controller to handle the scenario where the owner is at an ATS branch:
+```python
+Copy code
+def index():
+    owner_id = request.vars.owner_id
+    return dict(owner_id=owner_id)
+    ```
+Update the index.html view to include a link to register a new pet:
+```html
+Copy code
+{{extend 'layout.html'}}
+
+<h1>ATS Branch</h1>
+
+<p>Welcome to the ATS branch!</p>
+
+<p>Owner ID: {{=owner_id}}</p>
+
+<a href="{{=URL('default', 'register_pet', vars={'owner_id': owner_id})}}">Register a New Pet</a>
+```
+
+In this implementation, when the owner visits the ATS branch, they will see the home page (index.html) with their owner ID displayed. The owner can then click on the "Register a New Pet" link, which will take them to the register_pet() action. They can fill out the form with the pet's name, breed, and sex, and submit it. Upon successful registration, the pet's information will be recorded in the system, and the pet will be associated with the owner's account.
+
+Please note that this is a simplified implementation to demonstrate the use case. In a real-world application, you would need to handle authentication, validation, error handling, and other aspects to ensure the security and functionality of the system.
+"
+
+Update the default/default.py controller to update the 
+
+```python
+def pets():
+    # Logic to handle pets
+    form = SQLFORM(db.pet)
+    if form.process().accepted:
+        pet_id = form.vars.id
+        owner_id = request.vars.owner_id
+        db.pet_owner.insert(pet=pet_id, owner=owner_id)
+        response.flash = "Pet registered successfully!"
+    return dict(form=form)
+```
+
+Update the default/pet.html
+
+```html
+Copy code
+{{extend 'layout.html'}}
+
+<h1>Pets</h1>
+
+{{=form}}
+
+<hr>
+
+<a href="{{=URL('default', 'index')}}">Back to Home</a>
+```
