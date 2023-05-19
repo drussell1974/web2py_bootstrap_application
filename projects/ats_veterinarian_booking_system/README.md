@@ -6,7 +6,7 @@ Give the following tables and data ask AI to create a base Web2py application.
 
 ## Lesson 1. Define the base Web2py application
 
-You: """Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
+You: Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
 
 AI: Sure! I can provide you with a basic structure for your web application using the web2py framework. Please note that this is a simplified example, and you may need to customize it further based on your specific requirements.
 
@@ -116,7 +116,7 @@ def skills():
 
 This basic structure should give you a starting point for your ATS Veterinary Booking System. From here, you can build upon this structure and add more functionality and features based on your specific requirements.
 
-Please note that this is just a basic outline, and you may need to further customize and refine the code based on your application's needs."""
+Please note that this is just a basic outline, and you may need to further customize and refine the code based on your application's needs.
 
 ### a. modify table definitions
 
