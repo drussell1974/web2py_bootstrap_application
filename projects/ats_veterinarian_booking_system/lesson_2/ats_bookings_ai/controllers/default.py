@@ -52,10 +52,16 @@ def download():
 # Now that we have defined our database tables, we can create the controllers and views for our web application. For brevity, I'll provide only the basic structure.
 
 def index():
-    return dict()
+    owner_id = request.vars.owner_id
+    return dict(owner_id=owner_id)
 
 
 def pets():
+    # Logic to handle pets
+    return dict()
+
+
+def register_pet():
     # Logic to handle pets
     form = SQLFORM(db.pet)
     if form.process().accepted:
