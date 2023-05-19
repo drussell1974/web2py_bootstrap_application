@@ -458,10 +458,10 @@ Please note that you may need to customize the code further based on your specif
 
 Update *default/index.html*
 
-|-/controllers
-|+/views
-|++/default
-|---index.html
+| - /controllers
+| - /views
+| - | - /default
+| - | - index.html
 
 ```python
 Copy code
