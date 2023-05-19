@@ -4,7 +4,7 @@ Give the following tables and data ask AI to create a base Web2py application.
 
 ![ATS Booking 3NF ERD](./img/ats_booking__erd.png)
 
-## Define the base Web2py application
+## Lesson 1. Define the base Web2py application
 
 You: Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
 
@@ -118,7 +118,9 @@ This basic structure should give you a starting point for your ATS Veterinary Bo
 
 Please note that this is just a basic outline, and you may need to further customize and refine the code based on your application's needs.
 
-NOTE: Create views extending layout.html
+### a. create views
+
+Create views extending layout.html
 
 
 views/default/pets.html
@@ -150,4 +152,36 @@ views/default/skills.html
 {{extend 'layout.html'}}
 <h1>Vet Skills</h1>
 ```
+### b. add menu items to layout.html
 
+Add nav-items to include the links to the html pages via the controller action 
+(e.g. the appointment action in the default controller will open default/appointment.html).
+
+views/layout.html
+```
+...
+                </li>
+                <!-- Add menu items nav-item -->
+                <li class="nav-item">
+                    <a class="nav-link text-white lead" href="{{=URL('default', 'appointments')}}">Appointments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white lead" href="{{=URL('default', 'owners')}}">Owners</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white lead" href="{{=URL('default', 'pets')}}">Pets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white lead" href="{{=URL('default', 'vets')}}">Vets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white lead" href="{{=URL('default', 'skills')}}">Home</a>
+                </li>
+                <!-- END Add menu items nav-item -->
+                </ul>
+            <!-- END Main Menu -->
+        </div>
+    </div>
+</div>
+...
+```
