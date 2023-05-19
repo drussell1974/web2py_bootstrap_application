@@ -6,9 +6,13 @@ Give the following tables and data ask AI to create a base Web2py application.
 
 ## Lesson 1. Define the base Web2py application
 
+    
 You: Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
 
-AI: Sure! I can provide you with a basic structure for your web application using the web2py framework. Please note that this is a simplified example, and you may need to customize it further based on your specific requirements.
+<details>
+  <summary>Click me to show AI Answer</summary>
+
+Sure! I can provide you with a basic structure for your web application using the web2py framework. Please note that this is a simplified example, and you may need to customize it further based on your specific requirements.
 
 First, let's define the database tables/models in the web2py application. We will have the following tables:
 
@@ -117,7 +121,9 @@ def skills():
 This basic structure should give you a starting point for your ATS Veterinary Booking System. From here, you can build upon this structure and add more functionality and features based on your specific requirements.
 
 Please note that this is just a basic outline, and you may need to further customize and refine the code based on your application's needs.
-
+    
+</details>
+    
 ### a. modify table definitions
 
 Reference the ERD attributes and datatypes to modify the table definitions in *db_custom.py* you will need to reorder the creation of the table so that any table that references another is defined first. For example, the 'pet' table references 'owner', so the owner table is defined first.
@@ -286,7 +292,7 @@ And the pet should be associated with the owner's account"
 <details>
   <summary>--Click me to show AI Answer--</summary>
 
-AI: "Sure! Here's an example implementation of the given BDD use case in web2py:
+Sure! Here's an example implementation of the given BDD use case in web2py:
 
 Create a new controller called *default.py*:
 ```python
@@ -387,6 +393,7 @@ Copy code
 ```
 
 To access the new register_let
+
 ```html
 Copy code
 {{extend 'layout.html'}}
@@ -400,15 +407,13 @@ Copy code
 <a href="{{=URL('default', 'index')}}">Back to Home</a>
 ```
 
-2. After successfully registering a pet show the list of pet
+2. After successfully registering a pet show the list of pets
 
-YOU: "show list of registered pets"
-
+"show list of registered pets"
 
 <details>
   <summary>--Click me to show AI Answer--</summary>
 
-AI: "
 To display a list of registered pets, you can modify the index() function in the *default.py* controller to retrieve the list of pets associated with the owner's account. Here's an example:
 
 ```python
@@ -448,4 +453,48 @@ In this code, we loop over the pets list and display each pet's name, breed, and
 Now, when the owner visits the ATS branch and goes to the home page (*index.html*), they will see the list of their registered pets, along with the option to register a new pet.
 
 Please note that you may need to customize the code further based on your specific database schema and naming conventions.
+
 </details>
+
+Update *default/index.html*
+
+|-/controllers
+|+/views
+|++/default
+|---index.html
+
+```python
+Copy code
+def index():
+    owner_id = request.vars.owner_id
+    pets = db(db.pet_owner.owner == owner_id).select(db.pet.ALL)
+    return dict(owner_id=owner_id, pets=pets)
+```
+
+
+Update *default/index.html* to show registered pets for given owner.
+
+|-/controllers
+|+/views
+|++/default
+|---index.html
+
+```html
+Copy code 
+{{extend 'layout.html'}}
+
+<h1>ATS Branch</h1>
+
+<p>Welcome to the ATS branch!</p>
+
+<p>Owner ID: {{=owner_id}}</p>
+
+<h2>Registered Pets:</h2>
+<ul>
+  {{for pet in pets:}}
+  <li>{{=pet.name}} - Breed: {{=pet.breed}} - Sex: {{=pet.sex}}</li>
+  {{pass}}
+</ul>
+
+<a href="{{=URL('default', 'register_pet', vars={'owner_id': owner_id})}}">Register a New Pet</a>
+```
