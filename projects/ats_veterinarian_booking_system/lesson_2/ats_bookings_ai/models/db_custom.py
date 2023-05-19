@@ -1,6 +1,6 @@
 # default database used by web2py - it will be created in the databases folder when the application if first run
 # NOTE: the student will need permissions
-db = DAL('sqlite://storage.sqlite', fake_migrate_all=True)
+db = DAL('sqlite://storage.sqlite')
 
 production = False
 if production:
@@ -25,7 +25,8 @@ if production:
 db.define_table('owner',
     Field('init', 'string'),
     Field('last_name', 'string'),
-    Field('branch', 'string')
+    Field('branch', 'string'),
+    Field('a', 'string')
 )
 
 # Pet: This table represents the pets (clients) in the system. It will have a foreign key to the Owner table.

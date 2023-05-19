@@ -57,7 +57,13 @@ def index():
 
 def pets():
     # Logic to handle pets
-    return dict()
+    form = SQLFORM(db.pet)
+    if form.process().accepted:
+        pet_id = form.vars.id
+        owner_id = request.vars.owner_id
+        db.pet.insert(pet=pet_id, owner=owner_id)
+        response.flash = "Pet registered successfully!"
+    return dict(form=form)
 
 
 def owners():
