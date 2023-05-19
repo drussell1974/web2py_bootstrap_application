@@ -6,11 +6,11 @@ Give the following tables and data ask AI to create a base Web2py application.
 
 ## Lesson 1. Define the base Web2py application
 
-<details>
-  <summary>Click me</summary>
     
 You: Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
 
+<details>
+  <summary>Click me to show AI Answer</summary>
 AI: Sure! I can provide you with a basic structure for your web application using the web2py framework. Please note that this is a simplified example, and you may need to customize it further based on your specific requirements.
 
 First, let's define the database tables/models in the web2py application. We will have the following tables:
