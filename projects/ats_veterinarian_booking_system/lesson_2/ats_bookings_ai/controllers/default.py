@@ -53,7 +53,8 @@ def download():
 
 def index():
     owner_id = request.vars.owner_id
-    return dict(owner_id=owner_id)
+    pets = db(db.pet.owner == owner_id).select(db.pet.ALL)
+    return dict(owner_id=owner_id, pets=pets)
 
 
 def pets():
@@ -61,20 +62,30 @@ def pets():
     return dict()
 
 
-def register_pet():
-    # Logic to handle pets
+def register_pet(): 
+
+    owners = db(db.owner).select() # Retrieve all owners
+
     form = SQLFORM(db.pet)
     if form.process().accepted:
         pet_id = form.vars.id
-        owner_id = request.vars.owner_id
+        owner_id = request.vars.owner # change owner_id to owner
         db.pet.insert(pet=pet_id, owner=owner_id)
         response.flash = "Pet registered successfully!"
-    return dict(form=form)
+        
+    return dict(form=form, owners=owners) # return owners in the dictionary
 
 
 def owners():
     # Logic to handle owners
     return dict()
+
+
+def register_owner():
+    form = SQLFORM(db.owner)
+    if form.process().accepted:
+        response.flash = "Owner registered successfully!"
+    return dict(form=form)
 
 
 def appointments():

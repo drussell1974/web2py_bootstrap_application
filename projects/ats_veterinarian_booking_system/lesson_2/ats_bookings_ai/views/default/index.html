@@ -48,13 +48,17 @@
     </div>
     
 
-<h1>ATS Branch</h1>
+    <h1>ATS Branch</h1>
 
-<p>Welcome to the ATS branch!</p>
-
-<p>Owner ID: {{=owner_id}}</p>
-
-<a href="{{=URL('default', 'register_pet', vars={'owner_id': owner_id})}}">Register a New Pet</a>
+    <p>Welcome to the ATS branch!</p>
+    
+    <p>Owner ID: {{=owner_id}}</p>
+    
+    <a href="{{=URL('default', 'register_owner')}}">Register an Owner</a>
+    
+    <hr>
+    
+    <a href="{{=URL('default', 'register_pet', vars={'owner_id': owner_id})}}">Register a New Pet</a>
 
     <div class="row jumbotron bg-color_2">
         <div class="col-md-12">

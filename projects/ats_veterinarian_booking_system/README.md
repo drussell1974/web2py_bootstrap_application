@@ -7,7 +7,7 @@ Give the following tables and data ask AI to create a base Web2py application.
 ## Lesson 1. Define the base Web2py application
 
     
-You: Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
+Ask AI: Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
 
 <details>
   <summary>==Click me to show AI Answer==</summary>
@@ -282,7 +282,7 @@ views/layout.html
 
 1. Generate the code to register a pet
 
-You: Create Web2py Code for the follow BDD Use Case
+Ask AI: Create Web2py Code for the follow BDD Use Case
 
 Feature: Pet registration 
 Scenario: Owner registers a new pet 
@@ -350,7 +350,7 @@ Please note that this is a simplified implementation to demonstrate the use case
 </details>
 
 
-## Review and modify the AI generated code
+### Review and modify the AI generated code
 
 Add the register_pet action to the *controllers/default.py* below the pets action.
 
@@ -402,7 +402,7 @@ Copy code
 
 2. After successfully registering a pet show the list of pets
 
-"show list of registered pets"
+Ask AI: "show list of registered pets"
 
 <details>
   <summary>==Click me to show AI Answer==</summary>
@@ -462,7 +462,7 @@ controllers/default.py
 Copy code
 def index():
     owner_id = request.vars.owner_id
-    pets = db(db.pet_owner.owner == owner_id).select(db.pet.ALL)
+    pets = db(db.pets.owner == owner_id).select(db.pets.ALL)
     return dict(owner_id=owner_id, pets=pets)
 ```
 
@@ -494,4 +494,284 @@ Copy code
 </ul>
 
 <a href="{{=URL('default', 'register_pet', vars={'owner_id': owner_id})}}">Register a New Pet</a>
+```
+
+### Fix: Register the owner
+
+You may have noticed that to register the pet, you alos need to register the owner
+
+Ask AI: "register owner"
+
+<details>
+  <summary>==Click me to show AI Answer==</summary>
+
+To register an owner in your web2py application, you can follow these steps:
+
+Create a new controller called default.py (if not already created).
+
+Define a new action/function in the default.py controller to handle the owner registration:
+
+```python
+Copy code
+def register_owner():
+    form = SQLFORM(db.owner)
+    if form.process().accepted:
+        response.flash = "Owner registered successfully!"
+    return dict(form=form)
+```
+
+Create a corresponding view called register_owner.html:
+
+```html
+Copy code
+{{extend 'layout.html'}}
+
+<h1>Register Owner</h1>
+
+{{=form}}
+
+<hr>
+
+<a href="{{=URL('default', 'index')}}">Back to Home</a>
+```
+
+Modify the index() function in the default.py controller to include a link for owner registration:
+
+```python
+Copy code
+def index():
+    owner_id = request.vars.owner_id
+    return dict(owner_id=owner_id)
+```
+
+Update the index.html view to include a link to register a new owner:
+
+```html
+Copy code
+{{extend 'layout.html'}}
+
+<h1>ATS Branch</h1>
+
+<p>Welcome to the ATS branch!</p>
+
+<p>Owner ID: {{=owner_id}}</p>
+
+<a href="{{=URL('default', 'register_owner')}}">Register an Owner</a>
+
+<hr>
+
+<a href="{{=URL('default', 'register_pet', vars={'owner_id': owner_id})}}">Register a New Pet</a>
+```
+
+Now, when the owner visits the ATS branch and goes to the home page (index.html), they will see the option to register a new owner by clicking on the "Register an Owner" link. This will take them to the register_owner() action, where they can fill out the form and submit it. Upon successful registration, the owner's information will be recorded in the system.
+
+Please note that this is a simplified implementation to demonstrate the owner registration. In a real-world application, you would need to handle authentication, validation, error handling, and other aspects to ensure the security and functionality of the system.
+
+</details>
+
+
+Update *controllers/default.py* to register owner, below the owner action.
+
+```
+| - /controllers
+| - | - default.py
+```
+
+controllers/default.py
+```python
+Copy code
+def register_owner():
+    form = SQLFORM(db.owner)
+    if form.process().accepted:
+        response.flash = "Owner registered successfully!"
+    return dict(form=form)
+```
+
+Add *default/register_owner.html* to show register owners before registering the pet.
+
+```
+| - /controllers
+| - /views
+| - | - /default
+| - | - | - register_owner.html
+```
+
+default/register_owner.html
+```html
+Copy code 
+{{extend 'layout.html'}}
+
+<h1>Register Owner</h1>
+
+{{=form}}
+
+<hr>
+
+<a href="{{=URL('default', 'index')}}">Back to Home</a>
+```
+
+
+Update the index.html view to include a link to register a new owner:
+```
+| - /controllers
+| - /views
+| - | - /default
+| - | - | - index.html
+```
+
+default/index.html
+```html
+Copy code
+{{extend 'layout.html'}}
+
+<h1>ATS Branch</h1>
+
+<p>Welcome to the ATS branch!</p>
+
+<p>Owner ID: {{=owner_id}}</p>
+
+<a href="{{=URL('default', 'register_owner')}}">Register an Owner</a>
+
+<hr>
+
+<a href="{{=URL('default', 'register_pet', vars={'owner_id': owner_id})}}">Register a New Pet</a>
+```
+
+After registering the owner the dropdown shows the id only.
+
+Ask AI: "display name in owner drop down"
+
+<details>
+  <summary>==Click me to show AI Answer==</summary>
+
+To display the owner's name in a dropdown list, you can modify the register_pet() action in the default.py controller to retrieve the list of owners and pass it to the view. Here's an example:
+
+```python
+Copy code
+def register_pet():
+    owners = db(db.owner).select()  # Retrieve all owners
+    form = SQLFORM(db.pet)
+    form.vars.owner_id = request.vars.owner_id  # Set the selected owner ID in the form
+    form.vars.owner_id.requires = IS_IN_DB(db, db.owner.id, '%(name)s')  # Display owner names in the dropdown
+    if form.process().accepted:
+        pet_id = form.vars.id
+        owner_id = request.vars.owner_id
+        db.pet_owner.insert(pet=pet_id, owner=owner_id)
+        response.flash = "Pet registered successfully!"
+    return dict(form=form, owners=owners)
+```
+
+In this code, we retrieve all the owners from the owner table using db(db.owner).select(). Then, we assign the owner_id from the request variables to the owner_id field in the form (form.vars.owner_id). Additionally, we update the owner_id field's requires attribute to display the owner names in the dropdown using IS_IN_DB with the appropriate database table and field.
+
+Next, update the register_pet.html view to display the owner dropdown:
+
+```html
+Copy code
+{{extend 'layout.html'}}
+
+<h1>Register Pet</h1>
+
+{{=form.custom.begin}}
+
+<p>Owner:</p>
+{{=form.custom.widget.owner_id}}
+
+<hr>
+
+{{=form.custom.submit}}
+
+{{=form.custom.end}}
+
+<hr>
+
+<a href="{{=URL('default', 'index')}}">Back to Home</a>
+```
+
+In this code, we use form.custom.widget.owner_id to render the owner dropdown field.
+
+Now, when the owner registers a new pet, they will see a dropdown list with the owner names. They can select the appropriate owner from the dropdown and proceed with registering the pet.
+
+Please note that you may need to adjust the code based on your specific database schema and field names.
+
+</details>
+
+```
+| - /controllers
+| - | - default.py
+```
+
+Add the code to retrieve all owner and return owners in the dictionary (See Note below.)
+
+controllers/default.py
+```python
+def register_pet():
+
+    owners = db(db.owner).select()  # Retrieve all owners
+
+    form = SQLFORM(db.pet)
+    if form.process().accepted:
+        pet_id = form.vars.id
+        
+        # owner_id = request.vars.owner_id
+        owner_id = request.vars.owner
+        db.pet_owner.insert(pet=pet_id, owner=owner_id)
+        response.flash = "Pet registered successfully!"
+
+    return dict(form=form, owners=owners) # return owners in the dictionary
+```
+
+NOTE 1: The AI produced code to update the action. However, the code should be applied to the table definition in db_custom.py.
+NOTE 2: The dropdown control on the form uses the name=owner not name=owner_id so change the attribute to use owner
+
+Ask AI: "add requires to  db_custom.py instead"
+
+<details>
+  <summary>==Click me to show AI Answer==</summary>
+
+To add the requires attribute to the owner_id field in db_custom.py, you can define a custom Field with the desired requirements. Here's an example:
+
+Open models/db_custom.py in your web2py application.
+
+Add the following code to define a custom Field with the required attributes:
+
+```python
+Copy code
+from gluon.dal import Field
+from gluon.validators import IS_IN_DB
+
+db.define_table('pet',
+    Field('name', 'string'),
+    Field('age', 'integer'),
+    Field('breed', 'string'),
+    Field('owner_id', 'reference owner', requires=IS_IN_DB(db, db.owner.id, '%(name)s'))
+)
+```
+
+In this code, we define the owner_id field in the pet table and assign it the reference owner type. We also add the requires attribute with IS_IN_DB validator to enforce that the selected value must be present in the db.owner table. The IS_IN_DB validator takes the database (db), table (db.owner.id), and display format ('%(name)s') as arguments.
+
+With this custom Field definition in db_custom.py, the owner_id field in the pet table will have the required attributes.
+
+Please make sure to adjust the code according to your specific table and field names.
+
+</details>
+
+So instead of updating the controller, add the requires attribute to the owner field.
+
+NOTE: Ensure the field name to display is in the owner table e.g. '%(last_name)s'.
+
+```
+| - /models
+| - | - db_custom.py
+```
+
+models/db_custom.py
+```python
+Copy code
+
+db.define_table('pet',
+    Field('name', 'string'),
+    Field('breed', 'string'),
+    Field('sex', 'string'),
+    Field('owner', 'reference owner', requires = IS_IN_DB(db, db.owner.id, '%(last_name)s'))
+)
 ```

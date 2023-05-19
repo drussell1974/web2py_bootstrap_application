@@ -26,7 +26,6 @@ db.define_table('owner',
     Field('init', 'string'),
     Field('last_name', 'string'),
     Field('branch', 'string'),
-    Field('a', 'string')
 )
 
 # Pet: This table represents the pets (clients) in the system. It will have a foreign key to the Owner table.
@@ -35,7 +34,7 @@ db.define_table('pet',
     Field('name', 'string'),
     Field('breed', 'string'),
     Field('sex', 'string'),
-    Field('owner', 'reference owner')
+    Field('owner', 'reference owner', requires = IS_IN_DB(db, db.owner.id, '%(last_name)s'))
 )
 
 # Vet: This table represents the veterinarians. It will have a one-to-many relationship with the Treatment table and a many-to-many relationship with the Skill table.
