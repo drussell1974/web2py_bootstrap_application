@@ -10,7 +10,7 @@ Give the following tables and data ask AI to create a base Web2py application.
 You: Create Web2py MVC application for ATS Veternarian Booking System with pet (client) has one to many owners, pet can have none to many appointments,  an appointment can have zero to many treatments, a vet and prescribe zero to many treatments, a vet can have one to many skills, and a treatment cost can have one to many treatments.
 
 <details>
-  <summary>Click me to show AI Answer</summary>
+  <summary>==Click me to show AI Answer==</summary>
 
 Sure! I can provide you with a basic structure for your web application using the web2py framework. Please note that this is a simplified example, and you may need to customize it further based on your specific requirements.
 
@@ -290,7 +290,7 @@ Then the pet's name, breed, and sex should be recorded in the system
 And the pet should be associated with the owner's account"
 
 <details>
-  <summary>--Click me to show AI Answer--</summary>
+  <summary>==Click me to show AI Answer==</summary>
 
 Sure! Here's an example implementation of the given BDD use case in web2py:
 
@@ -412,7 +412,7 @@ Copy code
 "show list of registered pets"
 
 <details>
-  <summary>--Click me to show AI Answer--</summary>
+  <summary>==Click me to show AI Answer==</summary>
 
 To display a list of registered pets, you can modify the index() function in the *default.py* controller to retrieve the list of pets associated with the owner's account. Here's an example:
 
