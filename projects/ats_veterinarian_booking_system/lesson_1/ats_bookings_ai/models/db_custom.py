@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from decimal import Decimal
 
@@ -26,7 +25,7 @@ if production:
 
 # Pet entity
 db.define_table('pet',
-                Field('name', requires=IS_NOT_EMPTY()),
+                Field('name', type='string', length=4, requires=IS_NOT_EMPTY()),
                 Field('breed', requires=IS_NOT_EMPTY()),
                 Field('sex', 'string', requires=IS_IN_SET(['M', 'F'])),
                 format='%(name)s')

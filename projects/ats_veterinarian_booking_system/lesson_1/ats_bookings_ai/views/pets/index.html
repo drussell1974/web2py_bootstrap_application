@@ -1,0 +1,35 @@
+{{extend 'layout.html'}}
+
+<h1>Pets</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Sex</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{for pet in pets:}}
+        <tr>
+            <td>{{=pet.name}}</td>
+            <td>{{=pet.breed}}</td>
+            <td>{{=pet.sex}}</td>
+            <td>
+                {{=A('Edit', _href=URL('edit_pet', args=[pet.id]))}} |
+                {{=A('Delete', _href=URL('delete_pet', args=[pet.id]), _class='delete-btn')}}
+            </td>
+        </tr>
+        {{pass}}
+    </tbody>
+</table>
+{{=A('Add Pet', _href=URL('create_pet'), _class='btn')}}
+
+<script>
+    $(document).ready(function() {
+        $('.delete-btn').click(function() {
+            return confirm('Are you sure you want to delete this pet?');
+        });
+    });
+</script>
