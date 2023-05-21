@@ -5,6 +5,7 @@ Ask AI to create a base Web2py application based on your design. You should mode
 - *[Introducion](README.md)
 - *[Lesson 1. Define the base Web2py application](LESSON_1.md)
 - *[Lesson 2. Create the create_pet view](LESSON_2.md)
+- *[Lesson 3. Implement Form Validation and Datatypes](LESSON_3.md)
 - *[Troubleshooting](TROUBLESHOOTING.md)
 
 **IMPORTANT:**
@@ -97,6 +98,10 @@ NOTE: For the purpose of this tutorial we will use {{=form}} which will render i
 
 *[View Pets index page](img/ats_booking__lesson_2__home_page_with_pets_list.png)
 
+
+**Create a view pets/edit_pet.html**
+
+TODO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
 
 **DISCLAIMER**
 
