@@ -5,7 +5,6 @@ Ask AI to create a base Web2py application based on your design. You should mode
 - *[Introducion](README.md)
 - *[Lesson 1. Define the base Web2py application](LESSON_1.md)
 - *[Lesson 2. Create the create_pet view](LESSON_2.md)
-- *[Lesson 3. Implement Form Validation and Datatypes](LESSON_3.md)
 - *[Troubleshooting](TROUBLESHOOTING.md)
 
 **IMPORTANT:**
