@@ -14,67 +14,21 @@ When using AI it is best practive to keep each request in the same conversation.
 
 # Lesson 2. Create the create_pet view #
 
-AI did not generate the code for the create_pet.html,
-
-You can simply ask it to do so.
-
-<details>
-    <summary>Click to view AI request</summary>
-
-Create create_pet.html
-
-</details>
-
-<details>
-    <summary>Click to view AI response</summary>
-
-Certainly! Here's an example of the create_pet.html view file for creating a new pet in the ATS Veterinary Booking System:
-
-```html
-{{extend 'layout.html'}}
-
-<h1>Add Pet</h1>
-
-<form method="post" action="{{=URL('create_pet')}}">
-    <table>
-        <tr>
-            <td><label for="name">Name:</label></td>
-            <td><input type="text" name="name" id="name" required></td>
-        </tr>
-        <tr>
-            <td><label for="breed">Breed:</label></td>
-            <td><input type="text" name="breed" id="breed" required></td>
-        </tr>
-        <tr>
-            <td><label for="sex">Sex:</label></td>
-            <td>
-                <select name="sex" id="sex" required>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Add Pet" class="btn">
-                <a href="{{=URL('index')}}" class="btn">Cancel</a>
-            </td>
-        </tr>
-    </table>
-</form>
-```
-
-In this form, the user can enter the pet's name, breed, and select the sex from a dropdown menu. The form is submitted to the create_pet URL, which will handle the creation of the pet in the controller.
-
-Make sure to save this file as create_pet.html in your views/default directory.
-
-![Create View create_pet.html](img/ats_booking__lesson_2__create_view_pets_create_pet.png)
-
-</details>
+From the request, AI did not generate the code for the create_pet.html,
 
 ## Implement the code ##
 
 **Create a view pets/create_pet.html**
+
+1. From the site page click dashboard
+
+![Click dashboard to edit application](img/ats_booking__lesson_1__click_dashboard.png)
+
+2. Beneath the views (html) pages, click Create and enter 'pets/create_pet.html'.
+
+3. Click Create below the text
+
+4. Copy-and-paste the following html code.
 
 NOTE: For the purpose of this tutorial we will use {{=form}} which will render it own html.
 
@@ -85,23 +39,60 @@ NOTE: For the purpose of this tutorial we will use {{=form}} which will render i
 {{=form}}
 ```
 
-**From the Pet Index page (http://127.0.0.1:8000/ats_bookings/pets/index), click Add Pet**
+**From the Pet index page (http://127.0.0.1:8000/ats_bookings/pets/index), click Add Pet**
 
-1. Enter the name, breed and select sex.
-2. Click Add Pet
+1. Go to the site, select Pets > List from the main menu.
+
+2. Select Add Pet
+
+3. Enter the name, breed and select sex.
+
+4. Click Add Pet
 
 ![Create Pet Page and Form](img/ats_booking__lesson_2__pets_create_pet_page.png)
 
-3. The implementation has limited or innaccurate functionality. 
+5. The implementation has limited or innaccurate functionality. 
 
-4. After the form has submitted, you should see the record appear on the Pets index page (alternatively, select Pets > List from the main menu).
+6. After the form has submitted, you should see the record appear on the Pets index page (alternatively, select Pets > List from the main menu).
 
 *[View Pets index page](img/ats_booking__lesson_2__home_page_with_pets_list.png)
 
-
 **Create a view pets/edit_pet.html**
 
-TODO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
+1. From the site page click dashboard
+
+![Click dashboard to edit application](img/ats_booking__lesson_1__click_dashboard.png)
+
+2. Beneath the views (html) pages, click Create and enter 'pets/edit_pet.html'.
+
+3. Click Create below the text.
+
+4. Copy-and-paste the following html code.
+
+NOTE: For the purpose of this tutorial we will use {{=form}} which will render it own html.
+
+```html
+{{extend 'layout.html'}}
+
+<h1>Edit Pet</h1>
+{{=form}}
+```
+
+1. Go to the site, select Pets > List from the main menu.
+
+2. Select Edit next one of the pets you've created.
+
+![Edit pet](img/ats_booking__lesson_2__pets_edit_pet.png)
+
+**Test the delete action**
+
+1. Go to the site, select Pets > List from the main menu.
+
+2. Select delete next to the pet you no longer want.
+
+3. Click OK to confirm you want to delete.
+
+![Create Pet Page and Form](img/ats_booking__lesson_2__pets_delete_pet.png)
 
 **DISCLAIMER**
 

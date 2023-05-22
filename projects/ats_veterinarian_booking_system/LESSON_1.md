@@ -285,7 +285,10 @@ Please note that only the provided attributes have been included in the code, an
 ## 3. Implementing the code ##
 
 **Modify models/db_custom.py**
+
 Add the code to then end of the file
+
+NOTE: The response from ai was to add the code to *db.py*, how the template provided seperates the you code from the main db.py
 
 ```
 # Pet entity
@@ -344,6 +347,8 @@ db.define_table('treatment_cost',
 
 **Create a new controller for pets - controllers/pets.py**
 
+NOTE: The response from ai was to add the code to *controllers/default.py*, however to organise the code as per best practice with MVC applications, there should be seperate controllers.
+
 ```python
 Copy code
 
@@ -373,9 +378,16 @@ def delete_pet():
 
 **Create a view for listing pets - /pets/index.html**
 
-The HTML should be placed beneath the carousel.
+1. From the site page click dashboard
+
+![Click dashboard to edit application](img/ats_booking__lesson_1__click_dashboard.png)
+
+2. Beneath the views (html) pages, click Create and enter 'pets/index.html' to create the index.html page in the pets folder (NOTE: pets is the same name as the controller).
+3. Click Create below the text
 
 ![Create View create_pet.html](img/ats_booking__lesson_1__create_view_pets_index.png)
+
+4. Copy-and-paste the following html code.
 
 ```html 
 Copy code
