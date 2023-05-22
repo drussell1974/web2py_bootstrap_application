@@ -6,6 +6,7 @@ Ask AI to create a base Web2py application based on your design. You should mode
 - *[Lesson 1. Define the base Web2py application](LESSON_1.md)
 - *[Lesson 2. Create the create_pet view](LESSON_2.md)
 - *[Lesson 3. Implement Form Validation and Datatypes](LESSON_3.md)
+- *[Lesson 4. Create controllers for CRUD actions for each](LESSON_4.md)
 - *[Troubleshooting](TROUBLESHOOTING.md)
 
 **IMPORTANT:**
@@ -300,9 +301,11 @@ CREATE TABLE treatment_cost (
 
 # NEXT STEPS #
 
-Now you have defined the tables/entities you can now create the views for create_* and edit_*
+During Lesson 1 AI created action for controllers/default.py, that we put into *controllers/pets.py*
 
-*[Lesson 5. Create views for Each Entity](LESSON_5.md)
+As stated by AI "Similar CRUD actions can be defined for other entities (owner, appointment, treatment, vet, skill, treatment_cost)."
+
+*[Lesson 4. Create controllers for CRUD actions for each](LESSON_4.md)
 
 **DISCLAIMER**
 
