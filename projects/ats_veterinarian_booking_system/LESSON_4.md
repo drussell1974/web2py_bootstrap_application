@@ -6,7 +6,8 @@ Ask AI to create a base Web2py application based on your design. You should mode
 - *[Lesson 1. Define the base Web2py application](LESSON_1.md)
 - *[Lesson 2. Create the create_pet view](LESSON_2.md)
 - *[Lesson 3. Implement Form Validation and Datatypes](LESSON_3.md)
-- *[Lesson 4. Create controllers for CRUD actions for each](LESSON_4.md)
+- *[Lesson 4. Create controllers for CRUD actions for each entity](LESSON_4.md)
+- *[Lesson 5. Fixing and creating relationships](LESSON_5.md)
 - *[Troubleshooting](TROUBLESHOOTING.md)
 
 **IMPORTANT:**
@@ -280,6 +281,8 @@ NOTE: For the purpose of this tutorial we will use {{=form}} which will render i
 
 Repeat the steps above to create a controller and view for each entity.
 
+**Ask AI, "Create controller and index view for <<ENTITY_HERE>> just like controllers/default.py above."**
+
 Entity Name
 - Appointment
 - Treatment
@@ -287,9 +290,11 @@ Entity Name
 - Skill
 - Treatment Cost
 
-Ask AI, "Create controller and index view for <<ENTITY_HERE>> just like controllers/default.py above."
+**Review entity relationships**
 
-*[Lesson 5. Creating relationships](LESSON_5.md)
+The generated tables (entities) do not include the correct entity relationships.
+
+*[Lesson 5. Fixing and sCreating relationships](LESSON_5.md)
 
 **DISCLAIMER**
 
