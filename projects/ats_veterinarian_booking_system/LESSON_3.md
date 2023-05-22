@@ -83,7 +83,7 @@ CREATE TABLE pet (
 
 You will notice a validation message below the text box.
 
-*[View Pets index page](img/ats_booking__lesson_3__pets_create_invalid_pet.png)
+![View Pets index page](img/ats_booking__lesson_3__pets_create_invalid_pet.png)
 
 # Define remaining attributes tables with data types and validation #
 

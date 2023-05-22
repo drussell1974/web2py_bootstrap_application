@@ -55,7 +55,7 @@ NOTE: For the purpose of this tutorial we will use {{=form}} which will render i
 
 6. After the form has submitted, you should see the record appear on the Pets index page (alternatively, select Pets > List from the main menu).
 
-*[View Pets index page](img/ats_booking__lesson_2__home_page_with_pets_list.png)
+![View Pets index page](img/ats_booking__lesson_2__home_page_with_pets_list.png)
 
 **Create a view pets/edit_pet.html**
 
