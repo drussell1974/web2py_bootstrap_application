@@ -27,7 +27,7 @@ In the next steps, you will create  *models/db_custom.py* with datatypes and val
 
 **Implicitly assign data types to the define_tables**
 
-For each field in the table definitiion, the second attribute indicates the data type. If not data type is specified the field is string with maximum length of 512 characthers (or SQL type varchar(512)).
+For each field in the table definition, the second attribute indicates the data type. If not data type is specified the field is string with maximum length of 512 characthers (or SQL type varchar(512)).
 
 See field types for validators and default length.
 

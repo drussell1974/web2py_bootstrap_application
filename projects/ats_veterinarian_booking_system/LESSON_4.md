@@ -150,7 +150,6 @@ views/owners/index.html
 ```html
 Copy code
 {{extend 'layout.html'}}
-{{=LOAD('static', 'web2py_ajax.html')}}
 <h1>Owners</h1>
 <table>
     <thead>

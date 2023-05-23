@@ -152,9 +152,17 @@ db.define_table('pet',
 
 **Test the pet edit action**
 
-1. Add Owner.
-2. Edit Pet.
-3. Select Owner from drop down.
+1. Enter Owner details, then click submit.
+
+![Add Owner](img/ats_booking__lesson_5__add_owner.png)
+
+2. Click menu and select Pet > List.
+
+3. Click edit next the pet.
+
+![List Pets](img/ats_booking__lesson_5__list_pets.png)
+
+4. Select Owner from drop down, then click submit
 
 ![Edit Pet with Owner Dropdown](img/ats_booking__lesson_5__pets_edit_pet_with_owner_id.png)
 
@@ -162,33 +170,11 @@ db.define_table('pet',
 
 1. From the Owner index page, delete the Owner assigned to the pet.
 
-TODO: FIX invalid controller (owners/index)
-
-TODO: SCREENSHOT OF DELETING OWNER (Delete OWNER shown in above image).
+2. Click OK to confirm you want to delete.
 
 ![Edit Pet with Owner Dropdown](img/ats_booking__lesson_5__delete_owner_with_pet.png)
 
-
-1. Go to the site, select Owner > List from the main menu.
-
-2. Select delete next to the owner you no longer want.
-
-3. Click OK to confirm you want to delete.
-
-# NEXT STEPS #
-    
-Repeat the steps above to create a controller and view for each entity.
-
-Entity Name
-- Appointment
-- Treatment
-- Vet
-- Skill
-- Treatment Cost
-
-Ask AI, "Create controller and index view for <<ENTITY_HERE>> just like controllers/default.py above."
-
-*[Lesson 5. Creating relationships](LESSON_5.md)
+NOTE: *Both the Owner and Pet are deleted*
 
 **DISCLAIMER**
 
