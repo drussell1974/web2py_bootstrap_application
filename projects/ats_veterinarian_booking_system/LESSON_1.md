@@ -293,7 +293,7 @@ Add the code to then end of the file
 
 NOTE: The response from ai was to add the code to *db.py*, how the template provided seperates the you code from the main db.py
 
-```
+```python
 # Pet entity
 db.define_table('pet',
                 Field('name', requires=IS_NOT_EMPTY()),
