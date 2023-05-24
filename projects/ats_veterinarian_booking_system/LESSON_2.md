@@ -8,6 +8,7 @@ Ask AI to create a base Web2py application based on your design. You should mode
 - *[Lesson 3. Implement Form Validation and Datatypes](LESSON_3.md)
 - *[Lesson 4. Create controllers for CRUD actions for each entity](LESSON_4.md)
 - *[Lesson 5. Fixing and creating relationships](LESSON_5.md)
+- *[Lesson 6. Functional Testing and Boundary Testing](LESSON_6.md)
 - *[Troubleshooting](TROUBLESHOOTING.md)
 
 **IMPORTANT:**
