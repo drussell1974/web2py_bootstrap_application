@@ -9,6 +9,7 @@ Ask AI to create a base Web2py application based on your design. You should mode
 - *[Lesson 4. Create controllers for CRUD actions for each](LESSON_4.md)
 - *[Lesson 5. Fixing and Creating relationships](LESSON_5.md)
 - *[Lesson 6. Functional Testing and Boundary Testing](LESSON_6.md)
+- *[Lesson 7. Display values across more than one table - INNER JOIN](LESSON_7.md)
 - *[Troubleshooting](TROUBLESHOOTING.md)
 
 **DISCLAIMER**

@@ -9,6 +9,7 @@ Ask AI to create a base Web2py application based on your design. You should mode
 - *[Lesson 4. Create controllers for CRUD actions for each entity](LESSON_4.md)
 - *[Lesson 5. Fixing and creating relationships](LESSON_5.md)
 - *[Lesson 6. Functional Testing and Boundary Testing](LESSON_6.md)
+- *[Lesson 7. Display values across more than one table - INNER JOIN](LESSON_7.md)
 - *[Troubleshooting](TROUBLESHOOTING.md)
 
 **IMPORTANT:**
@@ -17,7 +18,7 @@ When using AI it is best practive to keep each request in the same conversation.
 
 # Lesson 6. Functional Testing and Boundary Testing #
 
-During previous lesson you created added foreign keys to reference other table ([Lesson 6. Fixing and creating relationships](LESSON_5.md)).
+During previous lesson you created added foreign keys to reference other table ([Lesson 5. Fixing and creating relationships](LESSON_5.md)).
 
 During this lesson you will carry out functional testing.
 
@@ -196,6 +197,13 @@ db.define_table('pet',
     Field('owner_id', 'reference owner'), format='%(name)s') 
 ```
 
+# NEXT STEPS #
+
+**Review entity relationships**
+
+We should show data a
+
+*[Lesson 7. Display values across more than one table INNER JOIN](LESSON_7.md)
 
 **DISCLAIMER**
 
