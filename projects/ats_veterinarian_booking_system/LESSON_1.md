@@ -28,7 +28,7 @@ Setup Web2py and install the prototype template web2py app.
 
 3. Upload and install the web2py.bootstrap_template.w2p.
 
-[![Image alt text](img/play.png)](https://youtu.be/YsHlf64UYzY)]
+Test: [![Image alt text](img/play.png)](https://youtu.be/YsHlf64UYzY)]
 
 [![Upload and Install Web2py Bootstrap Template App](img/play.png)](img/web2py_upload_application_w2p.webm)]
 
