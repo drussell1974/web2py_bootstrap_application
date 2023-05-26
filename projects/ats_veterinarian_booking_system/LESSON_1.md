@@ -16,13 +16,13 @@ Ask AI to create a base Web2py application based on your design. You should mode
 
 When using AI it is best practive to keep each request in the same conversation.
 
-# Before you start#
+# Before you start #
 
 Setup Web2py and install the prototype template web2py app.
 
 1. Install Web2py
-    a. Install the Web2py Framework on your local machine - [Web2py Downloads](http://www.web2py.com/init/default/download)
-    b. Sign up to [PythonAnywhere](https://www.pythonanywhere.com/).
+    - Install the Web2py Framework on your local machine - [Web2py Downloads](http://www.web2py.com/init/default/download)
+    - Sign up to [PythonAnywhere](https://www.pythonanywhere.com/).
 
 2. Download Bootstrap Prototype Web Template - [web2py.app.bootstrap_prototype.w2p](https://github.com/drussell1974/web2py_bootstrap_application/blob/master/releases/web2py.app.bootstrap_prototype.w2p).
 
