@@ -30,7 +30,7 @@ Setup Web2py and install the prototype template web2py app.
 
 [![Image alt text](https://img.youtube.com/vi/YOUTUBE-ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE-ID)
 
-[![Upload and Install Web2py Bootstrap Template App](img/play.png)](img/web2py_upload_application_w2p.webm)
+[![Upload and Install Web2py Bootstrap Template App](img/play.png)](img/web2py_upload_application_w2p.webm)]
 
 # Lesson 1. Define the base Web2py application #
 
