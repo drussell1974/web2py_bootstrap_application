@@ -16,6 +16,22 @@ Ask AI to create a base Web2py application based on your design. You should mode
 
 When using AI it is best practive to keep each request in the same conversation.
 
+# Before you start#
+
+Setup Web2py and install the prototype template web2py app.
+
+1. Install Web2py
+    a. Install the Web2py Framework on your local machine - [Web2py Downloads](http://www.web2py.com/init/default/download)
+    b. Sign up to [PythonAnywhere](https://www.pythonanywhere.com/).
+
+2. Download Bootstrap Prototype Web Template - [web2py.app.bootstrap_prototype.w2p](https://github.com/drussell1974/web2py_bootstrap_application/blob/master/releases/web2py.app.bootstrap_prototype.w2p).
+
+3. Upload and install the web2py.bootstrap_template.w2p.
+
+[![Image alt text](https://img.youtube.com/vi/YOUTUBE-ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE-ID)
+
+[![Upload and Install Web2py Bootstrap Template App](img/web2py_upload_application_w2p.webm)](img/web2py_upload_application_w2p.webm)
+
 # Lesson 1. Define the base Web2py application #
 
 ![ATS Booking Design - 3NF ERD](./img/ats_booking__erd.png)

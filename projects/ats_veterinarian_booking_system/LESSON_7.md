@@ -47,7 +47,6 @@ def index():
 
 
 Modify the for loop to iterate throught the row that contains both pet and owner instance. 
-
 Add table Owner column heading (<th></th) and show first and last name attributes in column values (<td></td>).
 
 | Before | After |
@@ -115,6 +114,19 @@ Add table Owner column heading (<th></th) and show first and last name attribute
     </tbody> 
 </table> 
 {{=A('Add Pet', _href=URL('create_pet'), _class='btn')}} 
+```
+
+**Optional: Apply styles to the table**
+
+(ats_booking__lesson_7__bootstrap_css__table_class.png)
+```html
+...
+<table class="table"> 
+    <thead> 
+        <tr> 
+            <th>Name</th> 
+            <th>Breed</th> 
+...
 ```
 
 **DISCLAIMER**

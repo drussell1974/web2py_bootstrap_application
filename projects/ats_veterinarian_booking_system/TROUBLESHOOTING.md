@@ -18,19 +18,16 @@ Writing code requires careful consideration of various factors, such as specific
 
 # TROUBLESHOOTING
 
-| ----- | -------- |
 | Error | Solution |
 | ----- | -------- |
 | invalid controller (pets/create_pet) | the controller file controllers/pets.py does not exist |
-| ----- | -------- |
 | http://127.0.0.1:8000/ats_bookings/pets/create_pet | no controller action called create pet on the pets controller. Check controllers/pets.py includes the action def create_pet(): | 
-| ----- | -------- |
 | invalid view (pets/create_pet.html) | controller action has not matching html page |
-| ----- | -------- |
 | Error: <class 'KeyError'> 'Cannot resolve reference vet in treatment definition' | Open db.py (or db_custom.py) Ensure vet entity (table) is defined before the treatment entity | 
-| ----- | -------- |
 | <class 'sqlite3.OperationalError'> no such table: pet |  Open database folder and delete |
-| ----- | -------- |
+| <class 'sqlite3.OperationalError'> table "pet" already exists
+ |  Open database folder and delete |
+
 
 **This guide uses markdown.**
 
